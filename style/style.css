@@ -109,7 +109,11 @@ nav ul li a:hover{
 }
 
 /*OVDE ZAVRSAVA NAVIGACIONI BAR I RESPONSIVE BURGER*/
-
+#welcome-msg{
+  margin: 4vh auto 3vh auto;
+  width: 50%;
+  text-align: center;
+}
 #container{
 background-image: url("../images/background-image-main-page.jpg");
 width: 100vw;
@@ -194,6 +198,14 @@ margin-right: 0.6rem;
 #footer>p>a:hover{
 font-weight: 800;
 color: white;
+}
+#foot-icons{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.foot-icon-title>a:visited,a:link{
+  text-decoration: none;
 }
 #copyright-msg{
 font-size: small;
