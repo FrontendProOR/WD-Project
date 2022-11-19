@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllTimeFit | Teretana 1</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <!--font i burger ikona-->
+    <script src="scripts/main.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="AllTimeFit Logo" id="logo">
+            </a>
+        </div>
+
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <ul>
+            <li><a class="active" href="index.html">Glavna</a></li>
+            <li><a href="#sign-in">Uloguj se</a></li>
+            <li><a href="#registration">Registracija</a></li>
+        </ul>
+    </nav>
+
+    <div id="container" class="teretana-form">
+        <form action="">
+            <div>
+                <label for="id-teretane">ID:</label><br>
+                <input type="text" id="id-teretane" name="id-teretane" value=""><br>
+            </div>
+            <div>
+                <label for="naziv">Naziv:</label><br>
+                <input type="text" id="naziv" name="naziv" value=""><br>
+            </div>
+            <div>
+                <label for="adresa">Adresa (ulica broj,mesto/grad,postanski broj):</label><br>
+                <input type="text" id="adresa" name="adresa" value=""><br>
+            </div>
+            <div>
+                <label for="godina-osnivanja">Godina otvaranja fitness centra:</label><br>
+                <input type="number" min="2000" max="2023" step="1" name="godina-osnivanja" />
+            </div>
+            <div>
+                <label for="logo-file">Logo:</label><br>
+                <input type="file" id="logo-file" name="logo-file"><br>
+            </div>
+            <div>
+                <label for="broj-treninga">Broj dostupnih treninga:</label><br>
+                <input type="number" min="1" max="10" step="1" name="broj-treninga" />
+            </div>
+            <div>
+                <label for="mesecna-clanarina">Mesecna clanarina:</label><br>
+                <input type="number" min="1" max="1000" step="5" name="mesecna-clanarina" />
+            </div>
+            <div>
+                <label for="tip-trening">Vrstu treninga:</label>
+                <input list="tip-treninga" name="tip-trening" id="tip-trening">
+                <datalist id="tip-treninga">
+                    <option value="Kardio niskog intenziteta">
+                    <option value="Visokog intenziteta HIIT">
+                    <option value="Pilates">
+                    <option value="Gimanstika">
+                    <option value="Joga">
+                    <option value="Powerlifting">
+                    <option value="Kardio visokog intenziteta">
+                </datalist>
+            </div>
+            <div>
+                <label for="ocena">Prosecna ocena:</label>
+                <input type="number" min="1" max="5" step="0.05">
+            </div>
+            <div>
+                <label for="broj-ocena">Broj ocena:</label>
+                <input type="number" min="0" step="1">
+            </div>
+            <input type="reset">
+            <input type="submit" value="Submit">
+        </form>
+
+        <div id="footer">
+            <p><a href="terms-of-use.html">Uslovi koristenja</a></p>
+            <p><a href="privacy-and-cookies-statement.html">Privatnost i kolacici</a></p>
+            <p><a href="cookie-consent.html">Dozvola za kolacice</a></p>
+            <p><a href="contact-us.html">Kontaktirajte nas</a></p>
+            <p>Ova stranica je pravljena i namjenjena ljudima koji govore Srpski jezik u drzavama Srbija i
+                BiH.Ako ste gradjani drugih zemalja i nije vam lagodna ova verzija novoj verziji sajta mozete
+                pristupiti na ##### koja je dostupna na Engleskom jeziku.</p>
+
+            <div id="foot-icons">
+                <a href="#"><span class="foot-icon-title">Facebook: </span><img src="images/icons/facebook.svg"
+                        alt="facebook" width="22px" height="22px"></a>
+                <a href="#"><span class="foot-icon-title">Instagram: </span><img src="images/icons/instagram.svg"
+                        alt="instagram" width="22px" height="22px"></a>
+                <a href="#"><span class="foot-icon-title">Twitter: </span><img src="images/icons/twitter.svg"
+                        alt="twitter" width="22px" height="22px"></a>
+            </div>
+
+            <p id="copyright-msg">&nbsp;&#169;&nbsp;&#174; ALLTimeFit osuđuje svaki pokušaj krađe dizajna,
+                teksta, ideja i autorskih dela.</p>
+            <!--Dodati naknadno filijalu i google mapu-->
+        </div>
+    </div>
+</body>
+
+</html>

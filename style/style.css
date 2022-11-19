@@ -281,3 +281,11 @@ font-size: small;
   height: 350px;
   margin: auto;
 }
+
+/*teretana form ispod*/
+.teretana-form{
+  height: 103vh;
+}
+.teretana-form>form{
+  margin:1vh auto 1vh auto;
+}
