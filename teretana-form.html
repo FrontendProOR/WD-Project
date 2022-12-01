@@ -5,111 +5,273 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AllTimeFit | Teretana 1</title>
+    <title>AllTimeFit | admin page</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <!--font i burger ikona-->
-    <script src="scripts/main.js"></script>
+    <script src="script/main.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(#43156d, #264cbf) no-repeat;
+            color: white;
+        }
+
+        .box{
+            margin-left: 10px;
+        }
+
+        body>#home>a {
+            margin-bottom: 100VH;
+            left: 50%;
+            top: 50%;
+            float: center;
+            /* font-size: large; */
+        }
+
+        #trening {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* TAB */
+        .tab {
+            font-size: auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: small;
+            background-color: aliceblue;
+            display: inline;
+        }
+
+        .tab button:hover {
+            background-color: rgb(215, 215, 215);
+            color: black;
+            font-weight: 700;
+        }
+
+        .tab button.active {
+            background-color: #ccc;
+            font-weight: 700;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border-top: none;
+        }
+        .gym-list{
+            display: inline-block;
+        }
+        .trening-list{
+            display:inline-block;
+        }
+        .user-list{
+            display: inline-block;
+        }
+    </style>
 </head>
 
-<body>
-    <nav>
-        <div class="logo">
-            <a href="index.html">
-                <img src="images/logo.png" alt="AllTimeFit Logo" id="logo">
-            </a>
+<body vlink="white" alink="white" link="white">
+    <div class="tab">
+        <button class="tablinks" onclick="openTabOption(event, 'Korisnici')">Korisnici</button>
+        <button class="tablinks" onclick="openTabOption(event, 'Teretana')">Teretana</button>
+        <button class="tablinks" onclick="openTabOption(event, 'Trening')">Trening</button>
+        <button class="tablinks" onclick="openTabOption(event,'home')">Glavna</button>
+    </div>
+
+    <div class="box">
+        <div id="Korisnici" class="tabcontent"><br><br>
+            <h3>Lista korisnika u sistemu:</h3>
+            <ol>
+                <li class="user-list" id="korisnik1">Mika Antic</li><button id="del-list-user-btn1" onclick="removeUser(1)"> X </button><br>
+                <li class="user-list" id="korisnik2">Jovan Jovanovic</li><button id="del-list-user-btn2" onclick="removeUser(2)"> X </button><br>
+                <li class="user-list" id="korisnik3">Marko Petrovic</li><button id="del-list-user-btn3" onclick="removeUser(3)"> X </button><br>
+            </ol>
+            <h3>Dodaj Korisnika</h3>
+            <form action="">
+                <label for="username">Korisnicki naziv: </label>
+                <input type="text" name="username" required><br><br>
+
+                <label for="password">Sifra: </label>
+                <input type="password" name="password" required><br><br>
+
+                <label for="email">Email: </label>
+                <input type="email" name="email" required><br><br>
+
+                <label for="name">Ime: </label>
+                <input type="text" name="name" required><br><br>
+
+                <label for="surname">Prezime: </label>
+                <input type="text" name="surname" required><br><br>
+
+                <label for="birthday">Datum rodjenja: </label>
+                <input type="date" name="birthday" max="2005-01-01" required><br><br>
+
+                <label for="adress">Adresa: </label>
+                <input type="text" name="adress"><br><br>
+
+                <label for="phone">Telefon: </label>
+                <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><br>
+
+                <label for="termsandservice">Do you agree with our Terms and Service</label>
+                <input type="checkbox" name="termsandservice"><br><br>
+
+                <input type="submit" value="Dodaj korisnika"><br><br>
+                <input type="reset" value="Osvezi formu">
+            </form>
         </div>
 
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-            <i class="fas fa-bars"></i>
-        </label>
+        <div id="Teretana" class="tabcontent"><br><br>
+            <h3>Lista teretana u sistemu:</h3>
+            <ol>
+                <li class="gym-list" id="gym1">Big Muscle Gym</li><button id="del-list-gym-btn1" onclick="removeGym(1)"> X </button><br>
+                <li class="gym-list" id="gym2">Quick Muscle Gym</li><button id="del-list-gym-btn2" onclick="removeGym(2)">X</button><br>
+                <li class="gym-list" id="gym3">Flexible Muscle Gym</li><button id="del-list-gym-btn3" onclick="removeGym(3)">X</button><br>
+            </ol>
+            
+            <h3>Dodaj teretanu</h3>
+            <form action="">
+                <div>
+                    <label for="id-teretane">ID:</label>
+                    <input type="text" id="id-teretane" name="id-teretane" value=""><br><br>
+                </div>
+                <div>
+                    <label for="naziv">Naziv:</label>
+                    <input type="text" id="naziv" name="naziv" value=""><br><br>
+                </div>
+                <div>
+                    <label for="adresa">Adresa (ulica broj,mesto/grad,postanski broj):</label>
+                    <input type="text" id="adresa" name="adresa" value=""><br><br>
+                </div>
+                <div>
+                    <label for="godina-osnivanja">Godina otvaranja fitness centra:</label>
+                    <input type="number" min="2000" max="2023" step="1" name="godina-osnivanja" /><br><br>
+                </div>
+                <div>
+                    <label for="logo-file">Logo:</label>
+                    <input type="file" id="logo-file" name="logo-file"><br><br>
+                </div>
+                <div>
+                    <label for="broj-treninga">Broj dostupnih treninga:</label>
+                    <input type="number" min="1" max="10" step="1" name="broj-treninga" /><br><br>
+                </div>
+                <div>
+                    <label for="mesecna-clanarina">Mesecna clanarina:</label>
+                    <input type="number" min="1" max="1000" step="5" name="mesecna-clanarina" /><br><br>
+                </div>
+                <div>
+                    <label for="tip-trening">Vrstu treninga:</label>
+                    <input list="tip-treninga" name="tip-trening" id="tip-trening">
+                    <datalist id="tip-treninga">
+                        <option value="Kardio niskog intenziteta">
+                        <option value="Visokog intenziteta HIIT">
+                        <option value="Pilates">
+                        <option value="Gimanstika">
+                        <option value="Joga">
+                        <option value="Powerlifting">
+                        <option value="Kardio visokog intenziteta">
+                    </datalist>
+                    <br><br>
+                </div>
+                <div>
+                    <label for="ocena">Prosecna ocena:</label>
+                    <input type="number" min="1" max="5" step="0.05"><br><br>
+                </div>
+                <div>
+                    <label for="broj-ocena">Broj ocena:</label>
+                    <input type="number" min="0" step="1">
+                </div><br>
+                <input type="reset" value="Osvezi formu"><br><br>
+                <input type="submit" value="Dodaj teretanu">
+            </form>
+        </div>
 
-        <ul>
-            <li><a class="active" href="index.html">Glavna</a></li>
-            <li><a href="#sign-in">Uloguj se</a></li>
-            <li><a href="#registration">Registracija</a></li>
-        </ul>
-    </nav>
+        <div id="Trening" class="tabcontent"><br><br>
+            <h3>Lista treninga u sistemu:</h3>
+            <ol>
+                <li class="trening-list" id="trening1">Yoga</li><button id="del-list-trening-btn1" onclick="removeTrening(1)"> X </button><br>
+                <li class="trening-list" id="trening2">cross fit</li><button id="del-list-trening-btn2" onclick="removeTrening(2)"> X </button><br>
+                <li class="trening-list" id="trening3">Heavy lifting</li><button id="del-list-trening-btn3" onclick="removeTrening(3)"> X </button><br>
+            </ol>
+            <h3>Dodaj trening</h3>
+            <form action="">
+                <label for="id">ID: </label>
+                <input type="text" name="id"><br><br>
 
-    <div id="container" class="teretana-form">
-        <form action="">
-            <div>
-                <label for="id-teretane">ID:</label><br>
-                <input type="text" id="id-teretane" name="id-teretane" value=""><br>
-            </div>
-            <div>
-                <label for="naziv">Naziv:</label><br>
-                <input type="text" id="naziv" name="naziv" value=""><br>
-            </div>
-            <div>
-                <label for="adresa">Adresa (ulica broj,mesto/grad,postanski broj):</label><br>
-                <input type="text" id="adresa" name="adresa" value=""><br>
-            </div>
-            <div>
-                <label for="godina-osnivanja">Godina otvaranja fitness centra:</label><br>
-                <input type="number" min="2000" max="2023" step="1" name="godina-osnivanja" />
-            </div>
-            <div>
-                <label for="logo-file">Logo:</label><br>
-                <input type="file" id="logo-file" name="logo-file"><br>
-            </div>
-            <div>
-                <label for="broj-treninga">Broj dostupnih treninga:</label><br>
-                <input type="number" min="1" max="10" step="1" name="broj-treninga" />
-            </div>
-            <div>
-                <label for="mesecna-clanarina">Mesecna clanarina:</label><br>
-                <input type="number" min="1" max="1000" step="5" name="mesecna-clanarina" />
-            </div>
-            <div>
-                <label for="tip-trening">Vrstu treninga:</label>
-                <input list="tip-treninga" name="tip-trening" id="tip-trening">
-                <datalist id="tip-treninga">
-                    <option value="Kardio niskog intenziteta">
-                    <option value="Visokog intenziteta HIIT">
-                    <option value="Pilates">
-                    <option value="Gimanstika">
-                    <option value="Joga">
-                    <option value="Powerlifting">
-                    <option value="Kardio visokog intenziteta">
-                </datalist>
-            </div>
-            <div>
-                <label for="ocena">Prosecna ocena:</label>
-                <input type="number" min="1" max="5" step="0.05">
-            </div>
-            <div>
-                <label for="broj-ocena">Broj ocena:</label>
-                <input type="number" min="0" step="1">
-            </div>
-            <input type="reset">
-            <input type="submit" value="Submit">
-        </form>
+                <label for="tname">Naziv trening-a: </label>
+                <input type="text" name="tname"><br><br>
 
-        <div id="footer">
-            <p><a href="terms-of-use.html">Uslovi koristenja</a></p>
-            <p><a href="privacy-and-cookies-statement.html">Privatnost i kolacici</a></p>
-            <p><a href="cookie-consent.html">Dozvola za kolacice</a></p>
-            <p><a href="contact-us.html">Kontaktirajte nas</a></p>
-            <p>Ova stranica je pravljena i namjenjena ljudima koji govore Srpski jezik u drzavama Srbija i
-                BiH.Ako ste gradjani drugih zemalja i nije vam lagodna ova verzija novoj verziji sajta mozete
-                pristupiti na ##### koja je dostupna na Engleskom jeziku.</p>
+                <label for="desc">Opis teretane:</label>
+                <textarea name="desc" id="desc" cols="20" rows="6"
+                    placeholder="Unesite opis u textarea"></textarea><br><br>
 
-            <div id="foot-icons">
-                <a href="#"><span class="foot-icon-title">Facebook: </span><img src="images/icons/facebook.svg"
-                        alt="facebook" width="22px" height="22px"></a>
-                <a href="#"><span class="foot-icon-title">Instagram: </span><img src="images/icons/instagram.svg"
-                        alt="instagram" width="22px" height="22px"></a>
-                <a href="#"><span class="foot-icon-title">Twitter: </span><img src="images/icons/twitter.svg"
-                        alt="twitter" width="22px" height="22px"></a>
-            </div>
+                <label for="ttype">Tip treninga</label>
+                <select name="ttype" id="ttype">
+                    <option value="yoga">yoga</option>
+                    <option value="body pump">body pump</option>
+                    <option value="cross fit">cross fit</option>
+                    <option value="kik boks">kik boks</option>
+                </select><br><br>
 
-            <p id="copyright-msg">&nbsp;&#169;&nbsp;&#174; ALLTimeFit osuđuje svaki pokušaj krađe dizajna,
-                teksta, ideja i autorskih dela.</p>
-            <!--Dodati naknadno filijalu i google mapu-->
+                <label for="length">Trajanje treninga: </label>
+                <input type="number" min="15" max="120" step="5"><br><br>
+
+                <label for="numparticipants">Maksimalan broj osoba: </label>
+                <input type="number" min="1" max="20" step="1"><br><br>
+
+                <label for="longdesc">Detetaljan opis: </label>
+                <textarea name="longdesc" id="longdesc" cols="20" rows="6"
+                    placeholder="Unesite opis u textarea"></textarea><br><br>
+
+                <input type="submit" value="Dodaj novi trening"><br><br>
+                <input type="reset" value="Osvezi formu">
+            </form>
+        </div>
+
+        <div id="home" class="tabcontent"><br><br>
+            <a href="index.html">Glavna stranica</a>
         </div>
     </div>
+
+    <div id="footer" style="top: 100%;">
+        <p><a href="terms-of-use.html">Uslovi koristenja</a></p>
+        <p><a href="privacy-and-cookies-statement.html">Privatnost i kolacici</a></p>
+        <p><a href="cookie-consent.html">Dozvola za kolacice</a></p>
+        <p><a href="contact-us.html">Kontaktirajte nas</a></p>
+        <p>Ova stranica je pravljena i namjenjena ljudima koji govore Srpski jezik u drzavama Srbija i
+            BiH.Ako ste gradjani drugih zemalja i nije vam lagodna ova verzija novoj verziji sajta mozete
+            pristupiti na ##### koja je dostupna na Engleskom jeziku.</p>
+
+        <div id="foot-icons">
+            <a href="#"><span class="foot-icon-title">Facebook: </span><img src="images/icons/facebook.svg"
+                    alt="facebook" width="22px" height="22px"></a>
+            <a href="#"><span class="foot-icon-title">Instagram: </span><img src="images/icons/instagram.svg"
+                    alt="instagram" width="22px" height="22px"></a>
+            <a href="#"><span class="foot-icon-title">Twitter: </span><img src="images/icons/twitter.svg" alt="twitter"
+                    width="22px" height="22px"></a>
+        </div>
+
+        <p id="copyright-msg">&nbsp;&#169;&nbsp;&#174; ALLTimeFit osuđuje svaki pokušaj krađe dizajna,
+            teksta, ideja i autorskih dela.</p>
+        <!--Dodati naknadno filijalu i google mapu-->
+    </div>
+
+
 </body>
 
 </html>
