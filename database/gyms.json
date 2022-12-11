@@ -1,0 +1,62 @@
+[
+  {
+    "ID": 101,
+    "naziv": "FLEX Studios",
+    "adresa": {
+      "ulica": "Trg Slobode 4",
+      "grad": "Novi Sad",
+      "postanskiBroj": "21000"
+    },
+    "godinaOtvaranjaFitnesCentra": 2020,
+    "logo": "../Images/logos/logo1.jpg",
+    "brojDostupnihTreninga": 4,
+    "mesecnaClanarina": 50,
+    "treninzi": [
+      "Kickbox",
+      "Yoga",
+      "Cross Fit"
+    ],
+    "prosecnaOcena": 4.1,
+    "brojOcena": "123"
+  },
+  {
+    "ID": 102,
+    "naziv": "Power Zone",
+    "adresa": {
+      "ulica": "Bulevar Kralja Petra 14",
+      "grad": "Novi Sad",
+      "postanskiBroj": "21103"
+    },
+    "godinaOtvaranjaFitnesCentra": 2021,
+    "logo": "../Images/logos/logo2.jpg",
+    "brojDostupnihTreninga": 3,
+    "mesecnaClanarina": 30,
+    "treninzi": [
+      "Yoga",
+      "Cross Fit",
+      "Kickbox"
+    ],
+    "prosecnaOcena": 3.7,
+    "brojOcena": "323"
+  },
+  {
+    "ID": 103,
+    "naziv": "Strength Center",
+    "adresa": {
+      "ulica": "Fruskogorska 1",
+      "grad": "Novi Sad",
+      "postanskiBroj": "21000"
+    },
+    "godinaOtvaranjaFitnesCentra": 2019,
+    "logo": "../Images/logos/logo3.jpg",
+    "brojDostupnihTreninga": 4,
+    "mesecnaClanarina": 35,
+    "treninzi": [
+      "Yoga",
+      "Cross Fit",
+      "Kickbox"
+    ],
+    "prosecnaOcena": 4.7,
+    "brojOcena": "23"
+  }
+]

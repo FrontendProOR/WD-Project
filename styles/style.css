@@ -1,0 +1,53 @@
+*{
+  margin: 0;
+  padding: 0;
+  max-zoom: 1.75;
+  min-zoom: 0.8;
+}
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border:1px solid red;
+}
+.checked {
+  color: orange;
+}
+#avg-star{
+  text-align: center;
+}
+.btn{
+  color: white;
+  font-weight: 500;
+  line-height: 50%;
+  text-align: center;
+}
+.btn:hover{
+  color: white;
+  font-weight: 600;
+}
+.gym-options{
+  margin-top: 3.5rem;
+  margin-left: 0rem;
+}
+footer.py-3.bg-dark {
+  top: 100vh;
+}
+.cards{
+  font-size: small;
+  padding-bottom: 5rem;
+}
+
+@media (min-width:1025px) {
+  #gym-options{
+    height: 85vh;
+  }
+}
+.card-img-top{
+  padding: 1rem;
+}
+.training-options{
+  margin-top: 3.5rem;
+}
+.trening-box{
+  margin-top: 3.5rem;
+}

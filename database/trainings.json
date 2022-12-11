@@ -1,0 +1,29 @@
+[
+  {
+    "ID": 101,
+    "naziv": "Cross Fit",
+    "kratakOpis": "Cross fit jednako intezivno vezbanje.",
+    "tipTreninga": "Srednjeg intenziteta",
+    "trajanje": "60",
+    "maxBrojOsoba": 10,
+    "Detaljan opis": "Svaki krosfit trening je sačinjen od takozvanog treninga dana. Taj trening podrazumeva uvek zagrevanje, trening snage (sačinjen od kombinacije zgibova, čučnjeva, sklekova, krugova trčanja, simulacije veslanja, podizanja tegova i trbušnjaka), kao i konkretan trening."
+  },
+  {
+    "ID": 102,
+    "naziv": "Yoga",
+    "kratakOpis": "Joga je rastezanje,gimnastika i vezbe disanja.",
+    "tipTreninga": "Niskog intenziteta",
+    "trajanje": "60",
+    "maxBrojOsoba": 20,
+    "Detaljan opis": "Joga je drevna metoda samorazvoja poreklom iz Indije koja prodrazumenva upotrebu tehnika fizickih polozaja,vezbi upravljanja pranom putem disanja."
+  },
+  {
+    "ID": 103,
+    "naziv": "Kickbox",
+    "kratakOpis": "Kickbox je sport ",
+    "tipTreninga": "Visokog intenziteta",
+    "trajanje": "90",
+    "maxBrojOsoba": 5,
+    "Detaljan opis": "Ovaj trening će vam omogućiti odličnu kardio aktivaciju i pomoći će vam da otopite masti i da se dobro oznojite.Sastoji se iz udaranja u vrecu rukama i nogama."
+  }
+]
