@@ -16,6 +16,7 @@ Koriscene ikonice iz Font-awesome,I slike sa sajtova Unsplash i Pexels.
 
 ## DODATNO: 
 Biblioteka bootstrap koriscena sa ovih linkova(nisu ukljucene kao lokalni fajl nego kao cdn link jer je brze,...)
+-podaci_teretane.json formatiran 12.12.2022 
 
 #CSS
 Klikom na ovaj link ->[LINK](https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css) idete na oficijalni bootstrap fajl za css.
