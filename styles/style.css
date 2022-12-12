@@ -19,9 +19,11 @@ hr {
 .btn{
   color: white;
   font-weight: 500;
-  width: 120px;
+  width: 8rem;
   line-height: normal;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .btn:hover{
   color: white;
