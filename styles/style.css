@@ -19,6 +19,7 @@ hr {
 .btn{
   color: white;
   font-weight: 500;
+  width: 120px;
   line-height: normal;
   text-align: center;
 }
