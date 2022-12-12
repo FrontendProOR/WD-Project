@@ -23,13 +23,27 @@
     </button>
     <div class="navbar-collapse collapse justify-content-center" id="navbar" navbar>
       <div class="d-flex justify-content-center">
-      <ul class="navbar-nav">
-        <button type="button" class="btn btn-primary mx-2 my-1"><li class="nav-item ms-2"><a href="index.html" class="nav-link">Glavna</a></li></button>
-        <button type="button" class="btn btn-primary mx-2 my-1" data-bs-toggle="modal" data-bs-target="#signInModal"><li class="nav-item ms-2"><a href="#" class="nav-link">Uloguj se</a></li></button>
-        <button type="button" class="btn btn-primary mx-2 my-1" data-bs-toggle="modal" data-bs-target="#signUpModal"><li class="nav-item ms-2"><a href="#" class="nav-link">Registruj se</a></li></button>
-        <button type="button" class="btn btn-primary mx-2 my-1"><li class="nav-item ms-2"><a href="admin-page.html" class="nav-link">Admin panel</a></li></button>
-      </ul>
-    </div>
+        <ul class="navbar-nav">
+          <button type="button" class="btn btn-primary mx-1 my-1">
+            <li class="nav-item ms-2"><a href="index.html" class="nav-link">Glavna</a></li>
+          </button>
+          <button type="button" class="btn btn-primary mx-1 my-1" data-bs-toggle="modal" data-bs-target="#signInModal">
+            <li class="nav-item ms-2"><a href="#" class="nav-link">Uloguj se</a></li>
+          </button>
+          <button type="button" class="btn btn-primary mx-1 my-1" data-bs-toggle="modal" data-bs-target="#signUpModal">
+            <li class="nav-item ms-2"><a href="#" class="nav-link">Registruj se</a></li>
+          </button>
+          <button type="button" class="btn btn-primary mx-1 my-1">
+            <li class="nav-item ms-2"><a href="#about" class="nav-link">O nama</a></li>
+          </button>
+          <button type="button" class="btn btn-primary mx-1 my-1">
+            <li class="nav-item ms-2"><a href="#contact" class="nav-link">Kontakt</a></li>
+          </button>
+          <button type="button" class="btn btn-primary mx-1 my-1">
+            <li class="nav-item ms-2"><a href="admin-page.html" class="nav-link">Admin panel</a></li>
+          </button>
+        </ul>
+      </div>
     </div>
   </nav>
 
@@ -40,7 +54,7 @@
 
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
+          <h4 class="modal-title">Uloguj se</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
@@ -80,7 +94,7 @@
 
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
+          <h4 class="modal-title">Registruj se</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
@@ -152,43 +166,103 @@
     </div>
   </div>
 
-  <!--Gym options-->
+  <!--Welcome message-->
+  <section class="text-center mb-1" id="welcome-msg">
+    <div class="container">
+      <h1 class="h3">Dobro nam dosli na nasu stranicu.</h1>
+      <p class="lead text-muted">Drago nam je sto ste nas izabrali.Posetitne naš fitness trening centar i doživite
+        osećaj sporta, bilo da ste rekreativac ili profesionalni sportista.</p>
+    </div>
+  </section>
 
-  <div class="row bg-primary bg-gradient mw-100 gym-options" >
-    <div class="col-sm-4 d-flex justify-content-around align-items-center mt-2 mb-3 p-4">
-      <div class="card p-2 cards mb-3 mt-3" >
+  <!--Gym options-->
+  <div class="row bg-primary bg-gradient mw-100 gym-options">
+    <div class="col-sm-4 d-flex justify-content-around align-items-center my-1 p-4">
+      <div class="card p-2 cards mb-3 mt-3">
         <img class="card-img-top" src="images/gym1.jpg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title d-flex justify-content-center">Teretana 1</h5>
           <p class="card-text">Najposjecenija teretana u gradu zbog svoje lokacije i lorem ipsu sit dolor.</p>
-          <a href="gym-pages/gym1/gym1.html" class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti Teretanu
+          <a href="gym-pages/gym1/gym1.html"
+            class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti Teretanu
             1</a>
         </div>
       </div>
     </div>
-    <div class="col-sm-4 d-flex justify-content-around align-items-center mt-2 mb-3 p-4">
+    <div class="col-sm-4 d-flex justify-content-around align-items-center my-1 p-4">
       <div class="card p-2 cards mb-3 mt-3">
         <img class="card-img-top" src="images/gym2.jpg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title d-flex justify-content-center">Teretana 2</h5>
           <p class="card-text">Najposjecenija teretana u gradu zbog svoje lokacije i lorem ipsu sit dolor.</p>
-          <a href="gym-pages/gym2/gym2.html" class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti Teretanu
+          <a href="gym-pages/gym2/gym2.html"
+            class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti Teretanu
             2</a>
         </div>
       </div>
     </div>
-    <div class="col-sm-4 d-flex justify-content-around align-items-center mt-2 mb-3 p-4">
+    <div class="col-sm-4 d-flex justify-content-around align-items-center my-1 p-4">
       <div class="card p-2 cards mb-3 mt-3">
         <img class="card-img-top" src="images/gym3.jpg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title d-flex justify-content-center">Teretana 3</h5>
           <p class="card-text">Najposjecenija teretana u gradu zbog svoje lokacije i lorem ipsu sit dolor.</p>
-          <a href="gym-pages/gym3/gym3.html" class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti Teretanu
+          <a href="gym-pages/gym3/gym3.html"
+            class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti Teretanu
             3</a>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- About section-->
+  <div class="row pt-4 pb-3">
+    <section id="about">
+      <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+          <div class="col-lg-8">
+            <h2>O nama</h2>
+            <p class="lead">Nas sajt nudi brz,lak i centralizovan pristup svim nasim prijateljskim i vasim omiljenim
+              fitnes centrima u gradu Novom Sadu.</p>
+            <ul>
+              <li>Muscle Gym teretana smeštena je u samom centru Novog Sada na adresi ###.</li>
+              <li>Teretana je opremljena novim spravama brendova "Techno Teretane" i "Sprava spravica".</li>
+              <li>Za sve koji žele da se opuste, nakon napornih treninga ili poslovnih obaveza, naša teretana obezbedila
+                je saunu koja je najbolje rešenje za to.</li>
+              <li>Dođite i posetite naše teretane na adresama toj i toj i uverite se zasto smo najbolji.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!--Contact us-->
+<div class="container ml-0" id="contact">
+  <h3>Kontaktirajte nas</h3>
+  <form>
+    <!-- Name input -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="name">Name</label>
+      <input type="text" id="name" class="form-control" />
+    </div>
+  
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="email">Email address</label>
+      <input type="email" id="email" class="form-control" />
+    </div>
+  
+    <!-- Message input -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="message">Message</label>
+      <textarea class="form-control" id="message" rows="4"></textarea>
+    </div>
+  
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+  </form>
+</div>
 
   <!-- Footer-->
   <footer class="py-3 bg-dark">
