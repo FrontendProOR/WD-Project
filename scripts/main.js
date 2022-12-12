@@ -18,5 +18,11 @@ function showTab(x){
     document.getElementById("userHidDiv1").toggleAttribute("hidden");
     document.getElementById("userHidDiv2").toggleAttribute("hidden");
   }
-
+}
+function myFunction(){
+  $("#navbar").on('show.bs.collapse', function() {
+    $('a.nav-link').click(function() {
+        $("#navbar").collapse('hide');
+    });
+  });
 }
