@@ -16,10 +16,14 @@ hr {
 #avg-star{
   text-align: center;
 }
+.navbar-toggler{
+  margin-left: 5px;
+}
 .btn{
   color: white;
-  font-weight: 500;
-  width: 8rem;
+  font-weight: 600;
+  font-size: small;
+  width: 6.7rem;
   line-height: normal;
   text-align: center;
   margin-left: auto;
@@ -36,6 +40,7 @@ hr {
   margin-top: 3.5rem;
   margin-left: 0rem;
 }
+
 footer.py-3.bg-dark {
   top: 100vh;
 }
