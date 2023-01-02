@@ -63,3 +63,7 @@ footer.py-3.bg-dark {
 .trening-box{
   margin-top: 3.5rem;
 }
+th, td{
+  text-align: center;
+  vertical-align: middle;
+}

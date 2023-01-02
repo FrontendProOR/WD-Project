@@ -13,161 +13,203 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles/style.css">
   <script src="scripts/main.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: "AIzaSyCXyifkn1oJUFdR_g_jBw1tEgZHOxK_fF4",
+      projectId: "wd-sr-16-2022",
+      databaseURL: "https://wd-sr-16-2022-default-rtdb.firebaseio.com"
+    });
+  </script>
 </head>
 
 <body>
 
   <!--Navigation and Tabs-->
-  <div class="d-flex align-items-start bg-dark bg-gradient">
-    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  <div class="d-flex align-items-start bg-dark bg-gradient py-2">
+    <div class="nav nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <button type="button" class="nav-link"><a href="index.html" class="text-decoration-none">Glavna</a></button>
       <button class="nav-link active" id="v-pills-korisnici-tab" data-bs-toggle="pill"
         data-bs-target="#v-pills-korisnici" type="button" role="tab" aria-controls="v-pills-korisnici"
         aria-selected="false">Korisnici</button>
       <button class="nav-link" id="v-pills-teretane-tab" data-bs-toggle="pill" data-bs-target="#v-pills-teretane"
-        type="button" role="tab" aria-controls="v-pills-teretane" aria-selected="false">Teretana</button>
-      <button class="nav-link" id="v-pills-treninzi-tab" data-bs-toggle="pill" data-bs-target="#v-pills-treninzi"
-        type="button" role="tab" aria-controls="v-pills-treninzi" aria-selected="false">Treninzi</button>
-    </div>
-    <div class="tab-content" id="v-pills-tabContent">
-
-      <!--Korisnici-->
-      <!--Srediti kao dvije kolone ili dodati tabeli koji ekstra red iz baze podataka sve uvrsti u tabelu i dodaj ucitavanje-->
-      <div class="tab-pane fade show active w-100" id="v-pills-korisnici" role="tabpanel"
-        aria-labelledby="v-pills-korisnici-tab" tabindex="0">
-        <!--User search add function for removing other rows when user is found 
-      add Remove user button in row-->
-
-        <!--User section-->
-
-        <div class="bg-light mt-3 p-4">
-          <!--User table-->
-          <p class="h4 text-center">Korisnicka tabela</p>
-          <nav class="navbar navbar-light bg-light">
-            <form class="form-inline">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">@</span>
-                </div>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                  aria-describedby="basic-addon1">
-              </div>
-            </form>
-          </nav>
-
-          <table class="table table-dark">
-            <thead>
-              <tr class="text-center">
-                <th scope="col">ID</th>
-                <th scope="col">Ime</th>
-                <th scope="col">Prezime</th>
-                <th scope="col">Korisnicko ime [Profil strana]</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="text-center">
-                <th scope="row">#1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td><a href="#">@mdoMark</a></td>
-              </tr>
-              <tr class="text-center">
-                <th scope="row">#2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td><a href="#">@fatJacob</a></td>
-              </tr>
-              <tr class="text-center">
-                <th scope="row">#3</th>
-                <td>Zuck</td>
-                <td>Fjodor</td>
-                <td><a href="#">@redEagle</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!--Add user form-->
-        <div class="bg-light">
-          <p class="h4 text-center">Dodaj korisnika</p>
-          <form>
-            <div class="form-row px-3">
-              <div class="col-md-4 mb-3 mx-2">
-                <label class="form-label" for="validationDefault01">Ime</label>
-                <input type="text" class="form-control" id="validationDefault01" placeholder="Ime" value="Mika"
-                  required>
-              </div>
-              <div class="col-md-4 mb-3 mx-2">
-                <label class="form-label" for="validationDefault02">Prezime</label>
-                <input type="text" class="form-control" id="validationDefault02" placeholder="Prezime" value="Zikic"
-                  required>
-              </div>
-              <div class="form-group mb-3 mx-2">
-                <label class="form-label" for="exampleFormControlInput1">Email adresa</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
-                  required>
-              </div>
-              <div class="form-group mb-3 mx-2">
-                <label class="form-label" for="inputPassword2" class="sr-only">Sifra</label>
-                <input type="password" class="form-control" id="inputPassword2" placeholder="Sifra" required>
-              </div>
-              <div class="form-group mb-3 mx-2">
-                <label class="form-label" for="birthDate">Datum rodjenja</label>
-                <input id="birthDate" class="form-control" type="date" / required>
-              </div>
-              <div class="form-group mb-3 mx-2">
-                <label class="form-label" for="phone">Broj telefona</label>
-                <input type="text" id="phone" class="form-control" data-mdb-input-mask="+381 999-999-999" required />
-              </div>
-              <div class="col-md-4 mb-3 mx-2">
-                <label class="form-label" for="validationDefaultUsername">Korisnicko ime</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                  </div>
-                  <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Korisnicko ime"
-                    aria-describedby="inputGroupPrepend2" required>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="col-md-6 mb-3 mx-2">
-                  <label class="form-label" for="validationDefault03">Adresa</label>
-                  <input type="text" class="form-control" id="validationDefault03" placeholder="Adresa" required>
-                </div>
-              </div>
-              <div class="form-group mb-2 mx-2">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                  <label class="form-check-label" for="invalidCheck2">
-                    Prihvatam uslove koriscenja i pristajem na odradu mojih podataka
-                  </label>
-                </div>
-              </div>
-              <button class="btn btn-primary mb-2" type="submit">Submit</button>
-            </div>
-
-
-          </form>
-        </div>
-
-      </div>
-
-      <!--Teretane-->
-      <div class="tab-pane fade" id="v-pills-teretane" role="tabpanel" aria-labelledby="v-pills-teretane-tab"
-        tabindex="0">...</div>
-
-      <!--Treninzi-->
-      <div class="tab-pane fade" id="v-pills-treninzi" role="tabpanel" aria-labelledby="v-pills-treninzi-tab"
-        tabindex="0">...</div>
+        type="button" role="tab" aria-controls="v-pills-teretane" aria-selected="false"
+        onclick="loadGymsTable()">Teretana</button>
     </div>
   </div>
-  <!-- Footer-->
-  <footer class="py-3 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; AllTimeFit 2022</p>
+  <div class="tab-content" id="v-pills-tabContent">
+
+    <!--Korisnici-->
+    <div class="tab-pane fade show active w-100" id="v-pills-korisnici" role="tabpanel"
+      aria-labelledby="v-pills-korisnici-tab" tabindex="0">
+
+      <!--User section-->
+      <div class="bg-light mt-3 p-4">
+        <!--User table-->
+        <p class="h4 text-center">Tabela korisnika</p>
+
+        <!--tabela korisnika-->
+        <div class="container table-responsive">
+          <caption>Tabela korisnika</caption>
+          <table class="table table-bordered caption-top">
+            <thead class="table-dark">
+              <tr>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Email</th>
+                <th>Profil</th>
+                <th>Deaktiviraj</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </div>
+      <!--Add user form-->
+      <div class="bg-light">
+        <p class="h4 text-center">Dodaj korisnika</p>
+        <form>
+          <div class="form-row px-3">
+            <div class="col-md-4 mb-3 mx-2">
+              <label class="form-label" for="validationDefault01">Ime</label>
+              <input type="text" class="form-control" id="validationDefault01" placeholder="Ime" value="Mika" required>
+            </div>
+            <div class="col-md-4 mb-3 mx-2">
+              <label class="form-label" for="validationDefault02">Prezime</label>
+              <input type="text" class="form-control" id="validationDefault02" placeholder="Prezime" value="Zikic"
+                required>
+            </div>
+            <div class="form-group mb-3 mx-2">
+              <label class="form-label" for="exampleFormControlInput1">Email adresa</label>
+              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+                required>
+            </div>
+            <div class="form-group mb-3 mx-2">
+              <label class="form-label" for="inputPassword2" class="sr-only">Sifra</label>
+              <input type="password" class="form-control" id="inputPassword2" placeholder="Sifra" required>
+            </div>
+            <div class="form-group mb-3 mx-2">
+              <label class="form-label" for="birthDate">Datum rodjenja</label>
+              <input id="birthDate" class="form-control" type="date" / required>
+            </div>
+            <div class="form-group mb-3 mx-2">
+              <label class="form-label" for="phone">Broj telefona</label>
+              <input type="text" id="phone" class="form-control" data-mdb-input-mask="+381 999-999-999" required />
+            </div>
+            <div class="col-md-4 mb-3 mx-2">
+              <label class="form-label" for="validationDefaultUsername">Korisnicko ime</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                </div>
+                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Korisnicko ime"
+                  aria-describedby="inputGroupPrepend2" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6 mb-3 mx-2">
+                <label class="form-label" for="validationDefault03">Adresa</label>
+                <input type="text" class="form-control" id="validationDefault03" placeholder="Adresa" required>
+              </div>
+            </div>
+            <div class="form-group mb-2 mx-2">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                <label class="form-check-label" for="invalidCheck2">
+                  Prihvatam uslove koriscenja i pristajem na odradu mojih podataka
+                </label>
+              </div>
+            </div>
+            <button class="btn btn-primary mb-2" type="submit">Submit</button>
+          </div>
+
+
+        </form>
+      </div>
     </div>
-  </footer>
 
+    <!--Teretane-->
+    <div class="tab-pane fade" id="v-pills-teretane" role="tabpanel" aria-labelledby="v-pills-teretane-tab"
+      tabindex="0">
+      <div class="container table-responsive">
+        <caption>Tabela teretana</caption>
+        <table class="table table-bordered caption-top">
+          <thead class="table-dark">
+            <tr>
+              <th>Naziv</th>
+              <th>Adresa</th>
+              <th>Godina otvaranja</th>
+              <th>Teretana</th>
+              <th>Izbrisi</th>
+            </tr>
+          </thead>
+          <tbody id="table-body1"></tbody>
+        </table>
+      </div>
+    </div>
 
+    <!-- Footer-->
+    <footer class="py-3 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; AllTimeFit 2022</p>
+      </div>
+    </footer>
+
+    <script>
+      //Ucitavanje korisnicke tabele
+      // dobija referencu za korisnike u bazi podataka
+      var usersRef = firebase.database().ref('korisnici');
+
+      // on() metod se koristi da prati promene podataka u korisnickoj lokaciji
+      usersRef.on('value', function (snapshot) {
+        // Hvata trenutno stanje korisnika i njihovih vrednosti
+        var users = snapshot.val();
+
+        // forEach() metod iterira kroz korisnike svakog pojedinacno
+        snapshot.forEach(function (userSnapshot) {
+          // dobija kljuc i podatke za taj kljuc
+          let key = userSnapshot.key;
+          let user = userSnapshot.val();
+
+          // Kreira novi red u tabeli za korisnika
+          var row = document.createElement('tr');
+          row.innerHTML = '<td>' + user.ime + '</td><td>' + user.prezime + '</td><td>' + user.email + '</td><td><a href="#">profil</a></td><td><button class="btn btn-primary" type="button" onclick="deleteRow(this)">Deaktiviraj korisnika</button></td>';
+          document.getElementById('table-body').appendChild(row);
+        });
+      });
+
+      //Ucitavanje teretana u tabelu
+      // dobija referencu za korisnike u bazi podataka
+      function loadGymsTable() {
+        var gymsRef = firebase.database().ref('fitnesCentri');
+
+        // on() metod se koristi da prati promene podataka u korisnickoj lokaciji
+        gymsRef.on('value', function (snapshot) {
+          // Hvata trenutno stanje korisnika i njihovih vrednosti
+          var gyms = snapshot.val();
+
+          // forEach() metod iterira kroz korisnike svakog pojedinacno
+          snapshot.forEach(function (gymSnapshot) {
+            // kljuc i podatci za trenutnog korisnika
+            let key = gymSnapshot.key;
+            let gym = gymSnapshot.val();
+
+            // Kreira novi red u tabeli za korisnika
+            var row = document.createElement('tr');
+            row.innerHTML = '<td>' + gym.naziv + '</td><td>' + gym.adresa + '</td><td>' + gym.godinaOtvaranja + '</td><td><a href="gym-pages/gym.html">Teretana</a></td><td><button class="btn btn-primary" type="button" onclick="deleteRow(this)">Izbrisi teretanu</button></td>';
+
+            document.getElementById('table-body1').appendChild(row);
+          });
+        });
+      }
+      //brise trenutni red
+      function deleteRow(r) {
+        var row = r.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+
+      }
+    </script>
 </body>
 
 </html>
