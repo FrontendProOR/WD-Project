@@ -13,6 +13,15 @@
   <script src="scripts/main.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="styles/style.css">
+  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: "AIzaSyCXyifkn1oJUFdR_g_jBw1tEgZHOxK_fF4",
+      projectId: "wd-sr-16-2022",
+      databaseURL: "https://wd-sr-16-2022-default-rtdb.firebaseio.com"
+    });
+  </script>
 </head>
 
 <body>
@@ -25,56 +34,59 @@
       <div class="d-flex justify-content-center">
         <ul class="navbar-nav">
           <a href="index.html" class="nav-link">
-          <button type="button" class="btn btn-primary my-1">
-            <li class="nav-item ms-2">Glavna</li>
-          </button>
+            <button type="button" class="btn btn-primary my-1">
+              <li class="nav-item ms-2">Glavna</li>
+            </button>
           </a>
           <a href="#" class="nav-link">
             <div data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-          <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#signInModal">
-            <li class="nav-item ms-2">
-              <span data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-                Uloguj se
-              </span>
-            </li>
-          </button>
-        </div>
+              <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#signInModal">
+                <li class="nav-item ms-2">
+                  <span data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                    Uloguj se
+                  </span>
+                </li>
+              </button>
+            </div>
           </a>
           <a href="#" class="nav-link">
             <div data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-          <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#signUpModal">
-            <li class="nav-item ms-2">
-              <span>
-                Registruj se
-              </span>
-            </li>
-          </button>
-        </div>
+              <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#signUpModal">
+                <li class="nav-item ms-2">
+                  <span>
+                    Registruj se
+                  </span>
+                </li>
+              </button>
+            </div>
           </a>
           <a href="#about" class="nav-link">
-          <button type="button" class="btn btn-primary my-1" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-            <li class="nav-item ms-2">
+            <button type="button" class="btn btn-primary my-1" data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show">
+              <li class="nav-item ms-2">
                 <span>
                   O nama
                 </span>
-            </li>
-          </button></a>
+              </li>
+            </button></a>
           <a href="#contact" class="nav-link">
-          <button type="button" class="btn btn-primary my-1" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-            <li class="nav-item ms-2">
-              <span>
-                Kontakt
-              </span>
-            </li>
-          </button></a>
+            <button type="button" class="btn btn-primary my-1" data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show">
+              <li class="nav-item ms-2">
+                <span>
+                  Kontakt
+                </span>
+              </li>
+            </button></a>
           <a href="admin-page.html" class="nav-link">
-          <button type="button" class="btn btn-primary my-1"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-            <li class="nav-item ms-2">
-              <span>
-                Admin page
-              </span>
-            </li>
-          </button>
+            <button type="button" class="btn btn-primary my-1" data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show">
+              <li class="nav-item ms-2">
+                <span>
+                  Admin page
+                </span>
+              </li>
+            </button>
           </a>
         </ul>
       </div>
@@ -210,15 +222,15 @@
   </section>
 
   <!--Gym options-->
-  <div class="row bg-primary bg-gradient mw-100 gym-options">
-    <div class="col-sm-4 d-flex justify-content-around align-items-center my-1 p-4">
+  <div class="row bg-primary bg-gradient mw-100 gym-options" id="cards-box">
+    <!-- <div class="col-sm-4 d-flex justify-content-around align-items-center my-1 p-4">
       <div class="card p-2 cards mb-3 mt-2">
         <img class="card-img-top" src="images/gym1.jpg" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title d-flex justify-content-center">Teretana 1</h5>
           <p class="card-text">Najposjecenija teretana u gradu zbog svoje lokacije i lorem ipsu sit dolor.</p>
-          <a href="gym-pages/gym.html"
-            class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti Teretanu</a>
+          <a href="gym-pages/gym.html" class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti
+            Teretanu</a>
         </div>
       </div>
     </div>
@@ -228,8 +240,8 @@
         <div class="card-body">
           <h5 class="card-title d-flex justify-content-center">Teretana 2</h5>
           <p class="card-text">Najposjecenija teretana u gradu zbog svoje lokacije i lorem ipsu sit dolor.</p>
-          <a href="gym-pages/gym.html"
-            class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti Teretanu</a>
+          <a href="gym-pages/gym.html" class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti
+            Teretanu</a>
         </div>
       </div>
     </div>
@@ -239,8 +251,8 @@
         <div class="card-body">
           <h5 class="card-title d-flex justify-content-center">Teretana 3</h5>
           <p class="card-text">Najposjecenija teretana u gradu zbog svoje lokacije i lorem ipsu sit dolor.</p>
-          <a href="gym-pages/gym.html"
-            class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti Teretanu</a>
+          <a href="gym-pages/gym.html" class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti
+            Teretanu</a>
         </div>
       </div>
     </div>
@@ -250,11 +262,11 @@
         <div class="card-body">
           <h5 class="card-title d-flex justify-content-center">Teretana 4</h5>
           <p class="card-text">Najposjecenija teretana u gradu zbog svoje lokacije i lorem ipsu sit dolor.</p>
-          <a href="gym-pages/gym.html"
-            class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti Teretanu</a>
+          <a href="gym-pages/gym.html" class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti
+            Teretanu</a>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- fiksiraj odve button za show more koje ce dodavati ekstra 4 kartice-->
   </div>
 
@@ -315,7 +327,59 @@
       <p class="m-0 text-center text-white">Copyright &copy; AllTimeFit 2022</p>
     </div>
   </footer>
+  <script>
+          //Ucitavanje kartica na glavnoj strani
+      // dobija referencu za teretane u bazi podataka
+        var gymsRef = firebase.database().ref('fitnesCentri');
 
+        // on() metod se koristi da prati promene podataka u lokaciji fitnesCentri
+        gymsRef.on('value', function (snapshot) {
+          // Hvata trenutno stanje teretane i njihove vrednosti
+          var gyms = snapshot.val();
+
+          // forEach() metod iterira kroz teretane svaku pojedinacno
+          snapshot.forEach(function (gymSnapshot) {
+            // kljuc i podatci za trenutnog korisnika
+            let key = gymSnapshot.key;
+            let gym = gymSnapshot.val();
+
+            // Kreira kartice teretana u glavnom fajlu
+            var kartica = document.createElement('div');
+            kartica.classList.add("col-sm-4","d-flex","justify-content-around","align-items-center","my-1","p-4");
+            
+            var podkartica = document.createElement('div');
+            podkartica.classList.add("card","p-2","cards","mb-3","mt-2");
+            podkartica.innerHTML = "<img src='"+ gym.slika+"' width='185px' height='170px' alt='Image of Gym from DB'class='card-img-top' referrerpolicy='no-referrer'>";
+            kartica.appendChild(podkartica);
+
+            var naziv = document.createElement('h5');
+            naziv.innerText = gym.naziv;
+            naziv.classList.add("card-title","d-flex","justify-content-center");
+            
+            var tekst = document.createElement('p');
+            tekst.innerText = "Some quick example text to build on the card title and make up the bulk of the card's content.";
+            tekst.classList.add("card-text");
+
+            
+            var linkDoTeretane = document.createElement('a');
+            linkDoTeretane.href = "gym-pages/gym.html";
+            linkDoTeretane.classList.add("btn","btn-primary","d-flex","justify-content-center","align-items-end");
+            linkDoTeretane.innerText = "Posjeti Teretanu";
+            //<a href='' class='btn btn-primary d-flex justify-content-center align-items-end'>Posjeti Teretanu</a>
+
+            var textIspodKartice = document.createElement("div");
+            textIspodKartice.classList.add("card-body");
+            textIspodKartice.appendChild(naziv);
+            textIspodKartice.appendChild(tekst);
+            textIspodKartice.appendChild(linkDoTeretane);
+            podkartica.appendChild(textIspodKartice);
+
+            document.getElementById('cards-box').appendChild(kartica);
+          });
+        });
+        //napravi sad listu brojeva neki range koji je od 0 do duzine ili ti broja objekata u bazi fitnesCentri i onda taj broj prosledi u link ili nekako da odredi broj element koji ce ucitati u listi treninga
+        //takodje napravi ucitavanje kartica u listi treninga ili ti gym.html
+  </script>
 </body>
 
 </html>

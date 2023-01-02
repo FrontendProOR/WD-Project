@@ -180,22 +180,22 @@
       });
 
       //Ucitavanje teretana u tabelu
-      // dobija referencu za korisnike u bazi podataka
+      // dobija referencu za teretane u bazi podataka
       function loadGymsTable() {
         var gymsRef = firebase.database().ref('fitnesCentri');
 
-        // on() metod se koristi da prati promene podataka u korisnickoj lokaciji
+        // on() metod se koristi da prati promene podataka u lokaciji fitnesCentri
         gymsRef.on('value', function (snapshot) {
-          // Hvata trenutno stanje korisnika i njihovih vrednosti
+          // Hvata trenutno stanje teretane i njihove vrednosti
           var gyms = snapshot.val();
 
-          // forEach() metod iterira kroz korisnike svakog pojedinacno
+          // forEach() metod iterira kroz teretane svaku pojedinacno
           snapshot.forEach(function (gymSnapshot) {
             // kljuc i podatci za trenutnog korisnika
             let key = gymSnapshot.key;
             let gym = gymSnapshot.val();
 
-            // Kreira novi red u tabeli za korisnika
+            // Kreira novi red u tabeli za teretanu
             var row = document.createElement('tr');
             row.innerHTML = '<td>' + gym.naziv + '</td><td>' + gym.adresa + '</td><td>' + gym.godinaOtvaranja + '</td><td><a href="gym-pages/gym.html">Teretana</a></td><td><button class="btn btn-primary" type="button" onclick="deleteRow(this)">Izbrisi teretanu</button></td>';
 
