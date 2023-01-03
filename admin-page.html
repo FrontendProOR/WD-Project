@@ -22,6 +22,7 @@
       databaseURL: "https://wd-sr-16-2022-default-rtdb.firebaseio.com"
     });
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -52,7 +53,7 @@
         <!--tabela korisnika-->
         <div class="container table-responsive">
           <caption>Tabela korisnika</caption>
-          <table class="table table-bordered caption-top">
+          <table class="table table-bordered caption-top" id="tabelaKorisnika">
             <thead class="table-dark">
               <tr>
                 <th>Red.Br</th>
@@ -61,6 +62,7 @@
                 <th>Email</th>
                 <th>Profil</th>
                 <th>Deaktiviraj</th>
+                <th>Izmeni</th>
               </tr>
             </thead>
             <tbody id="table-body"></tbody>
@@ -135,15 +137,15 @@
       tabindex="0">
       <div class="container table-responsive">
         <caption>Tabela teretana</caption>
-        <table class="table table-bordered caption-top">
+        <table class="table table-bordered caption-top" id="tabelaTeretana">
           <thead class="table-dark">
             <tr>
               <th>Red.Br</th>
               <th>Naziv</th>
               <th>Adresa</th>
-              <th>Godina otvaranja</th>
               <th>Teretana</th>
               <th>Izbrisi</th>
+              <th>Izmeni</th>
             </tr>
           </thead>
           <tbody id="table-body1"></tbody>
@@ -152,25 +154,26 @@
     </div>
 
     <!--Modal for deleting the row from table-->
-    <div class="modal fade" id="delRowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+
+    <div class="modal fade" id="delRowModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Da bi ste nastavili:</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Da li ste sigurni?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            Odaberite opciju "Izbrisi" ako zelite da potvrdite opciju brisanja ili opciju "Zatvori" ako ste odustali.
+            Odaberite opciju "Izbrisi" ako zelite da potvrdite opciju brisanja ili opciju "Zatvori" ako ste odustali od
+            brisanja.
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
-            <button type="button" class="btn btn-primary">Izbrisi</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="delAccepted">Izbrisi</button>
           </div>
         </div>
       </div>
     </div>
+
     <!-- Footer-->
     <footer class="py-3 bg-dark">
       <div class="container">
@@ -178,7 +181,7 @@
       </div>
     </footer>
 
-    <script>
+    <script type="text/javascript">
       //Ucitavanje korisnicke tabele
       // dobija referencu za korisnike u bazi podataka
       var usersRef = firebase.database().ref('korisnici');
@@ -192,24 +195,23 @@
 
         // forEach() metod iterira kroz korisnike svakog pojedinacno
         snapshot.forEach(function (userSnapshot) {
-          currentUserCount +=1;
+          currentUserCount += 1;
           // dobija kljuc i podatke za taj kljuc
           let key = userSnapshot.key;
           let user = userSnapshot.val();
 
           // Kreira novi red u tabeli za korisnika
           var row = document.createElement('tr');
-          row.dataset.id = currentUserCount-1;
+          row.dataset.id = currentUserCount - 1;
           row.id = userSnapshot.key;
-          row.innerHTML = `<td>${currentUserCount}</td>`+'<td>' + user.ime + '</td><td>' + user.prezime + '</td><td>' + user.email + '</td><td><a href="#">profil</a></td><td><button class="btn btn-primary" type="button" onclick="deleteRow(this)">Deaktiviraj korisnika</button></td>';
+          row.innerHTML = `<td>${currentUserCount}</td>` + '<td>' + user.ime + '</td><td>' + user.prezime + '</td><td>' + user.email + '</td><td><a href="#">profil</a></td><td><button class="btn btn-danger" type="button"  onclick="deleteUserRow(this)">Deaktiviraj korisnika</button></td><td><button class="btn btn-primary">Izmeni</button></td>';
           document.getElementById('table-body').appendChild(row);
         });
       });
 
       //Ucitavanje teretana u tabelu
-      // dobija referencu za teretane u bazi podataka
-      
       function loadGymsTable() {
+        // dobija referencu za teretane u bazi podataka
         var gymsRef = firebase.database().ref('fitnesCentri');
         //data-id redni broj
         var currentGymCount = 0;
@@ -221,36 +223,50 @@
 
           // forEach() metod iterira kroz teretane svaku pojedinacno
           snapshot.forEach(function (gymSnapshot) {
-            currentGymCount +=1;
+            currentGymCount += 1;
             // kljuc i podatci za trenutnog korisnika
             let key = gymSnapshot.key;
             let gym = gymSnapshot.val();
 
             // Kreira novi red u tabeli za teretanu
             var row = document.createElement('tr');
-            row.dataset.id = currentGymCount-1;
+            row.dataset.id = currentGymCount - 1;
             row.id = gymSnapshot.key;
-            row.innerHTML = `<td>${currentGymCount}</td>`+'<td>' + gym.naziv + '</td><td>' + gym.adresa + '</td><td>' + gym.godinaOtvaranja + '</td><td><a href="gym-pages/gym.html">Teretana</a></td><td><button class="btn btn-primary" type="button" onclick="deleteRow(this)">Izbrisi teretanu</button></td>';
-
+            row.innerHTML = `<td>${currentGymCount}</td>` + '<td>' + gym.naziv + '</td><td>' + gym.adresa + '</td><td><a href="gym-pages/gym.html">Teretana</a></td><td><button class="btn btn-danger" type="button" onclick="deleteGymRow(this)">Izbrisi teretanu</button></td><td><button class="btn btn-primary">Izmeni</button></td>';
             document.getElementById('table-body1').appendChild(row);
           });
         });
       }
       //brise trenutni red
       //NAPRAVITI delete funkciju za teretane i korisnike
-      function deleteRow(r) {
-        var row = r.parentNode.parentNode;
-        row.parentNode.removeChild(row);
-        var x = row.dataset.id;
-        firebase.database().ref("korisnici/"+row.id).remove().then(function(){
-          alert("izbrisano");
+
+      function deleteUserRow(r) {
+        //data-bs-toggle="modal" data-bs-target="#delRowModal" usled potrebe da se prosledi red u tabeli tj. pokazivac this koji je red "tr" imao sam opciju ili JQuery ili napraviti objekat upotrebio sam JQuery za otvaranje modala
+        //prvo pokaze dijalog
+        $('#delRowModal').modal('show');
+        //ako je danger button crveni pritisnut posto je jedno dugme onda zna se koje je odradi funkciju brisanja reda iz tabele i baze podataka i osvezi stranu
+        $("#delRowModal").on("click", ".btn-danger", function () {
+          var row = r.parentNode.parentNode;
+          row.parentNode.removeChild(row);
+          firebase.database().ref("korisnici/" + row.id).remove().then(function () {
+            alert("Izbrisali ste korisnika!");
+          });
+          window.location.reload(true);
         });
-        console.log(x);
-        window.location.reload(true);
-        //treba dodati id svakom u tabeli redu 
-        //onda pristupiti redu i proslediti id 
-        //onda taj id izbrisati
       }
+      function deleteGymRow(r) {
+        $('#delRowModal').modal('show');
+        //ako je danger button crveni pritisnut posto je jedno dugme onda zna se koje je odradi funkciju brisanja reda iz tabele i osvezi stranu
+        $("#delRowModal").on("click", ".btn-danger", function () {
+          var row = r.parentNode.parentNode;
+          row.parentNode.removeChild(row);
+          firebase.database().ref("fitnesCentri/" + row.id).remove().then(function () {
+            alert("Izbrisali ste teretanu!");
+          });
+          window.location.reload(true);
+        });
+      }
+      //dodati modal za izmenu podataka na dugme izmeni otvara modal i formu unutar njega a u modalu se nalaze svi podatci tog reda
     </script>
 </body>
 
