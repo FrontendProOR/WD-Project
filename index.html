@@ -223,51 +223,7 @@
 
   <!--Gym options-->
   <div class="row bg-primary bg-gradient mw-100 gym-options" id="cards-box">
-    <!-- <div class="col-sm-4 d-flex justify-content-around align-items-center my-1 p-4">
-      <div class="card p-2 cards mb-3 mt-2">
-        <img class="card-img-top" src="images/gym1.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title d-flex justify-content-center">Teretana 1</h5>
-          <p class="card-text">Najposjecenija teretana u gradu zbog svoje lokacije i lorem ipsu sit dolor.</p>
-          <a href="gym-pages/gym.html" class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti
-            Teretanu</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 d-flex justify-content-around align-items-center my-1 p-4">
-      <div class="card p-2 cards mb-3 mt-2">
-        <img class="card-img-top" src="images/gym2.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title d-flex justify-content-center">Teretana 2</h5>
-          <p class="card-text">Najposjecenija teretana u gradu zbog svoje lokacije i lorem ipsu sit dolor.</p>
-          <a href="gym-pages/gym.html" class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti
-            Teretanu</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 d-flex justify-content-around align-items-center my-1 p-4">
-      <div class="card p-2 cards mb-3 mt-2">
-        <img class="card-img-top" src="images/gym3.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title d-flex justify-content-center">Teretana 3</h5>
-          <p class="card-text">Najposjecenija teretana u gradu zbog svoje lokacije i lorem ipsu sit dolor.</p>
-          <a href="gym-pages/gym.html" class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti
-            Teretanu</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 d-flex justify-content-around align-items-center my-1 p-4">
-      <div class="card p-2 cards mb-3 mt-2">
-        <img class="card-img-top" src="images/gym1.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title d-flex justify-content-center">Teretana 4</h5>
-          <p class="card-text">Najposjecenija teretana u gradu zbog svoje lokacije i lorem ipsu sit dolor.</p>
-          <a href="gym-pages/gym.html" class="btn btn-primary d-flex justify-content-center align-items-end">Posjeti
-            Teretanu</a>
-        </div>
-      </div>
-    </div> -->
-    <!-- fiksiraj odve button za show more koje ce dodavati ekstra 4 kartice-->
+    
   </div>
 
   <!-- About section-->
@@ -352,20 +308,18 @@
             podkartica.innerHTML = "<img src='"+ gym.slika+"' width='185px' height='170px' alt='Image of Gym from DB'class='card-img-top' referrerpolicy='no-referrer'>";
             kartica.appendChild(podkartica);
 
-            var naziv = document.createElement('h5');
+            var naziv = document.createElement('h6');
             naziv.innerText = gym.naziv;
             naziv.classList.add("card-title","d-flex","justify-content-center");
-            
+
             var tekst = document.createElement('p');
             tekst.innerText = "Some quick example text to build on the card title and make up the bulk of the card's content.";
             tekst.classList.add("card-text");
 
-            
             var linkDoTeretane = document.createElement('a');
             linkDoTeretane.href = "gym-pages/gym.html";
             linkDoTeretane.classList.add("btn","btn-primary","d-flex","justify-content-center","align-items-end");
             linkDoTeretane.innerText = "Posjeti Teretanu";
-            //<a href='' class='btn btn-primary d-flex justify-content-center align-items-end'>Posjeti Teretanu</a>
 
             var textIspodKartice = document.createElement("div");
             textIspodKartice.classList.add("card-body");
