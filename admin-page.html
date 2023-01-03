@@ -22,7 +22,7 @@
       databaseURL: "https://wd-sr-16-2022-default-rtdb.firebaseio.com"
     });
   </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -41,16 +41,12 @@
   </div>
   <div class="tab-content" id="v-pills-tabContent">
 
-    <!--Korisnici-->
+    <!--User section-->
     <div class="tab-pane fade show active w-100" id="v-pills-korisnici" role="tabpanel"
       aria-labelledby="v-pills-korisnici-tab" tabindex="0">
-
-      <!--User section-->
+      <!--User table-->
       <div class="bg-light mt-3 p-4">
-        <!--User table-->
         <p class="h4 text-center">Tabela korisnika</p>
-
-        <!--tabela korisnika-->
         <div class="container table-responsive">
           <caption>Tabela korisnika</caption>
           <table class="table table-bordered caption-top" id="tabelaKorisnika">
@@ -69,66 +65,87 @@
           </table>
         </div>
       </div>
-      <!--Add user form-->
-      <div class="bg-light">
-        <p class="h4 text-center">Dodaj korisnika</p>
-        <form>
-          <div class="form-row px-3">
-            <div class="col-md-4 mb-3 mx-2">
-              <label class="form-label" for="validationDefault01">Ime</label>
-              <input type="text" class="form-control" id="validationDefault01" placeholder="Ime" value="Mika" required>
+      <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+      <!-- Scrollable modal static its not closing until you click sign "X" or "Zatvori" button because it's anoying to type user data for a few minutes and then lose all off it after missing a button at the end of the form. -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Dodavanje Korisnika</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="col-md-4 mb-3 mx-2">
-              <label class="form-label" for="validationDefault02">Prezime</label>
-              <input type="text" class="form-control" id="validationDefault02" placeholder="Prezime" value="Zikic"
-                required>
-            </div>
-            <div class="form-group mb-3 mx-2">
-              <label class="form-label" for="exampleFormControlInput1">Email adresa</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
-                required>
-            </div>
-            <div class="form-group mb-3 mx-2">
-              <label class="form-label" for="inputPassword2" class="sr-only">Sifra</label>
-              <input type="password" class="form-control" id="inputPassword2" placeholder="Sifra" required>
-            </div>
-            <div class="form-group mb-3 mx-2">
-              <label class="form-label" for="birthDate">Datum rodjenja</label>
-              <input id="birthDate" class="form-control" type="date" / required>
-            </div>
-            <div class="form-group mb-3 mx-2">
-              <label class="form-label" for="phone">Broj telefona</label>
-              <input type="text" id="phone" class="form-control" data-mdb-input-mask="+381 999-999-999" required />
-            </div>
-            <div class="col-md-4 mb-3 mx-2">
-              <label class="form-label" for="validationDefaultUsername">Korisnicko ime</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend2">@</span>
+            <div class="modal-body">
+                <!--Add user form-->
+                <div class="bg-light container w-75">
+                  <p class="h4 text-center">Dodaj korisnika</p>
+                  <form>
+                    <div class="form-row px-3">
+                      <div class="col-md-4 mb-3 mx-2">
+                        <label class="form-label" for="validationDefault01">Ime</label>
+                        <input type="text" class="form-control" id="validationDefault01" placeholder="Ime" value="" required>
+                      </div>
+                      <div class="col-md-4 mb-3 mx-2">
+                        <label class="form-label" for="validationDefault02">Prezime</label>
+                        <input type="text" class="form-control" id="validationDefault02" placeholder="Prezime" value=""
+                          required>
+                      </div>
+                      <div class="form-group mb-3 mx-2">
+                        <label class="form-label" for="exampleFormControlInput1">Email adresa</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+                          required>
+                      </div>
+                      <div class="form-group mb-3 mx-2">
+                        <label class="form-label" for="inputPassword2" class="sr-only">Lozinka</label>
+                        <input type="password" class="form-control" id="inputPassword2" placeholder="Lozinka" required>
+                      </div>
+                      <div class="form-group mb-3 mx-2">
+                        <label class="form-label" for="birthDate">Datum rodjenja</label>
+                        <input id="birthDate" class="form-control" type="date" / required>
+                      </div>
+                      <div class="form-group mb-3 mx-2">
+                        <label class="form-label" for="phone">Broj telefona</label>
+                        <input type="text" id="phone" class="form-control" data-mdb-input-mask="+381 999-999-999"
+                          placeholder="Upisite broj telefona" required />
+                      </div>
+                      <div class="col-md-4 mb-3 mx-2">
+                        <label class="form-label" for="validationDefaultUsername">Korisnicko ime</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                          </div>
+                          <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Korisnicko ime"
+                            aria-describedby="inputGroupPrepend2" required>
+                        </div>
+                      </div>
+                      <div class="form-row">
+                        <div class="col-md-6 mb-3 mx-2">
+                          <label class="form-label" for="validationDefault03">Adresa</label>
+                          <input type="text" class="form-control" id="validationDefault03" placeholder="Adresa" required>
+                        </div>
+                      </div>
+                      <div class="form-group mb-2 mx-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                          <label class="form-check-label" for="invalidCheck2">
+                            Prihvatam uslove koriscenja i pristajem na odradu mojih podataka
+                          </label>
+                        </div>
+                      </div>
+                      <!-- <button class="btn btn-primary mb-2" type="submit">Dodaj ili izmeni</button> -->
+                    </div>
+                  </form>
                 </div>
-                <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Korisnicko ime"
-                  aria-describedby="inputGroupPrepend2" required>
-              </div>
+              
             </div>
-            <div class="form-row">
-              <div class="col-md-6 mb-3 mx-2">
-                <label class="form-label" for="validationDefault03">Adresa</label>
-                <input type="text" class="form-control" id="validationDefault03" placeholder="Adresa" required>
-              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="button" class="btn btn-primary" type="submit" data-bs-dismiss="modal">Kreiraj ili izmeni</button>
             </div>
-            <div class="form-group mb-2 mx-2">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                <label class="form-check-label" for="invalidCheck2">
-                  Prihvatam uslove koriscenja i pristajem na odradu mojih podataka
-                </label>
-              </div>
-            </div>
-            <button class="btn btn-primary mb-2" type="submit">Submit</button>
           </div>
-
-
-        </form>
+        </div>
       </div>
     </div>
 
@@ -152,122 +169,122 @@
         </table>
       </div>
     </div>
+  </div>
+  <!--Modal for deleting the row from table-->
 
-    <!--Modal for deleting the row from table-->
-
-    <div class="modal fade" id="delRowModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Da li ste sigurni?</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            Odaberite opciju "Izbrisi" ako zelite da potvrdite opciju brisanja ili opciju "Zatvori" ako ste odustali od
-            brisanja.
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="delAccepted">Izbrisi</button>
-          </div>
+  <div class="modal fade" id="delRowModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Da li ste sigurni?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Odaberite opciju "Izbrisi" ako zelite da potvrdite opciju brisanja ili opciju "Zatvori" ako ste odustali od
+          brisanja.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="delAccepted">Izbrisi</button>
         </div>
       </div>
     </div>
+  </div>
+  <!--Modal for adding the user to table-->
+  <!-- Footer-->
+  <footer class="py-3 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; AllTimeFit 2022</p>
+    </div>
+  </footer>
 
-    <!-- Footer-->
-    <footer class="py-3 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; AllTimeFit 2022</p>
-      </div>
-    </footer>
+  <script type="text/javascript">
+    //Ucitavanje korisnicke tabele
+    // dobija referencu za korisnike u bazi podataka
+    var usersRef = firebase.database().ref('korisnici');
 
-    <script type="text/javascript">
-      //Ucitavanje korisnicke tabele
-      // dobija referencu za korisnike u bazi podataka
-      var usersRef = firebase.database().ref('korisnici');
+    // on() metod se koristi da prati promene podataka u korisnickoj lokaciji
+    usersRef.on('value', function (snapshot) {
+      // Hvata trenutno stanje korisnika i njihovih vrednosti
+      var users = snapshot.val();
+      //data-id redni broj
+      var currentUserCount = 0;
 
-      // on() metod se koristi da prati promene podataka u korisnickoj lokaciji
-      usersRef.on('value', function (snapshot) {
-        // Hvata trenutno stanje korisnika i njihovih vrednosti
-        var users = snapshot.val();
-        //data-id redni broj
-        var currentUserCount = 0;
+      // forEach() metod iterira kroz korisnike svakog pojedinacno
+      snapshot.forEach(function (userSnapshot) {
+        currentUserCount += 1;
+        // dobija kljuc i podatke za taj kljuc
+        let key = userSnapshot.key;
+        let user = userSnapshot.val();
 
-        // forEach() metod iterira kroz korisnike svakog pojedinacno
-        snapshot.forEach(function (userSnapshot) {
-          currentUserCount += 1;
-          // dobija kljuc i podatke za taj kljuc
-          let key = userSnapshot.key;
-          let user = userSnapshot.val();
+        // Kreira novi red u tabeli za korisnika
+        var row = document.createElement('tr');
+        row.dataset.id = currentUserCount - 1;
+        row.id = userSnapshot.key;
+        row.innerHTML = `<td>${currentUserCount}</td>` + '<td>' + user.ime + '</td><td>' + user.prezime + '</td><td>' + user.email + '</td><td><a href="#">profil</a></td><td><button class="btn btn-danger" type="button"  onclick="deleteUserRow(this)">Deaktiviraj korisnika</button></td><td><button class="btn btn-primary">Izmeni</button></td>';
+        document.getElementById('table-body').appendChild(row);
+      });
+    });
 
-          // Kreira novi red u tabeli za korisnika
+    //Ucitavanje teretana u tabelu
+    function loadGymsTable() {
+      // dobija referencu za teretane u bazi podataka
+      var gymsRef = firebase.database().ref('fitnesCentri');
+      //data-id redni broj
+      var currentGymCount = 0;
+
+      // on() metod se koristi da prati promene podataka u lokaciji fitnesCentri
+      gymsRef.on('value', function (snapshot) {
+        // Hvata trenutno stanje teretane i njihove vrednosti
+        var gyms = snapshot.val();
+
+        // forEach() metod iterira kroz teretane svaku pojedinacno
+        snapshot.forEach(function (gymSnapshot) {
+          currentGymCount += 1;
+          // kljuc i podatci za trenutnog korisnika
+          let key = gymSnapshot.key;
+          let gym = gymSnapshot.val();
+
+          // Kreira novi red u tabeli za teretanu
           var row = document.createElement('tr');
-          row.dataset.id = currentUserCount - 1;
-          row.id = userSnapshot.key;
-          row.innerHTML = `<td>${currentUserCount}</td>` + '<td>' + user.ime + '</td><td>' + user.prezime + '</td><td>' + user.email + '</td><td><a href="#">profil</a></td><td><button class="btn btn-danger" type="button"  onclick="deleteUserRow(this)">Deaktiviraj korisnika</button></td><td><button class="btn btn-primary">Izmeni</button></td>';
-          document.getElementById('table-body').appendChild(row);
+          row.dataset.id = currentGymCount - 1;
+          row.id = gymSnapshot.key;
+          row.innerHTML = `<td>${currentGymCount}</td>` + '<td>' + gym.naziv + '</td><td>' + gym.adresa + '</td><td><a href="gym-pages/gym.html">Teretana</a></td><td><button class="btn btn-danger" type="button" onclick="deleteGymRow(this)">Izbrisi teretanu</button></td><td><button class="btn btn-primary">Izmeni</button></td>';
+          document.getElementById('table-body1').appendChild(row);
         });
       });
+    }
+    //brise trenutni red
+    //NAPRAVITI delete funkciju za teretane i korisnike
 
-      //Ucitavanje teretana u tabelu
-      function loadGymsTable() {
-        // dobija referencu za teretane u bazi podataka
-        var gymsRef = firebase.database().ref('fitnesCentri');
-        //data-id redni broj
-        var currentGymCount = 0;
-
-        // on() metod se koristi da prati promene podataka u lokaciji fitnesCentri
-        gymsRef.on('value', function (snapshot) {
-          // Hvata trenutno stanje teretane i njihove vrednosti
-          var gyms = snapshot.val();
-
-          // forEach() metod iterira kroz teretane svaku pojedinacno
-          snapshot.forEach(function (gymSnapshot) {
-            currentGymCount += 1;
-            // kljuc i podatci za trenutnog korisnika
-            let key = gymSnapshot.key;
-            let gym = gymSnapshot.val();
-
-            // Kreira novi red u tabeli za teretanu
-            var row = document.createElement('tr');
-            row.dataset.id = currentGymCount - 1;
-            row.id = gymSnapshot.key;
-            row.innerHTML = `<td>${currentGymCount}</td>` + '<td>' + gym.naziv + '</td><td>' + gym.adresa + '</td><td><a href="gym-pages/gym.html">Teretana</a></td><td><button class="btn btn-danger" type="button" onclick="deleteGymRow(this)">Izbrisi teretanu</button></td><td><button class="btn btn-primary">Izmeni</button></td>';
-            document.getElementById('table-body1').appendChild(row);
-          });
+    function deleteUserRow(r) {
+      //data-bs-toggle="modal" data-bs-target="#delRowModal" usled potrebe da se prosledi red u tabeli tj. pokazivac this koji je red "tr" imao sam opciju ili JQuery ili napraviti objekat upotrebio sam JQuery za otvaranje modala
+      //prvo pokaze dijalog
+      $('#delRowModal').modal('show');
+      //ako je danger button crveni pritisnut posto je jedno dugme onda zna se koje je odradi funkciju brisanja reda iz tabele i baze podataka i osvezi stranu
+      $("#delRowModal").on("click", ".btn-danger", function () {
+        var row = r.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        firebase.database().ref("korisnici/" + row.id).remove().then(function () {
+          alert("Izbrisali ste korisnika!");
         });
-      }
-      //brise trenutni red
-      //NAPRAVITI delete funkciju za teretane i korisnike
-
-      function deleteUserRow(r) {
-        //data-bs-toggle="modal" data-bs-target="#delRowModal" usled potrebe da se prosledi red u tabeli tj. pokazivac this koji je red "tr" imao sam opciju ili JQuery ili napraviti objekat upotrebio sam JQuery za otvaranje modala
-        //prvo pokaze dijalog
-        $('#delRowModal').modal('show');
-        //ako je danger button crveni pritisnut posto je jedno dugme onda zna se koje je odradi funkciju brisanja reda iz tabele i baze podataka i osvezi stranu
-        $("#delRowModal").on("click", ".btn-danger", function () {
-          var row = r.parentNode.parentNode;
-          row.parentNode.removeChild(row);
-          firebase.database().ref("korisnici/" + row.id).remove().then(function () {
-            alert("Izbrisali ste korisnika!");
-          });
-          window.location.reload(true);
+        window.location.reload(true);
+      });
+    }
+    function deleteGymRow(r) {
+      $('#delRowModal').modal('show');
+      //ako je danger button crveni pritisnut posto je jedno dugme onda zna se koje je odradi funkciju brisanja reda iz tabele i osvezi stranu
+      $("#delRowModal").on("click", ".btn-danger", function () {
+        var row = r.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        firebase.database().ref("fitnesCentri/" + row.id).remove().then(function () {
+          alert("Izbrisali ste teretanu!");
         });
-      }
-      function deleteGymRow(r) {
-        $('#delRowModal').modal('show');
-        //ako je danger button crveni pritisnut posto je jedno dugme onda zna se koje je odradi funkciju brisanja reda iz tabele i osvezi stranu
-        $("#delRowModal").on("click", ".btn-danger", function () {
-          var row = r.parentNode.parentNode;
-          row.parentNode.removeChild(row);
-          firebase.database().ref("fitnesCentri/" + row.id).remove().then(function () {
-            alert("Izbrisali ste teretanu!");
-          });
-          window.location.reload(true);
-        });
-      }
+        window.location.reload(true);
+      });
+    }
       //dodati modal za izmenu podataka na dugme izmeni otvara modal i formu unutar njega a u modalu se nalaze svi podatci tog reda
-    </script>
+  </script>
 </body>
 
 </html>

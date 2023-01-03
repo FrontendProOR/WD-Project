@@ -241,6 +241,10 @@
               <li>Za sve koji žele da se opuste, nakon napornih treninga ili poslovnih obaveza, naša teretana obezbedila
                 je saunu koja je najbolje rešenje za to.</li>
               <li>Dođite i posetite naše teretane na adresama toj i toj i uverite se zasto smo najbolji.</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem ullam voluptatibus omnis dolor excepturi dolorem!</li>
+              <li> Vitae porro modi dignissimos deleniti? Nobis ea modi asperiores veritatis, animi sequi iste tenetur voluptates!</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem ullam voluptatibus omnis dolor excepturi dolorem!</li>
+              <li> Vitae porro modi dignissimos deleniti? Nobis ea modi asperiores veritatis, animi sequi iste tenetur voluptates!</li>
             </ul>
           </div>
         </div>
@@ -305,11 +309,22 @@
             
             var podkartica = document.createElement('div');
             podkartica.classList.add("card","p-2","cards","mb-3","mt-2");
-            podkartica.innerHTML = "<img src='"+ gym.slika+"' width='185px' height='170px' alt='Image of Gym from DB'class='card-img-top' referrerpolicy='no-referrer'>";
+            podkartica.innerHTML = "<img src='"+ gym.slika+"' width='180px' height='170px' alt='Image of Gym from DB'class='card-img-top' referrerpolicy='no-referrer'>";
             kartica.appendChild(podkartica);
 
-            var naziv = document.createElement('h6');
-            naziv.innerText = gym.naziv;
+            if(gym.naziv.length<= 11){
+              var naziv = document.createElement('p');
+              naziv.innerText = gym.naziv;
+              naziv.style.fontSize = "1rem";
+              naziv.style.fontWeight = "bold";
+            }else{
+              var naziv = document.createElement('p');
+              naziv.innerText = gym.naziv;
+              naziv.style.fontSize = "1rem";
+              naziv.style.fontWeight = "bold";
+              naziv.style.marginTop = "0px";
+              naziv.style.marginBottom = "0px";
+            }
             naziv.classList.add("card-title","d-flex","justify-content-center");
 
             var tekst = document.createElement('p');

@@ -67,3 +67,9 @@ th, td{
   text-align: center;
   vertical-align: middle;
 }
+p{
+  font-size: medium;
+}
+#contact{
+  width:65vw;
+}
