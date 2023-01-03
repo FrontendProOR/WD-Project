@@ -15,6 +15,15 @@ HTML5 , CSS3 , Javascript ES6+(korisceno var radi ceste potrebe redeklarisanja i
 Koriscene ikonice iz Font-awesome,I slike sa sajtova Unsplash i Pexels.   
 
 ## DODATNO: 
+-POPRAVLJENO SA PRVOG DOMACEG 
+1.GLAVNI NAVIGACIONI MENI SADRZI SAMO STVARI PO SPECIFIKACIJI I RESPONSIVE JE NA SVIM UREDJAJIMA 
+2.TERETANE STAVKA TJ. GLAVNA STRANA JE UREDNIJA I CITLJIVIJA NEGO PRE
+3.TRENINZI POPRAVLJENI UCITAVAJU SE BOLJE I CITLJIVIJI SU
+4.IZMENIO KOMPLETNO RESPONSIVE JE I CITLJIVIJE JE 
+5.DODAO SAM POP UP REGISTRACIJU KORISNIKA I PRIJAVLJIVANJE KORISNIKA(LOG IN & SIGN UP pop up-ovi)
+
+
+
 -Biblioteka bootstrap koriscena sa ovih linkova(nisu ukljucene kao lokalni fajl nego kao cdn link jer je brze,...):
 #CSS bootstrap
 Klikom na ovaj link ->[LINK](https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css) idete na oficijalni bootstrap fajl za css.
@@ -23,11 +32,14 @@ Klikom na ovaj link ->[LINK](https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/c
 Klikom na ovaj link ->[LINK](https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js) idete na oficijalni bootstrap fajl za javascript.
 
 -Biblioteka JQuery koriscena verzija 3.6.1 minimalna sa ovog linka:
-https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js
+[lINK DO JQUERY VERZIJE](https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js)
 
--podaci_teretane.json 
 
 -ZA NAPOMENUT:
+-Od dodatnih funkcionalnosti:
+O nama i O teretani sekcije sa malo teksta koje ucitavaju iz baze duzi opis teretane ovo je takodje stavljeno kao link u glavni navigacioni meni
+
+
 -U ovom projektu sam se koristio sintaksom drugacijom od one na vezbama tj. nisam se koristio kreiranjem XMLHttpRequest-a i izmene podataka u bazi uz pomoc GET,PUT,DELETE metoda nego sam implementirao firebase aplikaciju sa dva linka u head-u i postavio apiKey,projectId i databaseURL samog projekta koristeci se tako ugradjenim funkcijama koje su poblize objasnjene u firebase dokumentaciji dobio sam rezultate koji se traze po specifikaciji.Za vise informacija o funkcijama firebase-a mozete procitati u komentarima koda ili na linku:
 https://firebase.google.com/docs/database/admin/save-data  cuvanje podataka iz baze
 https://firebase.google.com/docs/database/admin/retrieve-data  Ucitavanje podataka iz baze
