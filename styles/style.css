@@ -73,3 +73,6 @@ p{
 #contact{
   width:65vw;
 }
+form i{
+  cursor: pointer;
+}
