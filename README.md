@@ -1,5 +1,8 @@
 ## Ime projekta: WD-SR-16-2022
 
+##Email i kontakt: 
+radic.sr16.2022@uns.ac.rs
+
 ## Ime Prezime studenta:
 Ognjen Radić  
 

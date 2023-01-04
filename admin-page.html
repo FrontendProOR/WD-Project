@@ -65,12 +65,9 @@
           </table>
         </div>
       </div>
-      <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Launch static backdrop modal
-</button>
       <!-- Scrollable modal static its not closing until you click sign "X" or "Zatvori" button because it's anoying to type user data for a few minutes and then lose all off it after missing a button at the end of the form. -->
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
           <div class="modal-content">
             <div class="modal-header">
@@ -78,71 +75,60 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <!--Add user form-->
-                <div class="bg-light container w-75">
-                  <p class="h4 text-center">Dodaj korisnika</p>
-                  <form>
-                    <div class="form-row px-3">
-                      <div class="col-md-4 mb-3 mx-2">
-                        <label class="form-label" for="validationDefault01">Ime</label>
-                        <input type="text" class="form-control" id="validationDefault01" placeholder="Ime" value="" required>
-                      </div>
-                      <div class="col-md-4 mb-3 mx-2">
-                        <label class="form-label" for="validationDefault02">Prezime</label>
-                        <input type="text" class="form-control" id="validationDefault02" placeholder="Prezime" value=""
-                          required>
-                      </div>
-                      <div class="form-group mb-3 mx-2">
-                        <label class="form-label" for="exampleFormControlInput1">Email adresa</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
-                          required>
-                      </div>
-                      <div class="form-group mb-3 mx-2">
-                        <label class="form-label" for="inputPassword2" class="sr-only">Lozinka</label>
-                        <input type="password" class="form-control" id="inputPassword2" placeholder="Lozinka" required>
-                      </div>
-                      <div class="form-group mb-3 mx-2">
-                        <label class="form-label" for="birthDate">Datum rodjenja</label>
-                        <input id="birthDate" class="form-control" type="date" / required>
-                      </div>
-                      <div class="form-group mb-3 mx-2">
-                        <label class="form-label" for="phone">Broj telefona</label>
-                        <input type="text" id="phone" class="form-control" data-mdb-input-mask="+381 999-999-999"
-                          placeholder="Upisite broj telefona" required />
-                      </div>
-                      <div class="col-md-4 mb-3 mx-2">
-                        <label class="form-label" for="validationDefaultUsername">Korisnicko ime</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                          </div>
-                          <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Korisnicko ime"
-                            aria-describedby="inputGroupPrepend2" required>
-                        </div>
-                      </div>
-                      <div class="form-row">
-                        <div class="col-md-6 mb-3 mx-2">
-                          <label class="form-label" for="validationDefault03">Adresa</label>
-                          <input type="text" class="form-control" id="validationDefault03" placeholder="Adresa" required>
-                        </div>
-                      </div>
-                      <div class="form-group mb-2 mx-2">
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                          <label class="form-check-label" for="invalidCheck2">
-                            Prihvatam uslove koriscenja i pristajem na odradu mojih podataka
-                          </label>
-                        </div>
-                      </div>
-                      <!-- <button class="btn btn-primary mb-2" type="submit">Dodaj ili izmeni</button> -->
+              <!--Add user form-->
+              <div class="bg-light container w-75">
+                <p class="h4 text-center">Dodaj korisnika</p>
+                <form>
+                  <div class="form-row px-3">
+                    <div class="col-md-4 mb-3 mx-2">
+                      <label class="form-label" for="ime">Ime</label>
+                      <input type="text" class="form-control" id="ime" placeholder="Ime">
                     </div>
-                  </form>
-                </div>
-              
+                    <div class="col-md-4 mb-3 mx-2">
+                      <label class="form-label" for="prezime">Prezime</label>
+                      <input type="text" class="form-control" id="prezime" placeholder="Prezime">
+                    </div>
+                    <div class="form-group mb-3 mx-2">
+                      <label class="form-label" for="email">Email adresa</label>
+                      <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    </div>
+                    <div class="form-group mb-3 mx-2">
+                      <label class="form-label" for="lozinka" class="sr-only">Lozinka</label>
+                      <input type="password" class="form-control" id="lozinka" placeholder="Lozinka">
+                    </div>
+                    <div class="form-group mb-3 mx-2">
+                      <label class="form-label" for="datumRodjenja">Datum rodjenja</label>
+                      <input id="datumRodjenja" class="form-control" type="date" />
+                    </div>
+                    <div class="form-group mb-3 mx-2">
+                      <label class="form-label" for="brojTelefona">Broj telefona</label>
+                      <input type="text" id="brojTelefona" class="form-control" data-mdb-input-mask="+381 999-999-999"
+                        placeholder="Upisite broj telefona" />
+                    </div>
+                    <div class="col-md-4 mb-3 mx-2">
+                      <label class="form-label" for="korisnickoIme">Korisnicko ime</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                        </div>
+                        <input type="text" class="form-control" id="korisnickoIme" placeholder="Korisnicko ime"
+                          aria-describedby="inputGroupPrepend2">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-md-6 mb-3 mx-2">
+                        <label class="form-label" for="adresa">Adresa</label>
+                        <input type="text" class="form-control" id="adresa" placeholder="Adresa">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
-              <button type="button" class="btn btn-primary" type="submit" data-bs-dismiss="modal">Kreiraj ili izmeni</button>
+              <button type="button" class="btn btn-primary" type="submit" data-bs-dismiss="modal">Kreiraj ili
+                izmeni</button>
             </div>
           </div>
         </div>
@@ -199,10 +185,8 @@
   </footer>
 
   <script type="text/javascript">
-    //Ucitavanje korisnicke tabele
-    // dobija referencu za korisnike u bazi podataka
+    //Ucitavanje korisnicke tabele dobija referencu za korisnike u bazi podataka
     var usersRef = firebase.database().ref('korisnici');
-
     // on() metod se koristi da prati promene podataka u korisnickoj lokaciji
     usersRef.on('value', function (snapshot) {
       // Hvata trenutno stanje korisnika i njihovih vrednosti
@@ -221,12 +205,12 @@
         var row = document.createElement('tr');
         row.dataset.id = currentUserCount - 1;
         row.id = userSnapshot.key;
-        row.innerHTML = `<td>${currentUserCount}</td>` + '<td>' + user.ime + '</td><td>' + user.prezime + '</td><td>' + user.email + '</td><td><a href="#">profil</a></td><td><button class="btn btn-danger" type="button"  onclick="deleteUserRow(this)">Deaktiviraj korisnika</button></td><td><button class="btn btn-primary">Izmeni</button></td>';
+        row.innerHTML = `<td>${currentUserCount}</td>` + '<td>' + user.ime + '</td><td>' + user.prezime + '</td><td>' + user.email + '</td><td><a href="#">profil</a></td><td><button class="btn btn-danger" type="button"  onclick="deleteUserRow(this)">Deaktiviraj korisnika</button></td><td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="izmeni(this)">Izmeni</button></td>';
         document.getElementById('table-body').appendChild(row);
       });
     });
 
-    //Ucitavanje teretana u tabelu
+    //Ucitavanje teretana u tabelu kao redove tabele
     function loadGymsTable() {
       // dobija referencu za teretane u bazi podataka
       var gymsRef = firebase.database().ref('fitnesCentri');
@@ -249,14 +233,12 @@
           var row = document.createElement('tr');
           row.dataset.id = currentGymCount - 1;
           row.id = gymSnapshot.key;
-          row.innerHTML = `<td>${currentGymCount}</td>` + '<td>' + gym.naziv + '</td><td>' + gym.adresa + '</td><td><a href="gym-pages/gym.html">Teretana</a></td><td><button class="btn btn-danger" type="button" onclick="deleteGymRow(this)">Izbrisi teretanu</button></td><td><button class="btn btn-primary">Izmeni</button></td>';
+          row.innerHTML = `<td>${currentGymCount}</td>` + '<td>' + gym.naziv + '</td><td>' + gym.adresa + '</td><td><a href="gym-pages/gym.html">Teretana</a></td><td><button class="btn btn-danger" type="button" onclick="deleteGymRow(this)">Izbrisi teretanu</button></td>';
           document.getElementById('table-body1').appendChild(row);
         });
       });
     }
     //brise trenutni red
-    //NAPRAVITI delete funkciju za teretane i korisnike
-
     function deleteUserRow(r) {
       //data-bs-toggle="modal" data-bs-target="#delRowModal" usled potrebe da se prosledi red u tabeli tj. pokazivac this koji je red "tr" imao sam opciju ili JQuery ili napraviti objekat upotrebio sam JQuery za otvaranje modala
       //prvo pokaze dijalog
@@ -283,7 +265,24 @@
         window.location.reload(true);
       });
     }
-      //dodati modal za izmenu podataka na dugme izmeni otvara modal i formu unutar njega a u modalu se nalaze svi podatci tog reda
+    //ova funkcija uzima parametar celiju i vratim na red i onda uzmem id tog reda onda id ubacim da trazim adresu iz firebasa i onda vrednost te adrese stavim u user i onda iz user ucitam u value u formi koja je u dijalogu
+    function izmeni(r) {
+      var row = r.parentNode.parentNode;
+      var usersRef = firebase.database().ref('korisnici/'+`${row.id}/`);
+      usersRef.on('value', function (snapshot) {
+      var user = snapshot.val();
+      var prezime = document.getElementById('ime').value = user.ime;
+      var prezime = document.getElementById('prezime').value = user.prezime;
+      var email = document.getElementById('email').value = user.email;
+      var lozinka = document.getElementById('lozinka').value = user.lozinka;
+      var datumRodjenja = document.getElementById('datumRodjenja').value = user.datumRodjenja;
+      var brojTelefona = document.getElementById('brojTelefona').value = user.telefon;
+      var korisnickoIme = document.getElementById('korisnickoIme').value = user.korisnickoIme;
+      var adresa = document.getElementById('adresa').value = user.adresa;
+    
+    });
+
+    }
   </script>
 </body>
 
