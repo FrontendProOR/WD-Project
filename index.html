@@ -22,6 +22,7 @@
       databaseURL: "https://wd-sr-16-2022-default-rtdb.firebaseio.com"
     });
   </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -51,7 +52,7 @@
           </a>
           <a href="#" class="nav-link">
             <div data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-              <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#signUpModal">
+              <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <li class="nav-item ms-2">
                   <span>
                     Registruj se
@@ -69,7 +70,7 @@
                 </span>
               </li>
             </button></a>
-          
+
           <a href="admin-page.html" class="nav-link">
             <button type="button" class="btn btn-primary my-1" data-bs-toggle="collapse"
               data-bs-target=".navbar-collapse.show">
@@ -126,83 +127,74 @@
     </div>
   </div>
   <!-- The Modal sign up -->
-  <div class="modal fade" id="signUpModal">
-    <div class="modal-dialog">
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
       <div class="modal-content">
-
-        <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Registruj se</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Registracija Korisnika</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
-        <!-- Modal body -->
         <div class="modal-body">
-          <form>
-            <div class="form-row px-3">
-              <div class="col-md-4 mb-3 mx-2">
-                <label class="form-label" for="validationDefault01">Ime</label>
-                <input type="text" class="form-control" id="validationDefault01" placeholder="Ime" value="Mika"
-                  required>
-              </div>
-              <div class="col-md-4 mb-3 mx-2">
-                <label class="form-label" for="validationDefault02">Prezime</label>
-                <input type="text" class="form-control" id="validationDefault02" placeholder="Prezime" value="Zikic"
-                  required>
-              </div>
-              <div class="form-group mb-3 mx-2">
-                <label class="form-label" for="exampleFormControlInput1">Email adresa</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
-                  required>
-              </div>
-              <div class="form-group mb-3 mx-2">
-                <label class="form-label" for="inputPassword2" class="sr-only">Sifra</label>
-                <input type="password" class="form-control" id="inputPassword2" placeholder="Sifra" required>
-              </div>
-              <div class="form-group mb-3 mx-2">
-                <label class="form-label" for="birthDate">Datum rodjenja</label>
-                <input id="birthDate" class="form-control" type="date" required />
-              </div>
-              <div class="form-group mb-3 mx-2">
-                <label class="form-label" for="phone">Broj telefona</label>
-                <input type="text" id="phone" class="form-control" data-mdb-input-mask="+381 999-999-999" required />
-              </div>
-              <div class="col-md-4 mb-3 mx-2">
-                <label class="form-label" for="validationDefaultUsername">Korisnicko ime</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
+          <!--Add user form-->
+          <div class="bg-light container w-75">
+            <form>
+              <div class="form-row px-3">
+                <div class="col-md-4 mb-3 mx-2">
+                  <label class="form-label" for="ime">Ime</label>
+                  <input type="text" class="form-control" id="ime" placeholder="Ime">
+                </div>
+                <div class="col-md-4 mb-3 mx-2">
+                  <label class="form-label" for="prezime">Prezime</label>
+                  <input type="text" class="form-control" id="prezime" placeholder="Prezime">
+                </div>
+                <div class="form-group mb-3 mx-2">
+                  <label class="form-label" for="email">Email adresa</label>
+                  <input type="text" class="form-control" id="email" placeholder="Unesite vas mejl">
+                </div>
+                <div class="form-group mb-3 mx-2">
+                  <label class="form-label" for="lozinka" class="sr-only">Lozinka</label>
+                  <input type="password" class="form-control" id="lozinka" placeholder="Lozinka">
+                  <p style="font-size: smaller;">Unesite minimum 8 karaktera sa velikim i malim slovima i simbolom.</p>
+                </div>
+                <div class="form-group mb-3 mx-2">
+                  <label class="form-label" for="datumRodjenja">Datum rodjenja</label>
+                  <input id="datumRodjenja" class="form-control" type="date" />
+                </div>
+                <div class="form-group mb-3 mx-2">
+                  <label class="form-label" for="brojTelefona">Broj telefona</label>
+                  <input type="text" id="brojTelefona" class="form-control" data-mdb-input-mask="+381 999-999-999"
+                    placeholder="Upisite broj telefona" />
+                </div>
+                <div class="col-md-4 mb-3 mx-2">
+                  <label class="form-label" for="korisnickoIme">Korisnicko ime</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                    </div>
+                    <input type="text" class="form-control" id="korisnickoIme" placeholder="Korisnicko ime"
+                      aria-describedby="inputGroupPrepend2">
                   </div>
-                  <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Korisnicko ime"
-                    aria-describedby="inputGroupPrepend2" required>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3 mx-2">
+                    <label class="form-label" for="adresa">Adresa</label>
+                    <input type="text" class="form-control" id="adresa" placeholder="Adresa">
+                  </div>
                 </div>
               </div>
-              <div class="form-row">
-                <div class="col-md-6 mb-3 mx-2">
-                  <label class="form-label" for="validationDefault03">Adresa</label>
-                  <input type="text" class="form-control" id="validationDefault03" placeholder="Adresa" required>
-                </div>
-              </div>
-              <div class="form-group mb-2 mx-2">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                  <label class="form-check-label" for="invalidCheck2">
-                    Prihvatam uslove koriscenja i pristajem na odradu mojih podataka
-                  </label>
-                </div>
-              </div>
-              <button class="btn btn-primary" type="submit">Submit</button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
-
-        <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+          <button type="button" class="btn btn-primary" type="submit" data-bs-dismiss="modal" onclick="registracija()">Izmeni</button>
         </div>
       </div>
     </div>
   </div>
+
+
 
   <!--Welcome message-->
   <section class="text-center mt-4 " id="welcome-msg">
@@ -215,7 +207,7 @@
 
   <!--Gym options-->
   <div class="row bg-primary bg-gradient mw-100 gym-options" id="cards-box">
-    
+
   </div>
 
   <!-- About section-->
@@ -233,10 +225,14 @@
               <li>Za sve koji žele da se opuste, nakon napornih treninga ili poslovnih obaveza, naša teretana obezbedila
                 je saunu koja je najbolje rešenje za to.</li>
               <li>Dođite i posetite naše teretane na adresama toj i toj i uverite se zasto smo najbolji.</li>
-              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem ullam voluptatibus omnis dolor excepturi dolorem!</li>
-              <li> Vitae porro modi dignissimos deleniti? Nobis ea modi asperiores veritatis, animi sequi iste tenetur voluptates!</li>
-              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem ullam voluptatibus omnis dolor excepturi dolorem!</li>
-              <li> Vitae porro modi dignissimos deleniti? Nobis ea modi asperiores veritatis, animi sequi iste tenetur voluptates!</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem ullam voluptatibus omnis dolor
+                excepturi dolorem!</li>
+              <li> Vitae porro modi dignissimos deleniti? Nobis ea modi asperiores veritatis, animi sequi iste tenetur
+                voluptates!</li>
+              <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem ullam voluptatibus omnis dolor
+                excepturi dolorem!</li>
+              <li> Vitae porro modi dignissimos deleniti? Nobis ea modi asperiores veritatis, animi sequi iste tenetur
+                voluptates!</li>
             </ul>
           </div>
         </div>
@@ -253,66 +249,123 @@
     </div>
   </footer>
   <script>
-          //Ucitavanje kartica na glavnoj strani
-      // dobija referencu za teretane u bazi podataka
-        var gymsRef = firebase.database().ref('fitnesCentri');
+    //Ucitavanje kartica na glavnoj strani
+    // dobija referencu za teretane u bazi podataka
+    var gymsRef = firebase.database().ref('fitnesCentri');
 
-        // on() metod se koristi da prati promene podataka u lokaciji fitnesCentri
-        gymsRef.on('value', function (snapshot) {
-          // Hvata trenutno stanje teretane i njihove vrednosti
-          var gyms = snapshot.val();
+    // on() metod se koristi da prati promene podataka u lokaciji fitnesCentri
+    gymsRef.on('value', function (snapshot) {
+      // Hvata trenutno stanje teretane i njihove vrednosti
+      var gyms = snapshot.val();
 
-          // forEach() metod iterira kroz teretane svaku pojedinacno
-          snapshot.forEach(function (gymSnapshot) {
-            // kljuc i podatci za trenutnog korisnika
-            let key = gymSnapshot.key;
-            let gym = gymSnapshot.val();
+      // forEach() metod iterira kroz teretane svaku pojedinacno
+      snapshot.forEach(function (gymSnapshot) {
+        // kljuc i podatci za trenutnog korisnika
+        let key = gymSnapshot.key;
+        let gym = gymSnapshot.val();
 
-            // Kreira kartice teretana u glavnom fajlu
-            var kartica = document.createElement('div');
-            kartica.classList.add("col-sm-4","d-flex","justify-content-around","align-items-center","my-1","p-4");
-            
-            var podkartica = document.createElement('div');
-            podkartica.classList.add("card","p-2","cards","mb-3","mt-2");
-            podkartica.innerHTML = "<img src='"+ gym.slika+"' width='180px' height='170px' alt='Image of Gym from DB'class='card-img-top' referrerpolicy='no-referrer'>";
-            kartica.appendChild(podkartica);
+        // Kreira kartice teretana u glavnom fajlu
+        var kartica = document.createElement('div');
+        kartica.classList.add("col-sm-4", "d-flex", "justify-content-stretch", "h-100","align-items-baseline", "my-2", "p-4");
+        kartica.id = gymSnapshot.key;
 
-            if(gym.naziv.length<= 11){
-              var naziv = document.createElement('p');
-              naziv.innerText = gym.naziv;
-              naziv.style.fontSize = "1rem";
-              naziv.style.fontWeight = "bold";
-            }else{
-              var naziv = document.createElement('p');
-              naziv.innerText = gym.naziv;
-              naziv.style.fontSize = "1rem";
-              naziv.style.fontWeight = "bold";
-              naziv.style.marginTop = "0px";
-              naziv.style.marginBottom = "0px";
-            }
-            naziv.classList.add("card-title","d-flex","justify-content-center");
+        var podkartica = document.createElement('div');
+        podkartica.classList.add("card", "p-2", "cards", "mb-3", "mt-2");
+        podkartica.innerHTML = "<img src='" + gym.slika + "' width='170px' height='245px' alt='Image of Gym from DB'class='card-img-top' referrerpolicy='no-referrer'>";
+        kartica.appendChild(podkartica);
 
-            var tekst = document.createElement('p');
-            tekst.innerText = "Some quick example text to build on the card title and make up the bulk of the card's content.";
-            tekst.classList.add("card-text");
+        if (gym.naziv.length <= 12) {
+          var naziv = document.createElement('p');
+          naziv.innerText = gym.naziv;
+          naziv.style.fontWeight = "bold";
+          naziv.classList.add("p-2");
+        } else {
+          var naziv = document.createElement('p');
+          naziv.innerText = gym.naziv;
+          naziv.style.fontWeight = "bold";
+          naziv.classList.add("p-2");
+        }
+        naziv.classList.add("card-title", "d-flex", "justify-content-center");
 
-            var linkDoTeretane = document.createElement('a');
-            linkDoTeretane.href = "gym-pages/gym.html";
-            linkDoTeretane.classList.add("btn","btn-primary","d-flex","justify-content-center","align-items-end");
-            linkDoTeretane.innerText = "Posjeti Teretanu";
+        var tekst = document.createElement('p');
+        tekst.innerText = "Trenutno u ovoj teretani imate na raspolaganju cak : "+ gym.brojDostupnihTreninga+" dostupnih treninga.Zbog cijeg kvaliteta je ova teretana dobro poznata i ima "+gym.prosecnaOcena+" prosecnu ocenu od korisnika nasih usluga.Ova teretana je otvorena : " + gym.godinaOtvaranja + " godine.";
+        tekst.classList.add("card-text");
+        tekst.style.fontSize = "small";
 
-            var textIspodKartice = document.createElement("div");
-            textIspodKartice.classList.add("card-body");
-            textIspodKartice.appendChild(naziv);
-            textIspodKartice.appendChild(tekst);
-            textIspodKartice.appendChild(linkDoTeretane);
-            podkartica.appendChild(textIspodKartice);
+        var clanarina = document.createElement('p');
+        clanarina.innerText = "Clanarina je: " + gym.mesecnaClanarina + " dinara.";
+        clanarina.classList.add("text-center")
 
-            document.getElementById('cards-box').appendChild(kartica);
-          });
+        var linkDoTeretane = document.createElement('a');
+        linkDoTeretane.href = "gym-pages/gym.html";
+        linkDoTeretane.classList.add("my-2")
+        linkDoTeretane.classList.add("btn", "btn-primary", "d-flex", "justify-content-center", "align-items-end");
+        linkDoTeretane.innerText = "Posjeti Teretanu";
+
+        var textIspodKartice = document.createElement("div");
+        textIspodKartice.classList.add("card-body","my-0");
+        textIspodKartice.appendChild(naziv);
+        textIspodKartice.appendChild(tekst);
+        textIspodKartice.appendChild(clanarina);
+        textIspodKartice.appendChild(linkDoTeretane);
+        podkartica.appendChild(textIspodKartice);
+
+        document.getElementById('cards-box').appendChild(kartica);
+      });
+    });
+
+    //takodje napravi ucitavanje kartica u listi treninga ili ti gym.html
+    var ime = document.getElementById('ime');
+    var prezime = document.getElementById('prezime');
+    var email = document.getElementById('email');
+    var lozinka = document.getElementById('lozinka');
+    var datumRodjenja = document.getElementById('datumRodjenja');
+    var brojTelefona = document.getElementById('brojTelefona');
+    var korisnickoIme = document.getElementById('korisnickoIme');
+    var adresa = document.getElementById('adresa');
+
+    function registracija() {
+      var usersRef = firebase.database().ref('korisnici');
+      
+        var user = 
+
+        $("#staticBackdrop").on("click", ".btn-primary", function () {
+            if(validacijaPodataka()){ 
+            var users = usersRef.push();
+            users.set({
+                "ime": ime.value,
+                "prezime": prezime.value,
+                "email": email.value,
+                "lozinka": lozinka.value,
+                "datumRodjenja": datumRodjenja.value,
+                "telefon": brojTelefona.value,
+                "korisnickoIme": korisnickoIme.value,
+                "adresa": adresa.value
+            });
+          }else{
+            alert("Pokusajte ponovo!");
+          }
+            window.location.reload(true);
         });
-        //napravi sad listu brojeva neki range koji je od 0 do duzine ili ti broja objekata u bazi fitnesCentri i onda taj broj prosledi u link ili nekako da odredi broj element koji ce ucitati u listi treninga
-        //takodje napravi ucitavanje kartica u listi treninga ili ti gym.html
+      
+    }
+    function validacijaPodataka(){
+      let imePrezimeKorisnickoImeRegex = /^([ \u00c0-\u01ffa-zA-Z'\-])+$/;//od malih slova do velikih i spejsova
+      let textNumRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;//password veliko malo slovo min 8 karaktera
+      let adresaRegex = /[a-zA-Z0-9\s\"\'\.\,]/;//adresa regex slova brojevi zarez minus space tacka navodnici
+      let emailRegex =/[\w\.-]+@[\w\.-]+\.\w{2,4}/;//email jedan od ovih pet
+      let proslo = true;
+      if(!imePrezimeKorisnickoImeRegex.test(ime) ||
+      !imePrezimeKorisnickoImeRegex.test(prezime) ||
+      !imePrezimeKorisnickoImeRegex.test(korisnickoIme) ||
+      !textNumRegex.test(lozinka) ||
+      !emailRegex.test(email) ||
+      !adresaRegex.test(adresa) 
+      ){ proslo = false;}
+      return proslo;
+      //Ne radi regex provera neki od njih
+    }
+    
   </script>
 </body>
 
