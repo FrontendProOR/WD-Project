@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glavna strana</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="scripts/main.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-database.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey: "AIzaSyCXyifkn1oJUFdR_g_jBw1tEgZHOxK_fF4",
+      projectId: "wd-sr-16-2022",
+      databaseURL: "https://wd-sr-16-2022-default-rtdb.firebaseio.com"
+    });
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <!--Navigation-->
+  <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-md">
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse justify-content-center" id="navbar" navbar>
+      <div class="d-flex justify-content-center">
+        <ul class="navbar-nav">
+          <a href="index.html" class="nav-link">
+            <button type="button" class="btn btn-primary my-1">
+              <li class="nav-item ms-2">Glavna</li>
+            </button>
+          </a>
+          <a href="#" class="nav-link">
+            <div data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+              <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#signInModal">
+                <li class="nav-item ms-2">
+                  <span data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                    Uloguj se
+                  </span>
+                </li>
+              </button>
+            </div>
+          </a>
+          <a href="#" class="nav-link">
+            <div data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+              <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">
+                <li class="nav-item ms-2">
+                  <span>
+                    Registruj se
+                  </span>
+                </li>
+              </button>
+            </div>
+          </a>
+          <a href="admin-page.html" class="nav-link">
+            <button type="button" class="btn btn-primary my-1" data-bs-toggle="collapse"
+              data-bs-target=".navbar-collapse.show">
+              <li class="nav-item ms-2">
+                <span>
+                  Admin page
+                </span>
+              </li>
+            </button>
+          </a>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- The Modal sign in -->
+  <div class="modal fade" id="signInModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Uloguj se</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email adresa</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Unesi email" required>
+              <small id="emailHelp" class="form-text text-muted">Vas mejl je bezbedan sa nama.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Sifra</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Unesite sifru"
+                required>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Uslovi koriscenja</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Uloguj se</button>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Modal sign up -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Registracija Korisnika</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!--Add user form-->
+          <div class="bg-light container w-75">
+            <form>
+              <div class="form-row px-3">
+                <div class="col-md-4 mb-3 mx-2">
+                  <label class="form-label" for="ime">Ime</label>
+                  <input type="text" class="form-control" id="ime" placeholder="Ime">
+                </div>
+                <div class="col-md-4 mb-3 mx-2">
+                  <label class="form-label" for="prezime">Prezime</label>
+                  <input type="text" class="form-control" id="prezime" placeholder="Prezime">
+                </div>
+                <div class="form-group mb-3 mx-2">
+                  <label class="form-label" for="email">Email adresa</label>
+                  <input type="text" class="form-control" id="email" placeholder="Unesite vas mejl">
+                </div>
+                <div class="form-group mb-3 mx-2">
+                  <label class="form-label" for="lozinka" class="sr-only">Lozinka</label>
+                  <input type="password" class="form-control" id="lozinka" placeholder="Lozinka">
+                  <p style="font-size: smaller;">Unesite minimum 8 karaktera sa velikim i malim slovima i simbolom.</p>
+                </div>
+                <div class="form-group mb-3 mx-2">
+                  <label class="form-label" for="datumRodjenja">Datum rodjenja</label>
+                  <input id="datumRodjenja" class="form-control" type="date" />
+                </div>
+                <div class="form-group mb-3 mx-2">
+                  <label class="form-label" for="brojTelefona">Broj telefona</label>
+                  <input type="text" id="brojTelefona" class="form-control" data-mdb-input-mask="+381 999-999-999"
+                    placeholder="Upisite broj telefona" />
+                </div>
+                <div class="col-md-4 mb-3 mx-2">
+                  <label class="form-label" for="korisnickoIme">Korisnicko ime</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                    </div>
+                    <input type="text" class="form-control" id="korisnickoIme" placeholder="Korisnicko ime"
+                      aria-describedby="inputGroupPrepend2">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3 mx-2">
+                    <label class="form-label" for="adresa">Adresa</label>
+                    <input type="text" class="form-control" id="adresa" placeholder="Adresa">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+          <button type="button" class="btn btn-primary" type="submit" data-bs-dismiss="modal"
+            onclick="registracija()">Izmeni</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer-->
+  <footer class="py-3 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; AllTimeFit 2022</p>
+    </div>
+  </footer>
+
+  <script>
+    var ime = document.getElementById('ime');
+    var prezime = document.getElementById('prezime');
+    var email = document.getElementById('email');
+    var lozinka = document.getElementById('lozinka');
+    var datumRodjenja = document.getElementById('datumRodjenja');
+    var brojTelefona = document.getElementById('brojTelefona');
+    var korisnickoIme = document.getElementById('korisnickoIme');
+    var adresa = document.getElementById('adresa');
+
+    function registracija() {
+      var usersRef = firebase.database().ref('korisnici');
+
+      
+
+        $("#staticBackdrop").on("click", ".btn-primary", function () {
+          if (validacijaPodataka()) {
+            var users = usersRef.push();
+            users.set({
+              "ime": ime.value,
+              "prezime": prezime.value,
+              "email": email.value,
+              "lozinka": lozinka.value,
+              "datumRodjenja": datumRodjenja.value,
+              "telefon": brojTelefona.value,
+              "korisnickoIme": korisnickoIme.value,
+              "adresa": adresa.value
+            });
+          } else {
+            alert("Pokusajte ponovo!");
+          }
+          window.location.reload(true);
+        });
+
+    }
+    function validacijaPodataka() {
+      let imePrezimeKorisnickoImeRegex = /^([ \u00c0-\u01ffa-zA-Z'\-])+$/;//od malih slova do velikih i spejsova
+      let textNumRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;//password veliko malo slovo min 8 karaktera
+      let adresaRegex = /[a-zA-Z0-9\s\"\'\.\,]/;//adresa regex slova brojevi zarez minus space tacka navodnici
+      let emailRegex = /[\w\.-]+@[\w\.-]+\.\w{2,4}/;//email jedan od ovih pet
+      let proslo = true;
+      if (!imePrezimeKorisnickoImeRegex.test(ime) ||
+        !imePrezimeKorisnickoImeRegex.test(prezime) ||
+        !imePrezimeKorisnickoImeRegex.test(korisnickoIme) ||
+        !textNumRegex.test(lozinka) ||
+        !emailRegex.test(email) ||
+        !adresaRegex.test(adresa)
+      ) { proslo = false; }
+      return proslo;
+      //Ne radi regex provera neki od njih
+    }
+
+  </script>
+</body>
+
+</html>

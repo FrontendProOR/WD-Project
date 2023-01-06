@@ -153,58 +153,59 @@
           <tbody id="table-body1"></tbody>
         </table>
       </div>
-            
-            <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdrop1Label" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdrop1Label">Dodavanje Teretana</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <!--Add gym form-->
-                  <div class="bg-light container w-75">
-                    <p class="h4 text-center">Dodaj teretanu</p>
-                    <form>
-                      <div class="form-row px-3">
-                        <div class="form-group mb-3 mx-2">
-                          <label class="form-label" for="adresa1">Adresa</label>
-                          <input type="text" class="form-control" id="adresa1" placeholder="Adresa">
-                        </div>
-                        <div class="form-group mb-3 mx-2">
-                          <label class="form-label" for="brojDostupnihTreninga">Broj dostupnih treninga</label>
-                          <input type="text" class="form-control" id="brojDostupnihTreninga" placeholder="Broj dostupnih treninga">
-                        </div>
-                        <div class="form-group mb-3 mx-2">
-                          <label class="form-label" for="godinaOtvaranja">Godina otvaranja</label>
-                          <input type="text" class="form-control" id="godinaOtvaranja" placeholder="Godine otvaranja">
-                        </div>
-                        <div class="form-group mb-3 mx-2">
-                          <label class="form-label" for="mesecnaClanarina">Mesecna clanarina</label>
-                          <input type="text" class="form-control" id="mesecnaClanarina" placeholder="Mesecna clanarina">
-                        </div>
-                        <div class="form-group mb-3 mx-2">
-                          <label class="form-label" for="naziv">Naziv</label>
-                          <input type="text" class="form-control" id="naziv" placeholder="Naziv">
-                        </div>
-                        <div class="form-group mb-3 mx-2 mb-2">
-                          <label class="form-label" for="slika1">Slika</label>
-                          <input type="text" class="form-control" id="slika1" placeholder="Unesite sliku">
-                        </div>
-                        
-                        
-                      </div>
-                    </form>
+
+      <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdrop1Label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdrop1Label">Dodavanje Teretana</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!--Add gym form-->
+              <div class="bg-light container w-75">
+                <p class="h4 text-center">Dodaj teretanu</p>
+                <form>
+                  <div class="form-row px-3">
+                    <div class="form-group mb-3 mx-2">
+                      <label class="form-label" for="adresa1">Adresa</label>
+                      <input type="text" class="form-control" id="adresa1" placeholder="Adresa">
+                    </div>
+                    <div class="form-group mb-3 mx-2">
+                      <label class="form-label" for="brojDostupnihTreninga">Broj dostupnih treninga</label>
+                      <input type="text" class="form-control" id="brojDostupnihTreninga"
+                        placeholder="Broj dostupnih treninga">
+                    </div>
+                    <div class="form-group mb-3 mx-2">
+                      <label class="form-label" for="godinaOtvaranja">Godina otvaranja</label>
+                      <input type="text" class="form-control" id="godinaOtvaranja" placeholder="Godine otvaranja">
+                    </div>
+                    <div class="form-group mb-3 mx-2">
+                      <label class="form-label" for="mesecnaClanarina">Mesecna clanarina</label>
+                      <input type="text" class="form-control" id="mesecnaClanarina" placeholder="Mesecna clanarina">
+                    </div>
+                    <div class="form-group mb-3 mx-2">
+                      <label class="form-label" for="naziv">Naziv</label>
+                      <input type="text" class="form-control" id="naziv" placeholder="Naziv">
+                    </div>
+                    <div class="form-group mb-3 mx-2 mb-2">
+                      <label class="form-label" for="slika1">Slika</label>
+                      <input type="text" class="form-control" id="slika1" placeholder="Unesite sliku">
+                    </div>
+
+
                   </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
-                  <button type="button" class="btn btn-primary" type="submit" data-bs-dismiss="modal">Izmeni</button>
-                </div>
+                </form>
               </div>
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="button" class="btn btn-primary" type="submit" data-bs-dismiss="modal">Izmeni</button>
+            </div>
           </div>
+        </div>
+      </div>
     </div>
   </div>
   <!--Modal for deleting the row from table-->
@@ -227,7 +228,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- Footer-->
   <footer class="py-3 bg-dark">
     <div class="container">
@@ -256,7 +257,7 @@
         var row = document.createElement('tr');
         row.dataset.id = currentUserCount - 1;
         row.id = userSnapshot.key;
-        row.innerHTML = `<td>${currentUserCount}</td>` + '<td>' + user.ime + '</td><td>' + user.prezime + '</td><td>' + user.email + '</td><td><a href="#">profil</a></td><td><button class="btn btn-danger" type="button"  onclick="deleteUserRow(this)">Deaktiviraj korisnika</button></td><td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="izmeni(this)">Izmeni</button></td>';
+        row.innerHTML = `<td>${currentUserCount}</td>` + '<td>' + user.ime + '</td><td>' + user.prezime + '</td><td>' + user.email + '</td><td><a href="user-profile.html">profil</a></td><td><button class="btn btn-danger" type="button"  onclick="deleteUserRow(this)">Deaktiviraj korisnika</button></td><td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="izmeni(this)">Izmeni</button></td>';
         document.getElementById('table-body').appendChild(row);
       });
     });
@@ -333,17 +334,17 @@
         //sad je zadatak izmeniti i poslati podatke u bazu da overrida u bazi trenutne podatke bez brisanja icega i da unos mora da ima validaciju da je uredu za bazu
 
         $("#staticBackdrop").on("click", ".btn-primary", function () {
-          var userRef = firebase.database().ref('korisnici/'+row.id);
+          var userRef = firebase.database().ref('korisnici/' + row.id);
           userRef.set({
-              "ime": document.getElementById('ime').value,
-              "prezime": document.getElementById('prezime').value,
-              "email": document.getElementById('email').value,
-              "lozinka": document.getElementById('lozinka').value,
-              "datumRodjenja": document.getElementById('datumRodjenja').value,
-              "telefon": document.getElementById('brojTelefona').value,
-              "korisnickoIme": document.getElementById('korisnickoIme').value,
-              "adresa": document.getElementById('adresa').value
-            
+            "ime": document.getElementById('ime').value,
+            "prezime": document.getElementById('prezime').value,
+            "email": document.getElementById('email').value,
+            "lozinka": document.getElementById('lozinka').value,
+            "datumRodjenja": document.getElementById('datumRodjenja').value,
+            "telefon": document.getElementById('brojTelefona').value,
+            "korisnickoIme": document.getElementById('korisnickoIme').value,
+            "adresa": document.getElementById('adresa').value
+
           });
           window.location.reload(true);
         });
@@ -352,7 +353,7 @@
     function izmeniGym(r) {
       var row = r.parentNode.parentNode;
       var gymsRef = firebase.database().ref('fitnesCentri/' + `${row.id}/`);
-      gymsRef.on('value', function (snapshot) { 
+      gymsRef.on('value', function (snapshot) {
         var gym = snapshot.val();//ovde je snapshot
         var adresa = document.getElementById('adresa1').value = gym.adresa;
         var brojDostupnihTreninga = document.getElementById('brojDostupnihTreninga').value = gym.brojDostupnihTreninga;
@@ -366,17 +367,17 @@
         var prosecnaOcena = gym.prosecnaOcena;
 
         $("#staticBackdrop1").on("click", ".btn-primary", function () {
-          var gymRef = firebase.database().ref('fitnesCentri/'+row.id);
+          var gymRef = firebase.database().ref('fitnesCentri/' + row.id);
           gymRef.set({
-              "adresa": document.getElementById('adresa1').value,
-              "brojDostupnihTreninga": document.getElementById('brojDostupnihTreninga').value,
-              "godinaOtvaranja": document.getElementById('godinaOtvaranja').value,
-              "mesecnaClanarina": document.getElementById('mesecnaClanarina').value,
-              "naziv": document.getElementById('naziv').value,
-              "slika": document.getElementById('slika1').value,
-              "idTreninga":idTreninga,
-              "ocene":ocene,
-              "prosecnaOcena":prosecnaOcena,
+            "adresa": document.getElementById('adresa1').value,
+            "brojDostupnihTreninga": document.getElementById('brojDostupnihTreninga').value,
+            "godinaOtvaranja": document.getElementById('godinaOtvaranja').value,
+            "mesecnaClanarina": document.getElementById('mesecnaClanarina').value,
+            "naziv": document.getElementById('naziv').value,
+            "slika": document.getElementById('slika1').value,
+            "idTreninga": idTreninga,
+            "ocene": ocene,
+            "prosecnaOcena": prosecnaOcena,
           });
           window.location.reload(true);
         });
