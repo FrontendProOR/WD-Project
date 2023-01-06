@@ -266,7 +266,7 @@
 
         // Kreira kartice teretana u glavnom fajlu
         var kartica = document.createElement('div');
-        kartica.classList.add("col-sm-4", "d-flex", "justify-content-stretch", "h-100","align-items-baseline", "my-2", "p-4");
+        kartica.classList.add("col-xl-3","col-md-4","col-sm-6","col-12", "justify-content-center","align-self-center", "my-2", "p-4");
         kartica.id = gymSnapshot.key;
 
         var podkartica = document.createElement('div');
@@ -274,17 +274,11 @@
         podkartica.innerHTML = "<img src='" + gym.slika + "' width='170px' height='245px' alt='Image of Gym from DB'class='card-img-top' referrerpolicy='no-referrer'>";
         kartica.appendChild(podkartica);
 
-        if (gym.naziv.length <= 12) {
           var naziv = document.createElement('p');
           naziv.innerText = gym.naziv;
           naziv.style.fontWeight = "bold";
           naziv.classList.add("p-2");
-        } else {
-          var naziv = document.createElement('p');
-          naziv.innerText = gym.naziv;
-          naziv.style.fontWeight = "bold";
-          naziv.classList.add("p-2");
-        }
+        
         naziv.classList.add("card-title", "d-flex", "justify-content-center");
 
         var tekst = document.createElement('p');
@@ -327,7 +321,7 @@
     function registracija() {
       var usersRef = firebase.database().ref('korisnici');
       
-        var user = 
+        
 
         $("#staticBackdrop").on("click", ".btn-primary", function () {
             if(validacijaPodataka()){ 
