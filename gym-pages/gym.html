@@ -433,9 +433,10 @@ trainingsRef.on('value', function (snapshot) {
         // kljuc i podatci za trenutnog treninga
         let key = trainingSnapshot.key;
         let training = trainingSnapshot.val();
-
+        
         var kartica = document.createElement("div");
         kartica.classList.add("col-xl-3","col-md-4","col-sm-6","col-12", "justify-content-center","align-self-center", "my-2", "p-4");
+        kartica.id = trainingSnapshot.key;
 
         var podkartica = document.createElement('div');
         podkartica.classList.add("card", "p-2", "cards", "mb-3", "mt-2");
@@ -449,16 +450,19 @@ trainingsRef.on('value', function (snapshot) {
 
         var tekst = document.createElement('p');
         tekst.innerText = training.kratakOpis;
-        tekst.style.height = "100px";
+        tekst.style.height = "31vh";
         tekst.classList.add("card-text");
         tekst.style.fontSize = "small";
 
 
         var linkDoTeretane = document.createElement('a');
         linkDoTeretane.href = "training/training.html";
-        linkDoTeretane.classList.add("my-2","btn", "btn-primary", "d-flex", "justify-content-center", "align-items-end");
+        linkDoTeretane.classList.add("my-2","treningDugmeZaId","btn", "btn-primary", "d-flex", "justify-content-center", "align-items-end");
         linkDoTeretane.innerText = "Posjeti Trening";
-        
+        $(".treningDugmeZaId").on('click', function(e){
+          var clickedId = e.target.parentNode.parentNode.parentNode.id;
+          localStorage.setItem("clickedTrainingId",clickedId);
+        });
 
         var textIspodKartice = document.createElement("div");
         textIspodKartice.classList.add("card-body","my-0");

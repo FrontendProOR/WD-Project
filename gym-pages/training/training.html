@@ -23,7 +23,7 @@
       databaseURL: "https://wd-sr-16-2022-default-rtdb.firebaseio.com"
     });
   </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -53,7 +53,8 @@
           </a>
           <a href="#" class="nav-link">
             <div data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-              <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">
                 <li class="nav-item ms-2">
                   <span>
                     Registruj se
@@ -71,7 +72,7 @@
                 </span>
               </li>
             </button></a>
-          
+
           <a href="../../admin-page.html" class="nav-link">
             <button type="button" class="btn btn-primary my-1" data-bs-toggle="collapse"
               data-bs-target=".navbar-collapse.show">
@@ -157,7 +158,8 @@
                 </div>
                 <div class="form-group mb-3 mx-2">
                   <label class="form-label" for="lozinka" class="sr-only">Lozinka</label>
-                  <input type="password" class="form-control" id="lozinka" placeholder="Lozinka" autocomplete="current-password">
+                  <input type="password" class="form-control" id="lozinka" placeholder="Lozinka"
+                    autocomplete="current-password">
                   <p style="font-size: smaller;">Unesite minimum 8 karaktera.</p>
                 </div>
                 <div class="form-group mb-3 mx-2">
@@ -200,26 +202,8 @@
 
 
   <!-- About section-->
-  <div class="row pt-4 pb-3 trening-box">
-    <section id="about-training">
-      <div class="container px-4">
-        <div class="row gx-4 justify-content-center">
-          <div class="col-lg-8">
-            <img class="card-img-top" src="../../images/training.jpg" alt="Card image cap">
-            <h2>O treningu</h2>
-            <p class="lead">Informacije o treningu: </p>
-            <ul>
-              <li>Naziv: </li>
-              <li>Kratak opis: </li>
-              <li>Tipovi treninga: </li>
-              <li>Trajanje: </li>
-              <li>Maksimalan broj osoba: </li>
-              <li>Detaljan opis: </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="row mt-5 pt-4 pb-3 trening-box" id="about-training">
+      
   </div>
 
 
@@ -232,7 +216,7 @@
   </footer>
   <script type="text/javascript">
     var usersRef = firebase.database().ref('korisnici');
-    
+
     var ime = document.getElementById('ime');
     var prezime = document.getElementById('prezime');
     var email = document.getElementById('email');
@@ -243,46 +227,46 @@
     var adresa = document.getElementById('adresa');
 
     function registracija() {
-      
-        $("#staticBackdrop").on("click", ".btn-primary", function () {
-            if(validacijaPodataka()){ 
-            var users = usersRef.push();
-            users.set({
-                "ime": ime.value,
-                "prezime": prezime.value,
-                "email": email.value,
-                "lozinka": lozinka.value,
-                "datumRodjenja": datumRodjenja.value,
-                "telefon": brojTelefona.value,
-                "korisnickoIme": korisnickoIme.value,
-                "adresa": adresa.value
-            });
-          }else{
-            alert("Pokusajte ponovo!");
-          }
-            window.location.reload(true);
-        });
-      
+
+      $("#staticBackdrop").on("click", ".btn-primary", function () {
+        if (validacijaPodataka()) {
+          var users = usersRef.push();
+          users.set({
+            "ime": ime.value,
+            "prezime": prezime.value,
+            "email": email.value,
+            "lozinka": lozinka.value,
+            "datumRodjenja": datumRodjenja.value,
+            "telefon": brojTelefona.value,
+            "korisnickoIme": korisnickoIme.value,
+            "adresa": adresa.value
+          });
+        } else {
+          alert("Pokusajte ponovo!");
+        }
+        window.location.reload(true);
+      });
+
     }
-    function validacijaPodataka(){
+    function validacijaPodataka() {
       let imePrezimeRegex = /[a-zA-Z]{2,20}$/;//od malih slova do velikih i spejsova
       let korisnickoImeRegex = /[a-zA-Z0-9]{2,15}$/;
       let passwordRegex = /^[a-zA-Z0-9!@#$&()`.+,/"-]{8,}/; // /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$ password veliko malo slovo min 8 karaktera i simbol
       let adresaRegex = /[a-zA-Z0-9\s\"\'\.\,]/;//adresa regex slova brojevi zarez minus space tacka navodnici
-      let emailRegex =/[\w\.-]+@[\w\.-]+\.\w{2,4}/;
+      let emailRegex = /[\w\.-]+@[\w\.-]+\.\w{2,4}/;
       let telefonRegex = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{3})(?: *x(\d+))?\s*$/;//brojevi sa 065123456 ili sa +381654342323 samo za srbijanske i bosanske za vannjsku mrezu i unutrasnju
       let proslo = true;
-      if(!imePrezimeRegex.test(ime.value) ||
-      !imePrezimeRegex.test(prezime.value) ||
-      !korisnickoImeRegex.test(korisnickoIme.value) ||
-      !passwordRegex.test(lozinka.value) ||
-      !emailRegex.test(email.value) ||
-      !adresaRegex.test(adresa.value) ||
-      !telefonRegex.test(brojTelefona.value)
-      ){ proslo = false;}
+      if (!imePrezimeRegex.test(ime.value) ||
+        !imePrezimeRegex.test(prezime.value) ||
+        !korisnickoImeRegex.test(korisnickoIme.value) ||
+        !passwordRegex.test(lozinka.value) ||
+        !emailRegex.test(email.value) ||
+        !adresaRegex.test(adresa.value) ||
+        !telefonRegex.test(brojTelefona.value)
+      ) { proslo = false; }
       //uslov iznad je za los unos onda prosledjuje false sto okida alert pokusaj ponovo
       return proslo;
-      
+
     }
 
     var email1 = document.getElementById("exampleInputEmail1");
@@ -293,29 +277,64 @@
     //exampleInputEmail1 exampleInputPassword1 exampleCheck1
     function signInValidation() {
 
-if (email1Regex.test(email1.value) && sifra1Regex.test(sifra1.value) && checkbox1.checked == true) {
-  var usersRef = firebase.database().ref('korisnici');
-  usersRef.on('value', function (snapshot) {
-    var users = snapshot.val();
-    snapshot.forEach(function (userSnapshot) {
-      let key = userSnapshot.key;
-      let user = userSnapshot.val();
-      if (user.lozinka == sifra1.value && user.email == email1.value) {
-        alert("Ulogovani ste .");
-        $(function () {
-          $('#signInModal').modal('toggle');
+      if (email1Regex.test(email1.value) && sifra1Regex.test(sifra1.value) && checkbox1.checked == true) {
+        var usersRef = firebase.database().ref('korisnici');
+        usersRef.on('value', function (snapshot) {
+          var users = snapshot.val();
+          snapshot.forEach(function (userSnapshot) {
+            let key = userSnapshot.key;
+            let user = userSnapshot.val();
+            if (user.lozinka == sifra1.value && user.email == email1.value) {
+              alert("Ulogovani ste .");
+              $(function () {
+                $('#signInModal').modal('toggle');
+              });
+            } else {
+              window.location.reload(true);
+            }
+          });
         });
-      }else{
+      } else {
+        alert("Pokusaj ponovo.");
         window.location.reload(true);
       }
-    });
-  });
-} else {
-  alert("Pokusaj ponovo.");
-  window.location.reload(true);
-}
+    }
+    var kliknutiId = localStorage.getItem("clickedGymId");
+    var imageFromLocalStorage = localStorage.getItem("imageFromClickedCard");
+    var clickedTrainingId = localStorage.getItem("clickedTrainingId");
+    //ucitavanje trening sadrzaja iz baze na stranicu
+    var trainingsRef = firebase.database().ref('treninzi').child(kliknutiId).child(clickedTrainingId);
+      trainingsRef.on('value', function (snapshot) {
+      var trainings = snapshot.val();
+      
+        var aboutSection = document.createElement("div");
+        
+        var naziv = document.createElement("h5");
+        naziv.innerText = trainings.naziv;
+        naziv.classList.add("text-center","my-2");
 
-}
+        var tekst = document.createElement("p");
+        tekst.classList.add("text-center");
+        tekst.innerText = trainings.opis;
+
+        var slikaTreninga = document.createElement("div");
+        slikaTreninga.innerHTML = "<img src='" + imageFromLocalStorage + "'id='trening-slika' alt='Image of training from DB'class='card-img-top' referrerpolicy='no-referrer'>";
+        aboutSection.appendChild(slikaTreninga);
+        aboutSection.appendChild(naziv);
+        aboutSection.appendChild(tekst);
+        document.getElementById('about-training').appendChild(aboutSection);
+    
+    });
+
+    
+//<div class="container px-4 row gx-4 justify-content-center">
+  // <div class="col-lg-8" id="aboutSection">
+            // <h2>O treningu</h2>
+            // <img class="card-img-top" src="" alt="Card image cap" id="slikaTreninga">
+          // </div>
+      // </div>
+
+
   </script>
 </body>
 
