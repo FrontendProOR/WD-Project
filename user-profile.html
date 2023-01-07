@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Glavna strana</title>
+  <title>Profilna strana</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -93,26 +93,26 @@
           <form>
             <div class="form-group">
               <label for="exampleInputEmail1">Email adresa</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Unesi email" required>
-              <small id="emailHelp" class="form-text text-muted">Vas mejl je bezbedan sa nama.</small>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Unesi email">
+              <small id="emailHelp" class="form-text text-muted ">Vas mejl je bezbedan sa nama.</small>
             </div>
-            <div class="form-group">
+            <div class="form-group mb-2">
               <label for="exampleInputPassword1">Sifra</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Unesite sifru"
-                required>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Unesite sifru">
             </div>
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Uslovi koriscenja</label>
+            <div class="form-check mb-2">
+              <input type="checkbox" class="form-check-input " id="exampleCheck1">
+              <label class="form-check-label " for="exampleCheck1">Uslovi koriscenja</label>
             </div>
-            <button type="submit" class="btn btn-primary">Uloguj se</button>
+            <button type="submit" class="btn btn-primary mb-3" onclick="signInValidation()">Uloguj se</button>
           </form>
         </div>
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-bs-toggle="signInModal"
+            data-bs-dismiss="modal">Zatvori</button>
         </div>
       </div>
     </div>
@@ -147,16 +147,17 @@
                 <div class="form-group mb-3 mx-2">
                   <label class="form-label" for="lozinka" class="sr-only">Lozinka</label>
                   <input type="password" class="form-control" id="lozinka" placeholder="Lozinka">
-                  <p style="font-size: smaller;">Unesite minimum 8 karaktera sa velikim i malim slovima i simbolom.</p>
+                  <p style="font-size: smaller;">Unesite minimum 8 karaktera sa velikim i malim slovima brojem i
+                    simbolom.</p>
                 </div>
                 <div class="form-group mb-3 mx-2">
                   <label class="form-label" for="datumRodjenja">Datum rodjenja</label>
-                  <input id="datumRodjenja" class="form-control" type="date" />
+                  <input id="datumRodjenja" class="form-control" type="date" min="1900-01-01" max="2016-01-01" />
                 </div>
                 <div class="form-group mb-3 mx-2">
                   <label class="form-label" for="brojTelefona">Broj telefona</label>
-                  <input type="text" id="brojTelefona" class="form-control" data-mdb-input-mask="+381 999-999-999"
-                    placeholder="Upisite broj telefona" />
+                  <input type="text" id="brojTelefona" class="form-control" placeholder="Upisite broj telefona" />
+                  <p style="font-size: smaller;">Molimo vas da broj telefona sadrzi pozivni broj(+381,+387,...)</p>
                 </div>
                 <div class="col-md-4 mb-3 mx-2">
                   <label class="form-label" for="korisnickoIme">Korisnicko ime</label>
@@ -181,7 +182,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
           <button type="button" class="btn btn-primary" type="submit" data-bs-dismiss="modal"
-            onclick="registracija()">Izmeni</button>
+            onclick="registracija()">Posalji</button>
         </div>
       </div>
     </div>
@@ -194,7 +195,8 @@
     </div>
   </footer>
 
-  <script>
+  <script type="text/javascript">
+    //takodje napravi ucitavanje kartica u listi treninga ili ti gym.html
     var ime = document.getElementById('ime');
     var prezime = document.getElementById('prezime');
     var email = document.getElementById('email');
@@ -206,46 +208,81 @@
 
     function registracija() {
       var usersRef = firebase.database().ref('korisnici');
-
       
+        
 
         $("#staticBackdrop").on("click", ".btn-primary", function () {
-          if (validacijaPodataka()) {
+            if(validacijaPodataka()){ 
             var users = usersRef.push();
             users.set({
-              "ime": ime.value,
-              "prezime": prezime.value,
-              "email": email.value,
-              "lozinka": lozinka.value,
-              "datumRodjenja": datumRodjenja.value,
-              "telefon": brojTelefona.value,
-              "korisnickoIme": korisnickoIme.value,
-              "adresa": adresa.value
+                "ime": ime.value,
+                "prezime": prezime.value,
+                "email": email.value,
+                "lozinka": lozinka.value,
+                "datumRodjenja": datumRodjenja.value,
+                "telefon": brojTelefona.value,
+                "korisnickoIme": korisnickoIme.value,
+                "adresa": adresa.value
             });
-          } else {
+          }else{
             alert("Pokusajte ponovo!");
           }
-          window.location.reload(true);
+            window.location.reload(true);
         });
-
+      
     }
-    function validacijaPodataka() {
-      let imePrezimeKorisnickoImeRegex = /^([ \u00c0-\u01ffa-zA-Z'\-])+$/;//od malih slova do velikih i spejsova
-      let textNumRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;//password veliko malo slovo min 8 karaktera
+    function validacijaPodataka(){
+      let imePrezimeRegex = /[a-zA-Z]{2,20}$/;//od malih slova do velikih i spejsova
+      let korisnickoImeRegex = /[a-zA-Z0-9]{2,15}$/;
+      let passwordRegex = /^[a-zA-Z0-9!@#$&()`.+,/"-]{8,}/; // /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$ password veliko malo slovo min 8 karaktera i simbol
       let adresaRegex = /[a-zA-Z0-9\s\"\'\.\,]/;//adresa regex slova brojevi zarez minus space tacka navodnici
-      let emailRegex = /[\w\.-]+@[\w\.-]+\.\w{2,4}/;//email jedan od ovih pet
+      let emailRegex =/[\w\.-]+@[\w\.-]+\.\w{2,4}/;
+      let telefonRegex = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{3})(?: *x(\d+))?\s*$/;//brojevi sa 065123456 ili sa +381654342323 samo za srbijanske i bosanske za vannjsku mrezu i unutrasnju
       let proslo = true;
-      if (!imePrezimeKorisnickoImeRegex.test(ime) ||
-        !imePrezimeKorisnickoImeRegex.test(prezime) ||
-        !imePrezimeKorisnickoImeRegex.test(korisnickoIme) ||
-        !textNumRegex.test(lozinka) ||
-        !emailRegex.test(email) ||
-        !adresaRegex.test(adresa)
-      ) { proslo = false; }
+      if(!imePrezimeRegex.test(ime.value) ||
+      !imePrezimeRegex.test(prezime.value) ||
+      !korisnickoImeRegex.test(korisnickoIme.value) ||
+      !passwordRegex.test(lozinka.value) ||
+      !emailRegex.test(email.value) ||
+      !adresaRegex.test(adresa.value) ||
+      !telefonRegex.test(brojTelefona.value)
+      ){ proslo = false;}
+      //uslov iznad je za los unos onda prosledjuje false sto okida alert pokusaj ponovo
       return proslo;
-      //Ne radi regex provera neki od njih
+      
     }
 
+    var email1 = document.getElementById("exampleInputEmail1");
+    var sifra1 = document.getElementById("exampleInputPassword1");
+    var checkbox1 = document.getElementById("exampleCheck1");
+    var email1Regex = /[\w\.-]+@[\w\.-]+\.\w{2,4}/;
+    var sifra1Regex = /[a-zA-Z0-9]{2,}/;
+    //exampleInputEmail1 exampleInputPassword1 exampleCheck1
+    function signInValidation() {
+
+if (email1Regex.test(email1.value) && sifra1Regex.test(sifra1.value) && checkbox1.checked == true) {
+  var usersRef = firebase.database().ref('korisnici');
+  usersRef.on('value', function (snapshot) {
+    var users = snapshot.val();
+    snapshot.forEach(function (userSnapshot) {
+      let key = userSnapshot.key;
+      let user = userSnapshot.val();
+      if (user.lozinka == sifra1.value && user.email == email1.value) {
+        alert("Ulogovani ste .");
+        $(function () {
+          $('#signInModal').modal('toggle');
+        });
+      }else{
+        window.location.reload(true);
+      }
+    });
+  });
+} else {
+  alert("Pokusaj ponovo.");
+  window.location.reload(true);
+}
+
+}
   </script>
 </body>
 
