@@ -53,7 +53,7 @@
           </a>
           <a href="#" class="nav-link">
             <div data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
-              <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#signUpModal">
+              <button type="button" class="btn btn-primary my-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <li class="nav-item ms-2">
                   <span>
                     Registruj se
@@ -128,84 +128,76 @@
     </div>
   </div>
 
+
   <!-- The Modal sign up -->
-  <div class="modal fade" id="signUpModal">
-    <div class="modal-dialog">
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
       <div class="modal-content">
-
-        <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Registruj se</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Registracija Korisnika</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
-        <!-- Modal body -->
         <div class="modal-body">
-          <form>
-            <div class="form-row px-3">
-              <div class="col-md-4 mb-3 mx-2">
-                <label class="form-label" for="validationDefault01">Ime</label>
-                <input type="text" class="form-control" id="validationDefault01" placeholder="Ime" value="Mika"
-                  required>
-              </div>
-              <div class="col-md-4 mb-3 mx-2">
-                <label class="form-label" for="validationDefault02">Prezime</label>
-                <input type="text" class="form-control" id="validationDefault02" placeholder="Prezime" value="Zikic"
-                  required>
-              </div>
-              <div class="form-group mb-3 mx-2">
-                <label class="form-label" for="exampleFormControlInput1">Email adresa</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
-                  required>
-              </div>
-              <div class="form-group mb-3 mx-2">
-                <label class="form-label" for="inputPassword2" class="sr-only">Sifra</label>
-                <input type="password" class="form-control" id="inputPassword2" placeholder="Sifra" required>
-              </div>
-              <div class="form-group mb-3 mx-2">
-                <label class="form-label" for="birthDate">Datum rodjenja</label>
-                <input id="birthDate" class="form-control" type="date" required />
-              </div>
-              <div class="form-group mb-3 mx-2">
-                <label class="form-label" for="phone">Broj telefona</label>
-                <input type="text" id="phone" class="form-control" data-mdb-input-mask="+381 999-999-999" required />
-              </div>
-              <div class="col-md-4 mb-3 mx-2">
-                <label class="form-label" for="validationDefaultUsername">Korisnicko ime</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
+          <!--Add user form-->
+          <div class="bg-light container w-75">
+            <form>
+              <div class="form-row px-3">
+                <div class="col-md-4 mb-3 mx-2">
+                  <label class="form-label" for="ime">Ime</label>
+                  <input type="text" class="form-control" id="ime" placeholder="Ime">
+                </div>
+                <div class="col-md-4 mb-3 mx-2">
+                  <label class="form-label" for="prezime">Prezime</label>
+                  <input type="text" class="form-control" id="prezime" placeholder="Prezime">
+                </div>
+                <div class="form-group mb-3 mx-2">
+                  <label class="form-label" for="email">Email adresa</label>
+                  <input type="email" class="form-control" id="email" placeholder="Unesite vas mejl">
+                </div>
+                <div class="form-group mb-3 mx-2">
+                  <label class="form-label" for="lozinka" class="sr-only">Lozinka</label>
+                  <input type="password" class="form-control" id="lozinka" placeholder="Lozinka" autocomplete="current-password">
+                  <p style="font-size: smaller;">Unesite minimum 8 karaktera.</p>
+                </div>
+                <div class="form-group mb-3 mx-2">
+                  <label class="form-label" for="datumRodjenja">Datum rodjenja</label>
+                  <input id="datumRodjenja" class="form-control" type="date" min="1900-01-01" max="2016-01-01" />
+                </div>
+                <div class="form-group mb-3 mx-2">
+                  <label class="form-label" for="brojTelefona">Broj telefona</label>
+                  <input type="text" id="brojTelefona" class="form-control" placeholder="Upisite broj telefona" />
+                  <p style="font-size: smaller;">Molimo vas da broj telefona sadrzi pozivni broj(+381,+387,...)</p>
+                </div>
+                <div class="col-md-4 mb-3 mx-2">
+                  <label class="form-label" for="korisnickoIme">Korisnicko ime</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                    </div>
+                    <input type="text" class="form-control" id="korisnickoIme" placeholder="Korisnicko ime"
+                      aria-describedby="inputGroupPrepend2">
                   </div>
-                  <input type="text" class="form-control" id="validationDefaultUsername" placeholder="Korisnicko ime"
-                    aria-describedby="inputGroupPrepend2" required>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3 mx-2">
+                    <label class="form-label" for="adresa">Adresa</label>
+                    <input type="text" class="form-control" id="adresa" placeholder="Adresa">
+                  </div>
                 </div>
               </div>
-              <div class="form-row">
-                <div class="col-md-6 mb-3 mx-2">
-                  <label class="form-label" for="validationDefault03">Adresa</label>
-                  <input type="text" class="form-control" id="validationDefault03" placeholder="Adresa" required>
-                </div>
-              </div>
-              <div class="form-group mb-2 mx-2">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                  <label class="form-check-label" for="invalidCheck2">
-                    Prihvatam uslove koriscenja i pristajem na odradu mojih podataka
-                  </label>
-                </div>
-              </div>
-              <button class="btn btn-primary" type="submit" onclick="registracija()">Registracija</button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
-
-        <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+          <button type="button" class="btn btn-primary" type="submit" data-bs-dismiss="modal"
+            onclick="registracija()">Posalji</button>
         </div>
       </div>
     </div>
   </div>
+
 
   <!-- About section-->
   <div class="row pt-4 pb-3 trening-box">
@@ -239,8 +231,8 @@
     </div>
   </footer>
   <script type="text/javascript">
+    var usersRef = firebase.database().ref('korisnici');
     
-    //takodje napravi ucitavanje kartica u listi treninga ili ti gym.html
     var ime = document.getElementById('ime');
     var prezime = document.getElementById('prezime');
     var email = document.getElementById('email');
@@ -251,10 +243,7 @@
     var adresa = document.getElementById('adresa');
 
     function registracija() {
-      var usersRef = firebase.database().ref('korisnici');
       
-        
-
         $("#staticBackdrop").on("click", ".btn-primary", function () {
             if(validacijaPodataka()){ 
             var users = usersRef.push();
