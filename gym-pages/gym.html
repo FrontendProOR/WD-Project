@@ -197,6 +197,13 @@
     </div>
   </div>
 
+  <!--Title of gym-->
+  <!-- <div class="row mt-5">
+    <div class="container text-center" id="nazivTeretane">
+      
+    </div>
+  </div> -->
+
   <!--Trainings options loaded from DB-->
   <div class="row bg-primary bg-gradient mx-0 training-options " id="trainings-box">
 
@@ -337,9 +344,10 @@
 
   <script type="text/javascript">
 var kliknutiId = localStorage.getItem("clickedGymId");
+// var teretanaId = localStorage.getItem("kliknutaTeretanaId")
 var imageFromLocalStorage = localStorage.getItem("imageFromClickedCard");
-
-    var usersRef = firebase.database().ref('korisnici');
+// var gymsRef = firebase.database().ref("fitnesCentri").child(teretanaId);
+var usersRef = firebase.database().ref('korisnici');
 
 var ime = document.getElementById('ime');
 var prezime = document.getElementById('prezime');
@@ -474,6 +482,16 @@ trainingsRef.on('value', function (snapshot) {
       });
     });
 
+    //Ucitavanje podataka iz odabranog fitnes centra
+    // gymsRef.on('value', function (snapshot) {
+    //   // Hvata trenutno stanje teretane i njihove vrednosti
+    //   var gym = snapshot.val();
+    //   var naziv = document.createElement("h4");
+    //   naziv.style.marginTop = "10vh";
+    //   naziv.innerText = gym.naziv;
+    //   document.getElementById("nazivTeretane").appendChild(naziv);
+    // });
+    
   </script>
 </body>
 </html>
