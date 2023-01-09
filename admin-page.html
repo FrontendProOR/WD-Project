@@ -159,13 +159,13 @@
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdrop1Label">Dodavanje Teretana</h1>
+              <h1 class="modal-title fs-5" id="staticBackdrop1Label">Izmena Teretane</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <!--Add gym form-->
               <div class="bg-light container w-75">
-                <p class="h4 text-center">Dodaj teretanu</p>
+                <p class="h4 text-center">Izmeni trenutne podatke teretane</p>
                 <form>
                   <div class="form-row px-3">
                     <div class="form-group mb-3 mx-2">
@@ -206,6 +206,59 @@
           </div>
         </div>
       </div>
+      
+  <div class="modal fade" id="dodavanjeNoveTeretane" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdrop1Label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdrop1Label">Dodaj Teretanu</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!--Add gym form-->
+        <div class="bg-light container w-75">
+          <p class="h4 text-center">Dodajte podatke za novu teretanu</p>
+          <form>
+            <div class="form-row px-3">
+              <div class="form-group mb-3 mx-2">
+                <label class="form-label" for="adresa1">Adresa</label>
+                <input type="text" class="form-control" id="adresa2" minlength="5" placeholder="Adresa">
+              </div>
+              <div class="form-group mb-3 mx-2">
+                <label class="form-label" for="brojDostupnihTreninga">Broj dostupnih treninga</label>
+                <input type="number" min="0" max="50" step="1" class="form-control" id="brojDostupnihTreninga2"
+                  placeholder="Broj dostupnih treninga">
+              </div>
+              <div class="form-group mb-3 mx-2">
+                <label class="form-label" for="godinaOtvaranja">Godina otvaranja</label>
+                <input type="number" min="2000" max="2023" step="1" class="form-control" id="godinaOtvaranja2" placeholder="Godine otvaranja">
+              </div>
+              <div class="form-group mb-3 mx-2">
+                <label class="form-label" for="mesecnaClanarina">Mesecna clanarina</label>
+                <input type="number" min="0" max="10000" step="100" class="form-control" id="mesecnaClanarina2" placeholder="Mesecna clanarina">
+              </div>
+              <div class="form-group mb-3 mx-2">
+                <label class="form-label" for="naziv">Naziv</label>
+                <input type="text" class="form-control" id="naziv2" minlength="5" placeholder="Naziv">
+              </div>
+              <div class="form-group mb-3 mx-2 mb-2">
+                <label class="form-label" for="slika1">Slika</label>
+                <input type="text" class="form-control" id="slika2" placeholder="Unesite link do slike">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+        <button type="button" class="btn btn-primary" type="submit" onclick="dodavannjeNoveTeretane()" data-bs-dismiss="modal">Dodaj teretanu</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Dodaj novu teretanu modal-->
+<button id="dugmeZaDodavanje" type="button" class="btn btn-primary d-flex justify-content-center my-2" data-bs-toggle="modal" data-bs-target="#dodavanjeNoveTeretane"  >Kreiraj novu teretanu</button>
     </div>
   </div>
   <!--Modal for deleting the row from table-->
@@ -406,6 +459,31 @@
         }
         //var kliknutiId = localStorage.getItem("clickedGymId");
         //var clickedGymDataId = $(e.target.parentNode.parentNode.parentNode).attr("data-id");
+        function dodavannjeNoveTeretane(){
+          var fitnesCentriRef = firebase.database().ref('fitnesCentri');
+          //ovde ide validacija i slanje u bazu podataka 
+          var adresa2 = document.getElementById("adresa2");
+          var brojDostupnihTreninga2 = document.getElementById("brojDostupnihTreninga2");
+          var godinaOtvaranja2 = document.getElementById("godinaOtvaranja2");
+          var mesecnaClanarina2 = document.getElementById("mesecnaClanarina2");
+          var naziv2 = document.getElementById("naziv2");
+          var slika2 = document.getElementById("slika2");
+
+          $("#dodavanjeNoveTeretane").on("click", ".btn-primary", function () {
+          var fitnesCentar = fitnesCentriRef.push();
+          fitnesCentar.set({
+            "adresa":adresa2.value,
+            "brojDostupnihTreninga":brojDostupnihTreninga2.value,
+            "godinaOtvaranja":godinaOtvaranja2.value,
+            "mesecnaClanarina":mesecnaClanarina2.value,
+            "naziv":naziv2.value,
+            "slika":slika2.value,
+            "prosecnaOcena":0,
+            "ocene":{0:0},
+            "idTreninga": "uid"
+          })
+          });
+        }
   </script>
 </body>
 
