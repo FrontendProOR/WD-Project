@@ -285,7 +285,7 @@
           var row = document.createElement('tr');
           row.dataset.id = currentGymCount - 1;
           row.id = gymSnapshot.key;
-          row.innerHTML = `<td>${currentGymCount}</td>` + '<td>' + gym.naziv + '</td><td>' + gym.adresa + '</td><td><a href="gym-pages/gym.html">Teretana</a></td><td><button class="btn btn-danger" type="button" onclick="deleteGymRow(this)">Izbrisi teretanu</button></td><td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" onclick="izmeniGym(this)">Izmeni</button></td>';
+          row.innerHTML = `<td>${currentGymCount}</td>` + '<td>' + gym.naziv + '</td><td>' + gym.adresa + '</td><td><a href="gym-pages/gym.html" onclick="odabirTeretane(this)">Teretana</a></td><td><button class="btn btn-danger" type="button" onclick="deleteGymRow(this)">Izbrisi teretanu</button></td><td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" onclick="izmeniGym(this)">Izmeni</button></td>';
           document.getElementById('table-body1').appendChild(row);
         });
       });
@@ -388,6 +388,11 @@
         function izabraniProfilPrikaz(p){
           var clickedProfileId = p.parentNode.parentNode.id;
           localStorage.setItem("clickedProfileId",clickedProfileId);
+        }
+
+        function odabirTeretane(e){
+          var kliknutaTeretanaId = e.parentNode.parentNode.id;
+          localStorage.setItem("kliknutaTeretanaUBazi",kliknutaTeretanaId);
         }
   </script>
 </body>

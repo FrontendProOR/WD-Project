@@ -198,7 +198,7 @@
   <section class="text-center mt-4 " id="welcome-msg">
     <div class="container">
       <h1 class="h3">Dobro nam dosli na nasu stranicu.</h1>
-      <p class="lead text-muted">Drago nam je sto ste nas izabrali.Posetitne naš fitness trening centar i doživite
+      <p class="lead ">Drago nam je sto ste nas izabrali.Posetitne naš fitness trening centar i doživite
         osećaj sporta, bilo da ste rekreativac ili profesionalni sportista.</p>
     </div>
   </section>
@@ -285,6 +285,7 @@
         tekst.innerText = "Trenutno u ovoj teretani imate na raspolaganju cak : "+ gym.brojDostupnihTreninga+" dostupnih treninga.Zbog cijeg kvaliteta je ova teretana dobro poznata i ima "+gym.prosecnaOcena+" prosecnu ocenu od korisnika nasih usluga.Ova teretana je otvorena : " + gym.godinaOtvaranja + " godine.";
         tekst.classList.add("card-text");
         tekst.style.fontSize = "small";
+        tekst.style.wordBreak = "break-all";
 
         var clanarina = document.createElement('p');
         clanarina.innerText = "Clanarina je: " + gym.mesecnaClanarina + " dinara.";

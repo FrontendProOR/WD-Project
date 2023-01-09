@@ -202,7 +202,7 @@
 
 
   <!-- About section-->
-  <div class="row mt-5 pt-4 pb-3 trening-box" id="about-training">
+  <div class="mt-5 py-4 trening-box text-center d-flex justify-content-center align-items-center container-fluid h-100 flex-column" id="about-training">
       
   </div>
 
@@ -215,6 +215,11 @@
     </div>
   </footer>
   <script type="text/javascript">
+    var kliknutiId = localStorage.getItem("clickedGymId");
+    var imageFromLocalStorage = localStorage.getItem("imageFromClickedCard");
+    var clickedTrainingId = localStorage.getItem("clickedTrainingId");
+
+
     var usersRef = firebase.database().ref('korisnici');
 
     var ime = document.getElementById('ime');
@@ -299,40 +304,52 @@
         window.location.reload(true);
       }
     }
-    var kliknutiId = localStorage.getItem("clickedGymId");
-    var imageFromLocalStorage = localStorage.getItem("imageFromClickedCard");
-    var clickedTrainingId = localStorage.getItem("clickedTrainingId");
+    
     //ucitavanje trening sadrzaja iz baze na stranicu
     var trainingsRef = firebase.database().ref('treninzi').child(kliknutiId).child(clickedTrainingId);
       trainingsRef.on('value', function (snapshot) {
       var trainings = snapshot.val();
       
         var aboutSection = document.createElement("div");
-        
+        aboutSection.style.width = "70vw";
+        aboutSection.classList.add("bg-info","bg-opacity-10","border","border-info","p-4");
+
         var naziv = document.createElement("h5");
         naziv.innerText = trainings.naziv;
         naziv.classList.add("text-center","my-2");
-
+        
         var tekst = document.createElement("p");
         tekst.classList.add("text-center");
+        tekst.style.textAlign = "center";
+        tekst.style.fontSize = "0.9rem";
+        tekst.style.justifyContent = "justify";
         tekst.innerText = trainings.opis;
 
-        var slikaTreninga = document.createElement("div");
-        slikaTreninga.innerHTML = "<img src='" + imageFromLocalStorage + "'id='trening-slika' alt='Image of training from DB'class='card-img-top' referrerpolicy='no-referrer'>";
+        var slikaTreninga = document.createElement("img");
+        slikaTreninga.src = imageFromLocalStorage;
+        slikaTreninga.style.height = "260px";
+        slikaTreninga.style.width = "380px";
+        slikaTreninga.alt = "Image of training from DB";
+        slikaTreninga.classList.add("card-img-top");
+        slikaTreninga.referrerPolicy = "no-referrer";
+
+        var tekst1 = document.createElement("p");
+        tekst1.innerText = "Maksimalan broj osoba koje mogu prisustvovati treningu "+ trainings.naziv+" je : " + trainings.maxOsobe +" osobe.\n Zanr ovog treninga je "+ trainings.zanr+", a trajanje ovog treninga je "+trainings.trajanje+" minuta.\n";
+        
+        
+
         aboutSection.appendChild(slikaTreninga);
         aboutSection.appendChild(naziv);
         aboutSection.appendChild(tekst);
+        aboutSection.appendChild(tekst1);
         document.getElementById('about-training').appendChild(aboutSection);
-    
+        
+        // localStorage.setItem("clickedTrainingId",null);
+        // ova linija postavlja vrednost na null radi karma joga 5-te kartice koja od svih kartica u bazi ne radi ovo bih resio sa if else petljom u koju bih smestio kopiju ovog idija neku alternativu koja sluzi resetovanju od original sluzi samo za relaciju gym.html do trainings.html ovo bi sluzilo cisto za reload location
     });
 
     
-//<div class="container px-4 row gx-4 justify-content-center">
-  // <div class="col-lg-8" id="aboutSection">
-            // <h2>O treningu</h2>
-            // <img class="card-img-top" src="" alt="Card image cap" id="slikaTreninga">
-          // </div>
-      // </div>
+
 
 
   </script>
