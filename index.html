@@ -270,7 +270,7 @@
         kartica.setAttribute('data-id' , key);
 
         var podkartica = document.createElement('div');
-        podkartica.classList.add("card", "p-2", "cards", "mb-3", "mt-2");
+        podkartica.classList.add("card", "p-2", "cards", "mb-3", "mt-2","slikaTeretane");
         podkartica.innerHTML = "<img src='" + gym.slika + "' width='170px' height='245px' alt='Image of Gym from DB'class='card-img-top' referrerpolicy='no-referrer'>";
         kartica.appendChild(podkartica);
 
@@ -298,13 +298,7 @@
         //OVDE SE CUVAJU U LOKAL STORAGE ID-JEVI I ONDA SE TAJ ID UZME I UCITAVAJU KARTICE U ODNOSU NA ID I POKLAPANJE U BAZI
         //ZNACI OVDE UZME PA U BAZI PRILIKOM OTVARNJA PRVO STO RADI SKRIPTA ZA GYM.HTML JE DA UZME IZ LOCAL STORAGE-A I PROVERI REF U FIREBASE I GRADI KARTICE
         
-        $(".dugmeZaId").on('click', function(e){
-          var clickedId = e.target.parentNode.parentNode.parentNode.id;
-          var clickedGymDataId = $(e.target.parentNode.parentNode.parentNode).attr("data-id");//uzima attr funkcijom od parent elementa data-id kao string
-          localStorage.setItem("clickedGymId",clickedId);
-          localStorage.setItem("kliknutaTeretanaUBazi",clickedGymDataId);
-          localStorage.setItem("imageFromClickedCard",gym.slika);
-        });
+        
 
         var textIspodKartice = document.createElement("div");
         textIspodKartice.classList.add("card-body","my-0");
@@ -316,6 +310,18 @@
 
         document.getElementById('cards-box').appendChild(kartica);
       });
+      //ovde se generisu svi id-jevi u local storage i iz lokal storage-a se to dalje koristi za ucitavanje slike i teretana i teretane izabrane
+      $(".dugmeZaId").on('click', function(e){
+          var clickedId = e.target.parentNode.parentNode.parentNode.id;
+          var clickedGymDataId = $(e.target.parentNode.parentNode.parentNode).attr("data-id");//uzima attr funkcijom od parent elementa data-id kao string
+          var slikaLink = e.target.parentNode.parentNode;
+          slikaLink = slikaLink.getElementsByTagName('img')[0];
+          slikaLink = slikaLink.src;
+          localStorage.setItem("clickedGymId",clickedId);
+          localStorage.setItem("kliknutaTeretanaUBazi",clickedGymDataId);
+          localStorage.setItem("imageFromClickedCard",slikaLink);//ovde ide img href gym.slika
+        });
+
     });
 
     //takodje napravi ucitavanje kartica u listi treninga ili ti gym.html

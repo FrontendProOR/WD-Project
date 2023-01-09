@@ -283,7 +283,7 @@
 
           // Kreira novi red u tabeli za teretanu
           var row = document.createElement('tr');
-          row.dataset.id = currentGymCount - 1;
+          row.dataset.id = gym.idTreninga;
           row.id = gymSnapshot.key;
           row.innerHTML = `<td>${currentGymCount}</td>` + '<td>' + gym.naziv + '</td><td>' + gym.adresa + '</td><td><a href="gym-pages/gym.html" onclick="odabirTeretane(this)">Teretana</a></td><td><button class="btn btn-danger" type="button" onclick="deleteGymRow(this)">Izbrisi teretanu</button></td><td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" onclick="izmeniGym(this)">Izmeni</button></td>';
           document.getElementById('table-body1').appendChild(row);
@@ -389,11 +389,23 @@
           var clickedProfileId = p.parentNode.parentNode.id;
           localStorage.setItem("clickedProfileId",clickedProfileId);
         }
-
+        //funkcija osigurava da ako se udje u admin page prvo da ucita na klik sliku iz baze za odgovarajuci kliknuti link
         function odabirTeretane(e){
           var kliknutaTeretanaId = e.parentNode.parentNode.id;
+          var clickedGymDataId = e.parentNode.parentNode.dataset.id;
+          localStorage.setItem("clickedGymId",clickedGymDataId);
           localStorage.setItem("kliknutaTeretanaUBazi",kliknutaTeretanaId);
+          var slikaLink;
+          var teretanaRef = firebase.database().ref('fitnesCentri').child(kliknutaTeretanaId);
+          
+          teretanaRef.on('value', function (snapshot) { 
+          var teretana = snapshot.val();
+          slikaLink = teretana.slika;
+          localStorage.setItem("imageFromClickedCard",slikaLink);
+          });
         }
+        //var kliknutiId = localStorage.getItem("clickedGymId");
+        //var clickedGymDataId = $(e.target.parentNode.parentNode.parentNode).attr("data-id");
   </script>
 </body>
 
