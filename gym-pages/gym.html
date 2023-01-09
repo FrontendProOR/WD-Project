@@ -324,6 +324,12 @@
 var kliknutiId = localStorage.getItem("clickedGymId");
 var teretanaId = localStorage.getItem("kliknutaTeretanaUBazi");
 var imageFromLocalStorage = localStorage.getItem("imageFromClickedCard");
+if(kliknutiId === null || teretanaId === null || imageFromLocalStorage === null){
+  //ovde ide verfikacija da se postavi neka default slika za teretanu, i postaviti neku teretanu kao default vrednost
+  kliknutiId = "-MNVEu6iMr2EFlQO6TW61";
+  teretanaId = "-MNQftJa4rskH-dBqE9Z";
+  imageFromLocalStorage = "https://i.imgur.com/ynE6g4Y.jpeg";//neki link bzvz.
+}
 var gymRef = firebase.database().ref("fitnesCentri").child(teretanaId);
 var usersRef = firebase.database().ref('korisnici');
 
