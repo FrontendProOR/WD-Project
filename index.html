@@ -265,6 +265,9 @@
         var kartica = document.createElement('div');
         kartica.classList.add("col-xl-3","col-md-4","col-sm-6","col-12", "justify-content-center","align-self-center", "my-2", "p-4");
         kartica.id = gym.idTreninga;
+        
+        //ovo je zapravo id od teretane u bazi dok je ovo iznad idTreniga iz objekta te cliknute teretane
+        kartica.setAttribute('data-id' , key);
 
         var podkartica = document.createElement('div');
         podkartica.classList.add("card", "p-2", "cards", "mb-3", "mt-2");
@@ -296,7 +299,9 @@
         
         $(".dugmeZaId").on('click', function(e){
           var clickedId = e.target.parentNode.parentNode.parentNode.id;
+          var clickedGymDataId = $(e.target.parentNode.parentNode.parentNode).attr("data-id");//uzima attr funkcijom od parent elementa data-id kao string
           localStorage.setItem("clickedGymId",clickedId);
+          localStorage.setItem("kliknutaTeretanaUBazi",clickedGymDataId);
           localStorage.setItem("imageFromClickedCard",gym.slika);
         });
 

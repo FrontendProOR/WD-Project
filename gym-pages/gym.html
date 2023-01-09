@@ -198,11 +198,11 @@
   </div>
 
   <!--Title of gym-->
-  <!-- <div class="row mt-5">
+  <div class="row mt-5">
     <div class="container text-center" id="nazivTeretane">
       
     </div>
-  </div> -->
+  </div>
 
   <!--Trainings options loaded from DB-->
   <div class="row bg-primary bg-gradient mx-0 training-options " id="trainings-box">
@@ -210,34 +210,12 @@
   </div>
 
   <!-- About section loaded from DB-->
-  <div class="row pt-4 pb-3">
+  <div class="row pt-4 pb-3 text-center">
     <section id="about-gym">
       <div class="container px-4">
         <div class="row gx-4 justify-content-center">
           <div class="col-lg-8">
-            <h2>O nama</h2>
-            <p class="lead">Nas sajt nudi brz,lak i centralizovan pristup svim nasim prijateljskim i vasim omiljenim
-              fitnes centrima u gradu Novom Sadu.</p>
-            <ul>
-              <li>Muscle Gym teretana smeštena je u samom centru Novog Sada na adresi ###.</li>
-              <li>Teretana je opremljena novim spravama brendova "Techno Teretane" i "Sprava spravica".</li>
-              <li>Za sve koji žele da se opuste, nakon napornih treninga ili poslovnih obaveza, naša teretana obezbedila
-                je saunu koja je najbolje rešenje za to.</li>
-              <li>Dođite i posetite naše teretane na adresama toj i toj i uverite se zasto smo najbolji.</li>
-            </ul>
-            <p class="lead">informacije o fitness centru:</p>
-            <ul>
-              <li>ID: </li>
-              <li>Adresa u formatu: ulica i broj, mesto/grad, poštanski broj: </li>
-              <li>Naziv: </li>
-              <li>Godina otvaranja fitnes centra: </li>
-              <li>Logo (slika): </li>
-              <li>Broj dostupnih treninga: </li>
-              <li>Mesečna članarina: </li>
-              <li>Treninzi: </li>
-              <li>Prosečna ocena: </li>
-              <li>Broj ocena: </li>
-            </ul>
+            
           </div>
         </div>
       </div>
@@ -344,9 +322,9 @@
 
   <script type="text/javascript">
 var kliknutiId = localStorage.getItem("clickedGymId");
-// var teretanaId = localStorage.getItem("kliknutaTeretanaId")
+var teretanaId = localStorage.getItem("kliknutaTeretanaUBazi");
 var imageFromLocalStorage = localStorage.getItem("imageFromClickedCard");
-// var gymsRef = firebase.database().ref("fitnesCentri").child(teretanaId);
+var gymRef = firebase.database().ref("fitnesCentri").child(teretanaId);
 var usersRef = firebase.database().ref('korisnici');
 
 var ime = document.getElementById('ime');
@@ -483,14 +461,17 @@ trainingsRef.on('value', function (snapshot) {
     });
 
     //Ucitavanje podataka iz odabranog fitnes centra
-    // gymsRef.on('value', function (snapshot) {
-    //   // Hvata trenutno stanje teretane i njihove vrednosti
-    //   var gym = snapshot.val();
-    //   var naziv = document.createElement("h4");
-    //   naziv.style.marginTop = "10vh";
-    //   naziv.innerText = gym.naziv;
-    //   document.getElementById("nazivTeretane").appendChild(naziv);
-    // });
+    gymRef.on('value', function (snapshot) {
+      // Hvata trenutno stanje teretane i njihove vrednosti
+      var gym = snapshot.val();
+      var naziv = document.createElement("h4");
+      naziv.style.marginTop = "10vh";
+      naziv.innerText = gym.naziv;
+      document.getElementById("nazivTeretane").appendChild(naziv);
+      var informacijeTeretane = document.createElement("div");
+      informacijeTeretane.innerHTML = "<p>U teretani " + gym.naziv + " imate bogatu ponudu razlicitih sportskih aktivnosti,pomagala i u ovom trenutku cak : " + gym.brojDostupnihTreninga + " dostupnih treninga.Molimo pozurite ponude su ogranicene.</p>"+"<p>Ito po najnizoj ceni do sad za samo : "+gym.mesecnaClanarina+" RSD. </p>"+"<p>Ova teretana je otvorena : "+gym.godinaOtvaranja+" godine.</p>"+"<p>Mozete nas posjetiti na adresi : "+gym.adresa+"</p>"+"<p>Za vise informacija nam se obratite na broj telefona : +38162/123-1234</p>";
+      document.getElementById("about-gym").appendChild(informacijeTeretane);
+    });
     
   </script>
 </body>
