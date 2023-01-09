@@ -99,7 +99,8 @@
             </div>
             <div class="form-group mb-2">
               <label for="exampleInputPassword1">Sifra</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Unesite sifru" autocomplete="current-password">
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Unesite sifru"
+                autocomplete="current-password">
             </div>
             <div class="form-check mb-2">
               <input type="checkbox" class="form-check-input " id="exampleCheck1">
@@ -146,7 +147,8 @@
                 </div>
                 <div class="form-group mb-3 mx-2">
                   <label class="form-label" for="lozinka" class="sr-only">Lozinka</label>
-                  <input type="password" class="form-control" id="lozinka" placeholder="Lozinka" autocomplete="current-password">
+                  <input type="password" class="form-control" id="lozinka" placeholder="Lozinka"
+                    autocomplete="current-password">
                   <p style="font-size: smaller;">Unesite minimum 8 karaktera.</p>
                 </div>
                 <div class="form-group mb-3 mx-2">
@@ -187,6 +189,15 @@
     </div>
   </div>
 
+  <!--Here is user data-->
+  <div class="justify-content-center align-self-center bd-highlight" style="margin: 15vh 15vw">
+    <div class="text-center">
+      <img src="#" class="rounded-circle" alt="Slika korisnika" width="100px" height="100px"><!--link ako bude se dodavao u bazu-->
+    </div>
+    <div id="userInfo">
+      
+    </div>
+  </div>
 
   <!-- Footer-->
   <footer class="py-3 bg-dark">
@@ -196,6 +207,7 @@
   </footer>
 
   <script type="text/javascript">
+    var kliknutiProfilId = localStorage.getItem("clickedProfileId");
     var usersRef = firebase.database().ref('korisnici');
 
     var ime = document.getElementById('ime');
@@ -244,7 +256,7 @@
         !adresaRegex.test(adresa.value) ||
         !telefonRegex.test(brojTelefona.value)
       ) { proslo = false; }
-      
+
       //uslov iznad je za los unos onda prosledjuje false sto okida alert pokusaj ponovo
       return proslo;
 
@@ -281,7 +293,50 @@
       }
     }
 
+    var trenutniKorisnikRef = firebase.database().ref('korisnici').child(kliknutiProfilId);
+    trenutniKorisnikRef.on('value', function (usersnapshot) {
+      var korisnik = usersnapshot.val();
+      var KorisnickeInformacije = document.getElementById("userInfo");
+      KorisnickeInformacije.classList.add("bg-dark", "d-flex", "flex-column", "justify-content-center", "mb-3");
+      KorisnickeInformacije.style.width = "70vw";
 
+      var ime = document.createElement("div");
+      ime.classList.add("mb-2", "text-center", "text-white", "bd-highlight", "flex-fill", "border", "border-white");
+      ime.innerText = "Ime: " + korisnik.ime;
+
+      var prezime = document.createElement("div");
+      prezime.classList.add("mb-2", "text-center", "text-white", "bd-highlight", "flex-fill");
+      prezime.innerText = "Prezime: " + korisnik.prezime;
+
+      var godinaRodjenja = document.createElement("div");
+      godinaRodjenja.classList.add("mb-2", "text-center", "text-white", "bd-highlight", "flex-fill", "border", "border-white");
+      godinaRodjenja.innerText = "Datum rodjenja: " + korisnik.datumRodjenja;
+
+      var adresa = document.createElement("div");
+      adresa.classList.add("mb-2", "text-center", "text-white", "bd-highlight", "flex-fill");
+      adresa.innerText = "Adresa : " + korisnik.adresa;
+
+      var telefon = document.createElement("div");
+      telefon.classList.add("mb-2", "text-center", "text-white", "bd-highlight", "flex-fill", "border", "border-white");
+      telefon.innerText = "Broj telefona: " + korisnik.telefon;
+
+      var korisnickoIme1 = document.createElement("div");
+      korisnickoIme1.classList.add("mb-2", "text-center", "text-white", "bd-highlight", "flex-fill");
+      korisnickoIme1.innerText = "Korisnicko Ime: " + korisnik.korisnickoIme;
+
+      var emailKorisnicki = document.createElement("div");
+      emailKorisnicki.classList.add("mb-2", "text-center", "text-white", "bd-highlight", "flex-fill", "border", "border-white");
+      emailKorisnicki.innerText = "Email: " + korisnik.email;
+
+
+      KorisnickeInformacije.appendChild(ime);
+      KorisnickeInformacije.appendChild(prezime);
+      KorisnickeInformacije.appendChild(godinaRodjenja);
+      KorisnickeInformacije.appendChild(adresa);
+      KorisnickeInformacije.appendChild(telefon);
+      KorisnickeInformacije.appendChild(korisnickoIme1);
+      KorisnickeInformacije.appendChild(emailKorisnicki);
+    });
   </script>
 </body>
 

@@ -257,7 +257,7 @@
         var row = document.createElement('tr');
         row.dataset.id = currentUserCount - 1;
         row.id = userSnapshot.key;
-        row.innerHTML = `<td>${currentUserCount}</td>` + '<td>' + user.ime + '</td><td>' + user.prezime + '</td><td>' + user.email + '</td><td><a href="user-profile.html">profil</a></td><td><button class="btn btn-danger" type="button"  onclick="deleteUserRow(this)">Deaktiviraj korisnika</button></td><td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="izmeni(this)">Izmeni</button></td>';
+        row.innerHTML = `<td>${currentUserCount}</td>` + '<td>' + user.ime + '</td><td>' + user.prezime + '</td><td>' + user.email + '</td><td><a href="user-profile.html" onclick="izabraniProfilPrikaz(this)">profil</a></td><td><button class="btn btn-danger" type="button"  onclick="deleteUserRow(this)">Deaktiviraj korisnika</button></td><td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="izmeni(this)">Izmeni</button></td>';
         document.getElementById('table-body').appendChild(row);
       });
     });
@@ -383,7 +383,12 @@
         });
       });
     }
-
+  
+    //kreiranje link id-a od profila da vodi na profil od tog korisnika
+        function izabraniProfilPrikaz(p){
+          var clickedProfileId = p.parentNode.parentNode.id;
+          localStorage.setItem("clickedProfileId",clickedProfileId);
+        }
   </script>
 </body>
 
