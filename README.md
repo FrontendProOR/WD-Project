@@ -18,6 +18,7 @@ HTML5 , CSS3 , Javascript ES6+(korisceno var radi ceste potrebe redeklarisanja i
 Koriscene ikonice iz Font-awesome,I slike sa sajtova Unsplash i Pexels.   
 
 ## DODATNO: 
+ZA pregledati SVE stavke prethodnog domaceg zadatka
 -POPRAVLJENO SA PRVOG DOMACEG 
 1.GLAVNI NAVIGACIONI MENI SADRZI SAMO STVARI PO SPECIFIKACIJI I RESPONSIVE JE NA SVIM UREDJAJIMA 
 2.TERETANE STAVKA TJ. GLAVNA STRANA JE UREDNIJA I CITLJIVIJA NEGO PRE
@@ -26,6 +27,8 @@ Koriscene ikonice iz Font-awesome,I slike sa sajtova Unsplash i Pexels.
 5.DODAO SAM POP UP REGISTRACIJU KORISNIKA I PRIJAVLJIVANJE KORISNIKA(LOG IN & SIGN UP pop up-ovi)
 
 
+
+-STRANICE ZA MENJANJE PODATAKA I KORISNIKA SA UCITANIM NJIHOVIM PODATCIMA SU IMPLEMENTIRANE U ADMIN PAGE-U UNUTAR TABELE KAO MODAL KOJI SE PRIKAZE NA ODABIR NA DUGME IZMENI
 
 -Biblioteka bootstrap koriscena sa ovih linkova(nisu ukljucene kao lokalni fajl nego kao cdn link jer je brze,...):
 #CSS bootstrap
