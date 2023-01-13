@@ -36,8 +36,8 @@
         aria-selected="false">Korisnici</button>
       <button class="nav-link" id="v-pills-teretane-tab" data-bs-toggle="pill" data-bs-target="#v-pills-teretane"
         type="button" role="tab" aria-controls="v-pills-teretane" aria-selected="false"
-        onclick="loadGymsTable()">Teretana</button>
-    </div>
+        >Teretana</button>
+    </div><!--div iznad ako se desi greska ubaciti onclick kao atribut onclick="loadGymsTable()" i odkomentarisati kako bi napravio funkciju u script tagu u donjem kodu-->>
   </div>
   <div class="tab-content" id="v-pills-tabContent">
 
@@ -291,6 +291,9 @@
   </footer>
 
   <script type="text/javascript">
+    //napravi ova dva taba da prazne redove tabele da budu dve funkcije koja negiraju jedna drugu tj. cisti tabelu i onda drugu generise 
+
+
     //Ucitavanje korisnicke tabele dobija referencu za korisnike u bazi podataka
     var usersRef = firebase.database().ref('korisnici');
     // on() metod se koristi da prati promene podataka u korisnickoj lokaciji
@@ -317,7 +320,7 @@
     });
 
     //Ucitavanje teretana u tabelu kao redove tabele
-    function loadGymsTable() {
+    // function loadGymsTable() {
       // dobija referencu za teretane u bazi podataka
       var gymsRef = firebase.database().ref('fitnesCentri');
       //data-id redni broj
@@ -343,7 +346,7 @@
           document.getElementById('table-body1').appendChild(row);
         });
       });
-    }
+    // }
     //brise trenutni red
     function deleteUserRow(r) {
       //data-bs-toggle="modal" data-bs-target="#delRowModal" usled potrebe da se prosledi red u tabeli tj. pokazivac this koji je red "tr" imao sam opciju ili JQuery ili napraviti objekat upotrebio sam JQuery za otvaranje modala
@@ -481,8 +484,10 @@
             "slika":slika2.value,
             "prosecnaOcena":0,
             "ocene":{0:0},
-            "idTreninga": "uid"
+            "idTreninga": Date.now()
           });
+          //znam da ovo nije najbolje resenje za id od treninga jer se moze poklopiti u nekim ekstremnim uslovima u nekoj milisekundi ali se uzdam da se teretane nece dodavati svake miliosekunde
+          window.location.reload(true);//refresham jer load se vrsi dva puta treba da ucita novu stranu i krace je od resenja gde bih morao brisati stare redove i dodavati tu nove i jedan ekstra upravo dodani
           });
         }
   </script>

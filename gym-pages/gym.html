@@ -201,7 +201,8 @@
   <!--Title of gym-->
   <div class="row mt-5">
     <div class="container text-center" id="nazivTeretane">
-
+      <h4 id="NazivTeretane" style="margin-top: 10vh;"></h4>
+      
     </div>
   </div>
 
@@ -216,7 +217,7 @@
       <div class="container px-4">
         <div class="row gx-4 justify-content-center">
           <div class="col-lg-8">
-
+            <div id="informacijeTeretaneOpis"></div>
           </div>
         </div>
       </div>
@@ -228,14 +229,27 @@
 
   <div class="container my-4" id="avg-star">
     <div class="col col-lg-12 justify-content-md-center">
-      <p>Prosecna ocena : <span id="prosecnaocena"></span> bazirano na : <span id="brojacOcenaTeretane">#</span></p>
-      <span>Ocene korisnika</span>&nbsp;&nbsp;
-      <span class="fa fa-star zvezda" onclick="ocenjivanje(1)"
-        style="cursor:pointer"></span><!--checked ubacujem sa jquery hover i dajem ocenu i prosledjuem je u bazu-->
+      <p>Prosecna ocena : <span id="prosecnaocena"></span> bazirano na : <span id="brojacOcenaTeretane">#</span> korisnickih ocena. (1 zvezda = 0.5 points)</p>
+      <span>Oceni teretanu</span>&nbsp;&nbsp;
+      <span class="fa fa-star zvezda" onclick="ocenjivanje(1)" style="cursor:pointer"></span><!--checked ubacujem sa jquery hover i dajem ocenu i prosledjuem je u bazu-->
       <span class="fa fa-star zvezda" onclick="ocenjivanje(2)" style="cursor:pointer"></span>
       <span class="fa fa-star zvezda" onclick="ocenjivanje(3)" style="cursor:pointer"></span>
       <span class="fa fa-star zvezda" onclick="ocenjivanje(4)" style="cursor:pointer"></span>
       <span class="fa fa-star zvezda" onclick="ocenjivanje(5)" style="cursor:pointer"></span>
+      <span class="fa fa-star zvezda" onclick="ocenjivanje(6)" style="cursor:pointer"></span>
+      <span class="fa fa-star zvezda" onclick="ocenjivanje(7)" style="cursor:pointer"></span>
+      <span class="fa fa-star zvezda" onclick="ocenjivanje(8)" style="cursor:pointer"></span>
+      <span class="fa fa-star zvezda" onclick="ocenjivanje(9)" style="cursor:pointer"></span>
+      <span class="fa fa-star zvezda" onclick="ocenjivanje(10)" style="cursor:pointer"></span>
+    </div>
+    <div class="col col-lg-12 justify-content-md-center">
+      <span>Prosek ocena teretane</span>&nbsp;&nbsp;
+      <div class="star" id="jednaZvezda1"></div>
+      <div class="star" id="jednaZvezda2"></div>
+      <div class="star" id="jednaZvezda3"></div>
+      <div class="star" id="jednaZvezda4"></div> <!--half i on za celu i pola zvezde takodje u bazi su ocene i prosek od 0 do 5 zvezdica ocene idu od 1 do 10 -->
+      <div class="star" id="jednaZvezda5"></div>
+      <p>( 1 zvezda - 5 zvezda )</p>
     </div>
   </div>
   <hr>
@@ -246,11 +260,11 @@
       </div>
       <div class="col col-lg-8 col-xl-8 col-md-8 col-sm-8 col-8">
         <div class="progress mb-4">
-          <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="25"
+          <div class="progress-bar bg-success" id="sirinaZvezdica5" role="progressbar" style="width: 85%" aria-valuenow="25"
             aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
-      <div class="col col-lg-2">
+      <div class="col col-lg-1" id="brojac5">
         15
       </div>
     </div>
@@ -260,11 +274,11 @@
       </div>
       <div class="col col-lg-8 col-xl-8 col-md-8 col-sm-8 col-8">
         <div class="progress mb-4">
-          <div class="progress-bar bg-primary" role="progressbar" style="width: 15%" aria-valuenow="50"
+          <div class="progress-bar bg-primary" id="sirinaZvezdica4" role="progressbar" style="width: 15%" aria-valuenow="50"
             aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
-      <div class="col col-lg-2">
+      <div class="col col-lg-1" id="brojac4">
         4
       </div>
     </div>
@@ -275,11 +289,11 @@
       </div>
       <div class="col col-lg-8 col-xl-8 col-md-8 col-sm-8 col-8">
         <div class="progress mb-4">
-          <div class="progress-bar bg-info" role="progressbar" style="width: 5%" aria-valuenow="50" aria-valuemin="0"
+          <div class="progress-bar bg-info" id="sirinaZvezdica3" role="progressbar" style="width: 5%" aria-valuenow="50" aria-valuemin="0"
             aria-valuemax="100"></div>
         </div>
       </div>
-      <div class="col col-lg-2">
+      <div class="col col-lg-1" id="brojac3">
         3
       </div>
     </div>
@@ -290,11 +304,11 @@
       </div>
       <div class="col col-lg-8 col-xl-8 col-md-8 col-sm-8 col-8">
         <div class="progress mb-4">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 3%" aria-valuenow="75" aria-valuemin="0"
+          <div class="progress-bar bg-warning" id="sirinaZvezdica2" role="progressbar" style="width: 3%" aria-valuenow="75" aria-valuemin="0"
             aria-valuemax="100"></div>
         </div>
       </div>
-      <div class="col col-lg-2">
+      <div class="col col-lg-1" id="brojac2">
         2
       </div>
     </div>
@@ -305,11 +319,11 @@
       </div>
       <div class="col col-lg-8 col-xl-8 col-md-8 col-sm-8 col-8">
         <div class="progress mb-4">
-          <div class="progress-bar bg-danger" role="progressbar" style="width: 1%" aria-valuenow="100" aria-valuemin="0"
+          <div class="progress-bar bg-danger" id="sirinaZvezdica1" role="progressbar" style="width: 1%" aria-valuenow="100" aria-valuemin="0"
             aria-valuemax="100"></div>
         </div>
       </div>
-      <div class="col col-lg-2">
+      <div class="col col-lg-1" id="brojac1">
         1
       </div>
     </div>
@@ -334,6 +348,7 @@
       imageFromLocalStorage = "https://i.imgur.com/ynE6g4Y.jpeg";//neki link bzvz.
     }
     var gymRef = firebase.database().ref("fitnesCentri").child(teretanaId);
+    var gymOcenjivanjeRef = firebase.database().ref("fitnesCentri").child(teretanaId);
     var usersRef = firebase.database().ref('korisnici');
 
     var ime = document.getElementById('ime');
@@ -475,23 +490,154 @@
       // Hvata trenutno stanje teretane i njihove vrednosti
       //Ovo nije najbolje resenje priliko resetovanja baze unutar firebase servera i brisanja podataka ali radi
       var gym = snapshot.val();
-      var naziv = document.createElement("h4");
-      naziv.style.marginTop = "10vh";
-      naziv.innerText = gym.naziv;
-      document.getElementById("nazivTeretane").appendChild(naziv);
-      var informacijeTeretane = document.createElement("div");
-      informacijeTeretane.innerHTML = "<p>U teretani " + gym.naziv + " imate bogatu ponudu razlicitih sportskih aktivnosti,pomagala i u ovom trenutku cak : " + gym.brojDostupnihTreninga + " dostupnih treninga.Molimo pozurite ponude su ogranicene.</p>" + "<p>Ito po najnizoj ceni do sad za samo : " + gym.mesecnaClanarina + " RSD. </p>" + "<p>Ova teretana je otvorena : " + gym.godinaOtvaranja + " godine.</p>" + "<p>Mozete nas posjetiti na adresi : " + gym.adresa + "</p>" + "<p>Za vise informacija nam se obratite na broj telefona : +38162/123-1234</p>";
-      document.getElementById("about-gym").appendChild(informacijeTeretane);
-      document.getElementById("prosecnaocena").innerText = gym.prosecnaOcena;
+      
+      // resenje za dvostruko ucitavanje je da dodam klasu "ciscenje" na sve dinamicke elemente i  onda ispitam da li u fajlu imam pre toga dinamicki generisane elemente i onda iscisti te elemente 
+      // ovaj nacin pristupa zahteva pri samom pocetku razvoja aplikacije da se dobro dizajnira nacin resavanja problema vec ucitane i kesirane memorije tako ako sam napisao jednu liniju koda 5 linija testa
+      // znaci provjera da se na stranici za kasije ne desi ponovno bespotrebno generisanje vec postojecih elemenata nego da se proveri da li su vec tu i da se obrisu u svakom generisanju 
+      // ili samo cisto popunjavati tag sa atributima i klasama neki obrazac na html fajlu koji ne bi funkcionisao na dodavanje stvari na njega nego na update-u praznih mesta
+      // primer ispod je provera jel dinamici element vec postojeci na strani i njegovo brisanje
+      // naziv.classList.add("ciscenje");
+      // if(document.body.contains(document.getElementsByClassName("ciscenje"))){
+      // document.getElementsByClassName("ciscenje").removeChild();
+      // }
+      // document.getElementsByClassName("ciscenje").removeChild();
+      //gornji problem resen upotrebom selektora
+      
+      document.getElementById("NazivTeretane").innerText = gym.naziv;
+      document.getElementById("informacijeTeretaneOpis").innerHTML = "<p>U teretani " + gym.naziv + " imate bogatu ponudu razlicitih sportskih aktivnosti,pomagala i u ovom trenutku cak : " + gym.brojDostupnihTreninga + " dostupnih treninga.Molimo pozurite ponude su ogranicene.</p>" + "<p>Ito po najnizoj ceni do sad za samo : " + gym.mesecnaClanarina + " RSD. </p>" + "<p>Ova teretana je otvorena : " + gym.godinaOtvaranja + " godine.</p>" + "<p>Mozete nas posjetiti na adresi : " + gym.adresa + "</p>" + "<p>Za vise informacija nam se obratite na broj telefona : +38162/123-1234</p>";
+  
+      
     });
     function ocenjivanje(ocena) {
-      gymRef.child("ocene").push().set(ocena);
+      gymOcenjivanjeRef.child("ocene").push().set(ocena);
       window.location.reload();
       //iskreno nmp ovdje nisam moga dodati kljuc id kao short integer nego je firebase generisan id moze preko [] liste 
       //ili preko iteriranja svih ocena i uzimanja njihovih key vrednosti ali je to komplikovanje necega sto na dalje nece trebati naravno firebase id-jevi su veci i generisu vise podataka sto je haos za bazu podataka ako se naplacuje prema kolicini memorije
       //dodaje ocene radi
       //brojax staviti u span iznad zvezdica
     }
+    function ucitavanjeOcena(){
+      
+      
+      var brojac1 = 0;
+      var sirinaBrojac1 = 0;
+
+      var brojac2 = 0;
+        var sirinaBrojac2 = 0;
+        
+        var brojac3 = 0;
+        var sirinaBrojac3 = 0;
+        
+        var brojac4 = 0;
+        var sirinaBrojac4 = 0;
+        
+        var brojac5 = 0;
+        var sirinaBrojac5 = 0;
+        
+        gymOcenjivanjeRef.child('ocene').on('value', function (gymSnapshot) {
+      let teretana  = gymSnapshot.val();
+      var listaOcena = [];
+      var zbirOcena = 0;
+      var prosekFInalni = 0;
+      
+      gymSnapshot.forEach(function (ocenaTeretana) { //child mozda ide i ovde jer treba da iterira kroz listu sa kljucevima i vrednostima rekao bih ko neki imenik u python-u
+        let ocenaId = ocenaTeretana.key;
+        let vrednostOcene = ocenaTeretana.val();
+        var valForPush = vrednostOcene.ocenaId;
+        listaOcena.push(valForPush);
+        var brojOcena = listaOcena.length;
+
+        zbirOcena = zbirOcena + vrednostOcene;
+        
+        if(vrednostOcene == 1 || vrednostOcene == 2){brojac1++;}
+        if(vrednostOcene == 3 || vrednostOcene == 4){brojac2++;}
+        if(vrednostOcene == 5 || vrednostOcene == 6){brojac3++;}
+        if(vrednostOcene == 7 || vrednostOcene == 8){brojac4++;}
+        if(vrednostOcene == 9 || vrednostOcene == 10){brojac5++;}
+        //brojace ispisati pored procenta koliko ima od tih zvezdica ocena u obojene horizontalne chartove i prebaciti ove brojeve u procente kako bi uneo te procente i azurirati sirinu obojenog diva
+        prosekFInalni = (zbirOcena / listaOcena.length)/2;
+
+        
+        // document.getElementById("prosecnaocena").innerText = prosekFInalni;//ovde se azurira prosecna ocena novo izracunata bazirano na svim ocenama i trenutno unetoj oceni
+      });
+      var prosek = {"prosecnaOcena":parseFloat((prosekFInalni).toFixed(2))};
+      
+      gymOcenjivanjeRef.update(prosek);
+
+      document.getElementById("prosecnaocena").innerText = parseFloat(prosekFInalni.toFixed(2));//ispis zaokruzuje na dve decimale
+      
+      var prosekZvezdica = prosekFInalni;
+      if(prosekZvezdica == 5 ){
+        document.getElementById("jednaZvezda1").classList.add("on");
+        document.getElementById("jednaZvezda2").classList.add("on");
+        document.getElementById("jednaZvezda3").classList.add("on");
+        document.getElementById("jednaZvezda4").classList.add("on");
+        document.getElementById("jednaZvezda5").classList.add("on");
+      }else if(prosekZvezdica < 5 && prosekZvezdica >= 4.50){
+        document.getElementById("jednaZvezda1").classList.add("on");
+        document.getElementById("jednaZvezda2").classList.add("on");
+        document.getElementById("jednaZvezda3").classList.add("on");
+        document.getElementById("jednaZvezda4").classList.add("on");
+        document.getElementById("jednaZvezda5").classList.add("half");
+      }else if(prosekZvezdica < 4.50 && prosekZvezdica >= 4.00){
+        document.getElementById("jednaZvezda1").classList.add("on");
+        document.getElementById("jednaZvezda2").classList.add("on");
+        document.getElementById("jednaZvezda3").classList.add("on");
+        document.getElementById("jednaZvezda4").classList.add("on");
+      }else if(prosekZvezdica >= 3.50 && prosekZvezdica < 4.00){
+        document.getElementById("jednaZvezda1").classList.add("on");
+        document.getElementById("jednaZvezda2").classList.add("on");
+        document.getElementById("jednaZvezda3").classList.add("on");
+        document.getElementById("jednaZvezda4").classList.add("half");
+      }else if(prosekZvezdica < 3.50 && prosekZvezdica >= 3.00){
+        document.getElementById("jednaZvezda1").classList.add("on");
+        document.getElementById("jednaZvezda2").classList.add("on");
+        document.getElementById("jednaZvezda3").classList.add("on");
+      }else if(prosekZvezdica >= 2.50 && prosekZvezdica < 3.00){
+        document.getElementById("jednaZvezda1").classList.add("on");
+        document.getElementById("jednaZvezda2").classList.add("on");
+        document.getElementById("jednaZvezda3").classList.add("half");
+      }else if(prosekZvezdica < 2.50 && prosekZvezdica >= 2.00){
+        document.getElementById("jednaZvezda1").classList.add("on");
+        document.getElementById("jednaZvezda2").classList.add("on");
+      }else if(prosekZvezdica >= 1.50 && prosekZvezdica < 2.00){
+        document.getElementById("jednaZvezda1").classList.add("on");
+        document.getElementById("jednaZvezda2").classList.add("half");
+      }else if(prosekZvezdica < 1.50 && prosekZvezdica >= 1.00){
+        document.getElementById("jednaZvezda1").classList.add("on");
+      }else if(prosekZvezdica >= 0.50 && prosekZvezdica < 1.00){
+        document.getElementById("jednaZvezda1").classList.add("half");
+      }
+
+      sirinaBrojac1 = (brojac1 / listaOcena.length)*100;
+      sirinaBrojac2 = (brojac2 / listaOcena.length)*100;
+      sirinaBrojac3 = (brojac3 / listaOcena.length)*100;//ove sirine azurirati sad u atribut od chartova Zvezdica ocena kako bi bilo siroko koliko treba u odnosu na uticaj te ocene na ostale
+      sirinaBrojac4 = (brojac4 / listaOcena.length)*100;
+      sirinaBrojac5 = (brojac5 / listaOcena.length)*100;
+
+      document.getElementById("sirinaZvezdica1").style.width = `${sirinaBrojac1}%`;
+      document.getElementById("brojac1").innerText = `${brojac1}`;
+
+      document.getElementById("sirinaZvezdica2").style.width = `${sirinaBrojac2}%`;
+      document.getElementById("brojac2").innerText = `${brojac2}`;
+
+      document.getElementById("sirinaZvezdica3").style.width = `${sirinaBrojac3}%`;
+      document.getElementById("brojac3").innerText = `${brojac3}`;
+
+      document.getElementById("sirinaZvezdica4").style.width = `${sirinaBrojac4}%`;
+      document.getElementById("brojac4").innerText = `${brojac4}`;
+
+      document.getElementById("sirinaZvezdica5").style.width = `${sirinaBrojac5}%`;// ovde su atributi sirine azurirani i imaju sirinu prema procentu i broju ocena i uticaju na sve ocene
+      document.getElementById("brojac5").innerText = `${brojac5}`;
+
+      
+      
+      //sad razvrstavanje ocena u 1,2,3,4,5 zvezda i uslov za prikaz pola zvezde u <span> ako je vise od 0.5
+      document.getElementById("brojacOcenaTeretane").innerText = listaOcena.length;
+      });
+      };
+      ucitavanjeOcena();
+      
     $(".zvezda").hover(
       function () {
         $(this).prevAll(".zvezda").addClass("checked");
