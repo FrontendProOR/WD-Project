@@ -382,8 +382,8 @@
 
     }
     function validacijaPodataka() {
-      let imePrezimeRegex = /[a-zA-Z]{2,20}$/;//od malih slova do velikih i spejsova
-      let korisnickoImeRegex = /[a-zA-Z0-9]{2,15}/;
+      let imePrezimeRegex = /[a-zA-Z\s]{2,20}$/;//od malih slova do velikih i spejsova
+      let korisnickoImeRegex = /[a-zA-Z0-9\s]{2,15}/;
       let passwordRegex = /^[a-zA-Z0-9!@#$%\s&()`.+,/"-]{8,50}/; // /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$ password veliko malo slovo min 8 karaktera i simbol
       let adresaRegex = /[a-zA-Z0-9\\/'",.\s]{5,50}/;//adresa regex slova brojevi zarez minus space tacka navodnici
       let emailRegex = /[\w\.-]+@[\w\.-]+\.\w{2,4}/;
