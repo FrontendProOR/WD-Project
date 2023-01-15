@@ -374,6 +374,33 @@
         window.location.reload(true);
       });
     }
+    function validacijaPodataka(){
+      let imePrezimeRegex = /[a-zA-Z\s\č\Č\ć\Ć\đ\Đ\ž\Ž\š\Š]{2,20}$/;
+      let korisnickoImeRegex = /[a-zA-Z0-9\s\č\Č\ć\Ć\đ\Đ\ž\Ž\š\Š]{2,15}$/;
+      let passwordRegex = /^[a-zA-Z0-9!@#$&()`.+,/"-]{8,}/;
+      let adresaRegex = /[a-zA-Z0-9\s\"\'\.\,\č\Č\ć\Ć\đ\Đ\ž\Ž\š\Š]/;
+      let emailRegex =/[\w\č\Č\ć\Ć\đ\Đ\ž\Ž\š\Š\.-]+@[\w\.-]+\.\w{2,4}/;
+      let telefonRegex = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{3})(?: *x(\d+))?\s*$/;
+      let proslo = true;
+      if(!imePrezimeRegex.test(ime.value) ||
+      !imePrezimeRegex.test(prezime.value) ||
+      !korisnickoImeRegex.test(korisnickoIme.value) ||
+      !passwordRegex.test(lozinka.value) ||
+      !emailRegex.test(email.value) ||
+      !adresaRegex.test(adresa.value) ||
+      !telefonRegex.test(brojTelefona.value)
+      ){ proslo = false;}
+      //ostalo za debug
+      // console.log(!telefonRegex.test(brojTelefona.value));
+      // console.log(!adresaRegex.test(adresa.value));
+      // console.log(!emailRegex.test(email.value));
+      // console.log(!passwordRegex.test(lozinka.value));
+      // console.log(!korisnickoImeRegex.test(korisnickoIme.value));
+      // console.log(!imePrezimeRegex.test(prezime.value));
+      // console.log(!imePrezimeRegex.test(ime.value));
+
+      return proslo;
+    }
     //ova funkcija uzima parametar celiju i vratim na red i onda uzmem id tog reda onda id ubacim da trazim adresu iz firebasa i onda vrednost te adrese stavim u user i onda iz user ucitam u value u formi koja je u dijalogu
     function izmeni(r) {
       var row = r.parentNode.parentNode;
@@ -392,18 +419,21 @@
 
         $("#staticBackdrop").on("click", ".btn-primary", function () {
           var userRef = firebase.database().ref('korisnici/' + row.id);
-          userRef.set({
-            "ime": document.getElementById('ime').value,
-            "prezime": document.getElementById('prezime').value,
-            "email": document.getElementById('email').value,
-            "lozinka": document.getElementById('lozinka').value,
-            "datumRodjenja": document.getElementById('datumRodjenja').value,
-            "telefon": document.getElementById('brojTelefona').value,
-            "korisnickoIme": document.getElementById('korisnickoIme').value,
-            "adresa": document.getElementById('adresa').value
-
-          });
-          window.location.reload(true);
+          if(validacijaPodataka()){
+            userRef.set({
+              "ime": document.getElementById('ime').value,
+              "prezime": document.getElementById('prezime').value,
+              "email": document.getElementById('email').value,
+              "lozinka": document.getElementById('lozinka').value,
+              "datumRodjenja": document.getElementById('datumRodjenja').value,
+              "telefon": document.getElementById('brojTelefona').value,
+              "korisnickoIme": document.getElementById('korisnickoIme').value,
+              "adresa": document.getElementById('adresa').value
+            });
+            window.location.reload(true);
+          }else{
+            alert("Pokusajte ponovo!");
+          }
         });
       });
     }
