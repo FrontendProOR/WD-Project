@@ -374,7 +374,7 @@
         window.location.reload(true);
       });
     }
-    function validacijaPodataka(){
+    function validacijaPodatakaKorisnickih(){
       let imePrezimeRegex = /[a-zA-Z\s\č\Č\ć\Ć\đ\Đ\ž\Ž\š\Š]{2,20}$/;
       let korisnickoImeRegex = /[a-zA-Z0-9\s\č\Č\ć\Ć\đ\Đ\ž\Ž\š\Š]{2,15}$/;
       let passwordRegex = /^[a-zA-Z0-9!@#$&()`.+,/"-]{8,}/;
@@ -401,6 +401,22 @@
 
       return proslo;
     }
+    // function validacijaPodatakaTeretane(){
+    //   let nazivRegex = /[a-zA-Z\s\č\Č\ć\Ć\đ\Đ\ž\Ž\š\Š]{2,20}$/;
+    //   let adresaRegex = /[a-zA-Z0-9\s\"\'\.\,\č\Č\ć\Ć\đ\Đ\ž\Ž\š\Š]/;
+    //   let brojRegex = /(([\+\-]*\d*\.*\d+[eE])?([\+\-]*\d*\.*\d+))/;   // Ovde dodati da se mesecnaClanarina i brojDostupnihTreninga vrednost tj. .value ovih inputa konvertuje  sa Number pa proveri sa regex
+    //   let proslo = true;
+    //   let mesClanarina = Number(document.getElementById('brojDostupnihTreninga').value);
+    //   let brojDostupnihTreninga = Number(document.getElementById('brojDostupnihTreninga').value);
+    //   inace brojRegex proverava i string i broj da li je broj bilo kog tipa float i int ovaj regex nisam piso sve iznad jesam proverom na regerxr radi ali nzm. jos sve vrednosti koje prolaze pa ne bih ga ukljucio u projekat kao dobru validaciju
+    //   if(!brojRegex.test(brojDostupnihTreninga) ||
+    //   !brojRegex.test(mesClanarina) ||
+    //   !nazivRegex.test(document.getElementById('naziv').value,) ||
+    //   !adresaRegex.test(document.getElementById('adresa1').value)
+    //   ){ proslo = false;}
+    //   //poziv dodati u izmeniGym gde je set
+    //   usput popravi i sve utf-8 znakove i karaktere da radi validacija
+    // }
     //ova funkcija uzima parametar celiju i vratim na red i onda uzmem id tog reda onda id ubacim da trazim adresu iz firebasa i onda vrednost te adrese stavim u user i onda iz user ucitam u value u formi koja je u dijalogu
     function izmeni(r) {
       var row = r.parentNode.parentNode;
@@ -419,7 +435,7 @@
 
         $("#staticBackdrop").on("click", ".btn-primary", function () {
           var userRef = firebase.database().ref('korisnici/' + row.id);
-          if(validacijaPodataka()){
+          if(validacijaPodatakaKorisnickih()){
             userRef.set({
               "ime": document.getElementById('ime').value,
               "prezime": document.getElementById('prezime').value,
@@ -433,6 +449,7 @@
             window.location.reload(true);
           }else{
             alert("Pokusajte ponovo!");
+            window.location.reload(true);
           }
         });
       });
